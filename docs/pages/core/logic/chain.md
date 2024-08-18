@@ -1,11 +1,3 @@
----
-tags:
-  - 'one()'
-  - 'first()'
-  - 'list()'
-  - 'page()'
----
-
 # 链式调用
 
 通过wrapper直接查询 参考MP的 LambdaQueryChainWrapper

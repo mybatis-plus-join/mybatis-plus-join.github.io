@@ -1,21 +1,7 @@
 # 常见问题
 
-* [nested exception is org.apache.ibatis.builder.BuilderException: Error evaluating expression 'ew.from != null and ew.from != '''. Cause: org.apache.ibatis.ognl.OgnlException](./problem.html#nested-exception-is-org-apache-ibatis-builder-builderexception-error-evaluating-expression-ew-from-null-and-ew-from-cause-org-apache-ibatis-ognl-ognlexception)
-* [table not find by class &lt;xxx&gt;](./problem.html#table-not-find-by-class-xxx)
 * [Invalid bound statement (not found)](./problem.html#invalid-bound-statement-not-found)
 * [1.2.x升级1.4.x](./problem.html#_1-2-x升级1-4-x)
-
-## nested exception is org.apache.ibatis.builder.BuilderException: Error evaluating expression 'ew.from != null and ew.from != '''. Cause: org.apache.ibatis.ognl.OgnlException
-
-问题: 参与连表的实体类没有注册Mapper  
-<br />
-解决: 添加xxx类对应的Mapper
-
-## table not find by class &lt;xxx&gt;
-
-问题: 参与连表的实体类没有注册Mapper  
-<br />
-解决: 添加xxx类对应的Mapper
 
 ## Invalid bound statement (not found)
 

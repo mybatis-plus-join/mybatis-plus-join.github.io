@@ -5,7 +5,7 @@
 
 ## Invalid bound statement (not found)
 
-存在一下任意一种情况就会出现异常
+存在以下任意一种情况就会出现异常
 
 * [自定义sql注入器](./problem.html#自定义sql注入器)
 * [自定义sqlSessionFactory](./problem.html#自定义sqlsessionfactory)

@@ -8,8 +8,6 @@
 
 ## MPJLambdaWrapper
 
-MPJLambdaWrapper同样可以这么写
-
 ```java
 List<UserDTO> dtos = userMapper.selectJoinList(UserDTO.class, new MPJQueryWrapper<UserDO>()
         .selectAll(UserDO.class)

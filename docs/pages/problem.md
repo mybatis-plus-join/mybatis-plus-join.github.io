@@ -14,6 +14,12 @@
 
 自定义sql注入器继承MPJSqlInjector
 
+::: warning 注意事项:
+因为 MPJSqlInjector 已经继承了[com.baomidou.mybatisplus.core.injector.DefaultSqlInjector](https://baomidou.com/guides/sql-injector)，如果自定义sql注入器直接继承 DefaultSqlInjector，会导致 MyBatis-Plus-Join 的 MPJSqlInjector 失效，从而引发“Invalid bound statement (not found)”异常。  
+
+因此自定义sql注入器需要**继承 MPJSqlInjector** 而不能继承 DefaultSqlInjector，通过**多层继承**实现自定义sql注入器。
+:::
+
 ```java
 @component
 public class MySqlInjector extends MPJSqlInjector {

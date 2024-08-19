@@ -29,7 +29,7 @@ selectSum(UserDO::getId, UserDTO::getTotal)
 
 对应sql
 
-```
+```sql
 SUM(t.id) AS total
 ```
 

@@ -5,14 +5,14 @@ import {viteBundler} from '@vuepress/bundler-vite'
 import {Sidebar} from "./sidebar.js";
 
 export default defineUserConfig({
-    base: 'mybatis-plus-join-doc',
+    base: 'mybatis-plus-join',
     port: 80,
     lang: 'en-US',
     title: 'MyBatis-Plus-Join',
     description: '🚀为简化开发而生',
     head: [
-        ['link', {rel: 'icon', href: '/mybatis-plus-join-doc/lg-xs.png'}],
-        ['link', {rel: 'stylesheet', type: 'text/css', href: '/mybatis-plus-join-doc/css/cs.css'}],
+        ['link', {rel: 'icon', href: '/mybatis-plus-join/lg-xs.png'}],
+        ['link', {rel: 'stylesheet', type: 'text/css', href: '/mybatis-plus-join/css/cs.css'}],
     ],
     plugins: [
         searchPlugin({
@@ -39,7 +39,7 @@ export default defineUserConfig({
                 sidebarDepth: 0,
             }
         },
-        docsRepo: 'https://github.com/yulichang/mybatis-plus-join-doc',
+        docsRepo: 'https://github.com/yulichang/mybatis-plus-join',
         docsBranch: 'main',
         docsDir: 'docs',
         editLinkText: '在 GitHub 上编辑此页',

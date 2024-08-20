@@ -4,15 +4,23 @@ import {defineUserConfig} from 'vuepress'
 import {viteBundler} from '@vuepress/bundler-vite'
 import {Sidebar} from "./sidebar.js";
 
+// 旧文档地址 https://yulichang.github.io/mybatis-plus-join-doc/
+// const baseUri = '/mybatis-plus-join-doc'
+// const repoUri = 'https://github.com/yulichang/mybatis-plus-join-doc'
+
+// 新文档地址 https://mybatis-plus-join.github.io
+const baseUri = ''
+const repoUri = 'https://github.com/mybatis-plus-join/mybatis-plus-join.github.io'
+
 export default defineUserConfig({
-    base: 'mybatis-plus-join-doc',
+    base: baseUri,
     port: 80,
     lang: 'en-US',
     title: 'MyBatis-Plus-Join',
     description: '🚀为简化开发而生',
     head: [
-        ['link', {rel: 'icon', href: '/mybatis-plus-join-doc/lg-xs.png'}],
-        ['link', {rel: 'stylesheet', type: 'text/css', href: '/mybatis-plus-join-doc/css/cs.css'}],
+        ['link', {rel: 'icon', href: `${baseUri}/lg-xs.png`}],
+        ['link', {rel: 'stylesheet', type: 'text/css', href: `${baseUri}/css/cs.css`}],
     ],
     plugins: [
         searchPlugin({
@@ -39,7 +47,7 @@ export default defineUserConfig({
                 sidebarDepth: 0,
             }
         },
-        docsRepo: 'https://github.com/yulichang/mybatis-plus-join-doc',
+        docsRepo: repoUri,
         docsBranch: 'main',
         docsDir: 'docs',
         editLinkText: '在 GitHub 上编辑此页',

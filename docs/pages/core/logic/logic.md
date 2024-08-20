@@ -38,11 +38,11 @@ tags:
       #注意：1.4.7.2及之前版本默认为where
       logic-del-type: on
   ```
-本次查询所有副表逻辑删除条件位置为 on 语句（1.4.4+）
+本次查询所有副表逻辑删除条件位置为 on 语句 <Badge type="tip" text="1.4.4+" vertical="top" />
   ```java
     wrapper.logicDelToOn()
   ```
-本次查询所有副表逻辑删除条件位置为 where 语句（1.4.4+）
+本次查询所有副表逻辑删除条件位置为 where 语句 <Badge type="tip" text="1.4.4+" vertical="top" />
   ```java
     wrapper.logicDelToWhere()
   ```

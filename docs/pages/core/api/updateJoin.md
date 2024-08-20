@@ -1,6 +1,6 @@
 # 连表更新
 
-## updateJoin API(1.4.5+)
+## updateJoin <Badge type="tip" text="1.4.5+" vertical="top" />
 
 ```java
 /**

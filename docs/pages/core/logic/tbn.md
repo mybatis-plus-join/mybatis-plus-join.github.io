@@ -8,7 +8,7 @@ tags:
 
 ## [MyBatis-Plus 动态表名插件](https://baomidou.com/pages/2a45ff/#dynamictablenameinnerinterceptor)
 
-## wrapper动态表名支持(1.4.4+)
+## wrapper动态表名支持 <Badge type="tip" text="1.4.4+" vertical="top" />
 
 ::: warning 注意事项:
 wrapper 动态表名版本需要1.4.4+  

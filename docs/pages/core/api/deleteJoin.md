@@ -1,6 +1,6 @@
 # 连表删除
 
-## deleteJoin API(1.4.5+)
+## deleteJoin <Badge type="tip" text="1.4.5+" vertical="top" />
 
 ```java
 /**

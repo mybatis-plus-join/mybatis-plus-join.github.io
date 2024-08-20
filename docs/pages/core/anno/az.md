@@ -11,7 +11,8 @@ tags:
 
 ## 介绍 @EntityMapping, @FieldMapping
 
-@EntityMapping和@FieldMapping两个注解早在1.2.0版本就已经发布, 1.4.5对这两个注解进行了小升级
+@EntityMapping和@FieldMapping两个注解早在 <Badge type="tip" text="1.2.0" vertical="top" /> 版本就已经发布
+, <Badge type="tip" text="1.4.5" vertical="top" /> 对这两个注解进行了小升级
 
 ### 使用
 

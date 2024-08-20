@@ -3,7 +3,7 @@
 以User表关联两次Address为例
 
 ::: warning 注意
-关联同一张表多次 需要 mybatis-plus-join 版本大于等于 1.4.0
+关联同一张表多次 需要 mybatis-plus-join 版本 <Badge type="tip" text="1.4.0+" vertical="top" />
 :::
 
 ## MPJLambdaWrapper
@@ -30,7 +30,7 @@ List<UserDTO> dtos1 = userMapper.selectJoinList(UserDTO.class, new MPJLambdaWrap
         .leftJoin(AreaDO.class, AreaDO::getId, "a", AddressDO::getAreaId));
 ```
 
-条件别名 (1.4.8+)
+条件别名 <Badge type="tip" text="1.4.8+" vertical="top" />
 
 ```java
 List<UserDTO> dtos1 = userMapper.selectJoinList(UserDTO.class, new MPJLambdaWrapper<UserDO>()

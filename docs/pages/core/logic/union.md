@@ -1,6 +1,6 @@
 # 联合查询
 
-## union/union all 示例(1.4.8+)
+## union/union all 示例 <Badge type="tip" text="1.4.8+" vertical="top" />
 
 ```java
 class MpJoinTest {

@@ -25,7 +25,7 @@ mybatis-plus-join:
   logic-del-type: on
 ```
 
-# MybatisPlusJoinPropertiesConsumer @Bean (1.4.9+)
+# MybatisPlusJoinPropertiesConsumer <Badge type="tip" text="1.4.9+" vertical="top" />
 
 ```java
 @Configuration

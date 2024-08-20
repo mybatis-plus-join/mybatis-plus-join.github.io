@@ -1,6 +1,6 @@
 # 连表更新(更新空字段)
 
-## updateJoinAndNull API(1.4.5+)
+## updateJoinAndNull <Badge type="tip" text="1.4.5+" vertical="top" />
 
 ```java
 /**

@@ -25,7 +25,7 @@ tags:
     .selectCollection(AddressDO.class, UserDTO::getAddressIds, map -> map
                         .result(AddressDO::getId))
     ```
-- 不指定实体字段映射(只映射 id 和 address 两个字段) id、result方法对应mybatis中ResultMap里的\<id\> \<result\>标签 1.4.4+
+- 不指定实体字段映射(只映射 id 和 address 两个字段) id、result方法对应mybatis中ResultMap里的\<id\> \<result\>标签 <Badge type="tip" text="1.4.4+" vertical="top" />
     ```java
     .selectCollection(UserDTO::getAddressList, map -> map
             //可以映射不同类的字段 到 UserDTO::getAddressList 中 比如 AddressDO 和 UserDO

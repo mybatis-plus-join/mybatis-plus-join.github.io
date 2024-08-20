@@ -3,7 +3,7 @@
 以父子关系为例, 查询子User的name到父User的createName中
 
 ::: warning 注意
-自连接 需要 mybatis-plus-join 版本大于等于 1.4.0
+自连接 需要 mybatis-plus-join 版本 <Badge type="tip" text="1.4.0+" vertical="top" />
 :::
 
 ## MPJLambdaWrapper

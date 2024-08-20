@@ -25,7 +25,7 @@ select("t.id", "t.name");
 select(UserDO::getId,User::getSex,User::getName)
 ```
 
-# 字段过滤 selectFilter (1.4.4.1+)
+# 字段过滤 selectFilter <Badge type="tip" text="1.4.4.1+" vertical="top" />
 
 只要 java 字段名以 "test" 开头的
 

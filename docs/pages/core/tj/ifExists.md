@@ -18,7 +18,7 @@ tags:
   - 'not_blank'
 ---
 
-# IfExists (1.4.9+)
+# IfExists <Badge type="tip" text="1.4.9+" vertical="top" />
 
 xxIfExists会自动判断条件值是否为空，且只会在不为空的情况下生效
 

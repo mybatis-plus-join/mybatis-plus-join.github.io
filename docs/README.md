@@ -22,9 +22,12 @@ footer: Apache Licensed | Copyright © 2022-2024
 <br/>
 <br/>
 
-### 当前MyBatis-Plus-Join最新版本
+## 当前MyBatis-Plus-Join最新版本
 
-```xml
+<CodeGroup>
+  <CodeGroupItem title="Maven">
+
+```xml:no-line-numbers
 <dependency>
     <groupId>com.github.yulichang</groupId>
     <artifactId>mybatis-plus-join-boot-starter</artifactId>
@@ -32,12 +35,31 @@ footer: Apache Licensed | Copyright © 2022-2024
 </dependency>
 ```
 
+  </CodeGroupItem>
+
+  <CodeGroupItem title="Gradle">
+
+```gradle:no-line-numbers
+//Gradle
+implementation group: 'com.github.yulichang', name: 'mybatis-plus-join-boot-starter', version: '1.4.13'
+//Gradle short
+implementation 'com.github.yulichang:mybatis-plus-join-boot-starter:1.4.13'
+//Gradle kotlin
+implementation("com.github.yulichang:mybatis-plus-join-boot-starter:1.4.13")
+```
+
+  </CodeGroupItem>
+
+</CodeGroup>
+
+
+
 <br />
 
-### 代码托管
+## 代码托管
 
 [Github](https://github.com/yulichang/mybatis-plus-join) | [Gitee](https://gitee.com/best_handsome/mybatis-plus-join)
 
-### 友情链接
+## 友情链接
 
 [MyBatis-Plus](https://baomidou.com/)

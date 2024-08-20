@@ -24,8 +24,8 @@ footer: Apache Licensed | Copyright © 2022-2024
 
 ## 当前MyBatis-Plus-Join最新版本
 
-<CodeGroup>
-  <CodeGroupItem title="Maven">
+:::: code-group
+::: code-group-item Maven
 
 ```xml:no-line-numbers
 <dependency>
@@ -35,9 +35,9 @@ footer: Apache Licensed | Copyright © 2022-2024
 </dependency>
 ```
 
-  </CodeGroupItem>
+:::
 
-  <CodeGroupItem title="Gradle">
+::: code-group-item Gradle
 
 ```gradle:no-line-numbers
 //Gradle
@@ -48,9 +48,8 @@ implementation 'com.github.yulichang:mybatis-plus-join-boot-starter:1.4.13'
 implementation("com.github.yulichang:mybatis-plus-join-boot-starter:1.4.13")
 ```
 
-  </CodeGroupItem>
-
-</CodeGroup>
+:::
+::::
 
 
 

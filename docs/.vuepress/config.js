@@ -9,8 +9,12 @@ import {Sidebar} from "./sidebar.js";
 // const repoUri = 'https://github.com/yulichang/mybatis-plus-join-doc'
 
 // 新文档地址 https://mybatis-plus-join.github.io
+// const baseUri = ''
+// const repoUri = 'https://github.com/mybatis-plus-join/mybatis-plus-join.github.io'
+
+// 新文档地址 https://mybatis-plus-join.github.io
 const baseUri = ''
-const repoUri = 'https://github.com/mybatis-plus-join/mybatis-plus-join.github.io'
+const repoUri = 'https://github.com/mybatisplusjoin/mybatisplusjoin.github.io'
 
 export default defineUserConfig({
     base: baseUri,

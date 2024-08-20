@@ -6,22 +6,7 @@
 关联同一张表多次 需要 mybatis-plus-join 版本大于等于 1.4.0
 :::
 
-## MPJQueryWrapper
-
-自定义别名即可
-
-```java
-List<UserDTO> dtos = userMapper.selectJoinList(UserDTO.class, new MPJQueryWrapper<UserDO>()
-        .selectAll(UserDO.class)
-        .select("a.`name` as createName1")
-        .select("b.`name` as createName2")
-        .leftJoin("address a on a.id = t.address_id1")
-        .leftJoin("address b on b.id = t.address_id2"));
-```
-
 ## MPJLambdaWrapper
-
-MPJLambdaWrapper同样可以这么写
 
 ```java
 List<UserDTO> dtos = userMapper.selectJoinList(UserDTO.class, new MPJQueryWrapper<UserDO>()

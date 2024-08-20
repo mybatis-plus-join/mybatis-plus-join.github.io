@@ -1,25 +1,11 @@
 # 常见问题
 
-* [nested exception is org.apache.ibatis.builder.BuilderException: Error evaluating expression 'ew.from != null and ew.from != '''. Cause: org.apache.ibatis.ognl.OgnlException](./problem.html#nested-exception-is-org-apache-ibatis-builder-builderexception-error-evaluating-expression-ew-from-null-and-ew-from-cause-org-apache-ibatis-ognl-ognlexception)
-* [table not find by class &lt;xxx&gt;](./problem.html#table-not-find-by-class-xxx)
 * [Invalid bound statement (not found)](./problem.html#invalid-bound-statement-not-found)
 * [1.2.x升级1.4.x](./problem.html#_1-2-x升级1-4-x)
 
-## nested exception is org.apache.ibatis.builder.BuilderException: Error evaluating expression 'ew.from != null and ew.from != '''. Cause: org.apache.ibatis.ognl.OgnlException
-
-问题: 参与连表的实体类没有注册Mapper  
-<br />
-解决: 添加xxx类对应的Mapper
-
-## table not find by class &lt;xxx&gt;
-
-问题: 参与连表的实体类没有注册Mapper  
-<br />
-解决: 添加xxx类对应的Mapper
-
 ## Invalid bound statement (not found)
 
-存在一下任意一种情况就会出现异常
+存在以下任意一种情况就会出现异常
 
 * [自定义sql注入器](./problem.html#自定义sql注入器)
 * [自定义sqlSessionFactory](./problem.html#自定义sqlsessionfactory)
@@ -27,6 +13,12 @@
 ## 自定义sql注入器
 
 自定义sql注入器继承MPJSqlInjector
+
+::: warning 注意事项:
+因为 MPJSqlInjector 已经继承了[com.baomidou.mybatisplus.core.injector.DefaultSqlInjector](https://baomidou.com/guides/sql-injector)，如果自定义sql注入器直接继承 DefaultSqlInjector，会导致 MyBatis-Plus-Join 的 MPJSqlInjector 失效，从而引发“Invalid bound statement (not found)”异常。  
+
+因此自定义sql注入器需要**继承 MPJSqlInjector** 而不能继承 DefaultSqlInjector，通过**多层继承**实现自定义sql注入器。
+:::
 
 ```java
 @component

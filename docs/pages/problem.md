@@ -1,7 +1,38 @@
 # 常见问题
 
+* [分页失效](./problem.html#分页失效)
+* [分页条数错误](./problem.html#分页条数错误)
 * [Invalid bound statement (not found)](./problem.html#invalid-bound-statement-not-found)
 * [1.2.x升级1.4.x](./problem.html#_1-2-x升级1-4-x)
+
+## 分页失效
+MyBatis-Plus-Join分页相关API是基于MyBatis-Plus的分页插件实现的，使用MPJ分页需要开启MP的分页  
+[Mybatis-Plus分页插件](https://baomidou.com/plugins/pagination/)
+
+```java
+@Configuration
+@MapperScan("scan.your.mapper.package")
+public class MybatisPlusConfig {
+
+    /**
+     * 添加分页插件
+     */
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL)); // 如果配置多个插件, 切记分页最后添加
+        // 如果有多数据源可以不配具体类型, 否则都建议配上具体的 DbType
+        return interceptor;
+    }
+}
+```
+
+## 分页条数错误
+
+关于对多分页查询  
+由于嵌套结果方式会导致结果集被折叠，因此分页查询的结果在折叠后总数会减少，所以无法保证分页结果数量正确。  
+
+此问题需要自行处理
 
 ## Invalid bound statement (not found)
 

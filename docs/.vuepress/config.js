@@ -4,19 +4,13 @@ import {defineUserConfig} from 'vuepress'
 import {viteBundler} from '@vuepress/bundler-vite'
 import {Sidebar} from "./sidebar.js";
 
-// 旧文档地址 https://yulichang.github.io/mybatis-plus-join-doc/
-// const baseUri = '/mybatis-plus-join-doc'
-// const repoUri = 'https://github.com/yulichang/mybatis-plus-join-doc'
-
 // 新文档地址 https://mybatis-plus-join.github.io
+const base = '/'
 const baseUri = ''
 const repoUri = 'https://github.com/mybatis-plus-join/mybatis-plus-join.github.io'
 
-// 新文档地址 https://mybatisplusjoin.github.io
-// const baseUri = ''
-// const repoUri = 'https://github.com/mybatisplusjoin/mybatisplusjoin.github.io'
-
 export default defineUserConfig({
+    base: base,
     port: 80,
     lang: 'en-US',
     title: 'MyBatis-Plus-Join',

@@ -12,9 +12,12 @@ tags:
 
 ## Spring Boot
 
-Maven：
+添加依赖
 
-```xml
+:::: code-group
+::: code-group-item Maven
+
+```xml:no-line-numbers
 <dependency>
     <groupId>com.github.yulichang</groupId>
     <artifactId>mybatis-plus-join-boot-starter</artifactId>
@@ -22,12 +25,16 @@ Maven：
 </dependency>
 ```
 
-Gradle：
+:::
+
+::: code-group-item Gradle
 
 ```gradle
 implementation 'com.github.yulichang:mybatis-plus-join-boot-starter:最新版本'
 ```
-<br/>
+
+:::
+::::
 
 ::: warning 注意
 

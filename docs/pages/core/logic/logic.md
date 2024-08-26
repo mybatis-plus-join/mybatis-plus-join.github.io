@@ -30,7 +30,7 @@ tags:
 
 ## 改变逻辑删除条件位置
 
-全局配置副表逻辑删除条件的位置（1.4.4+）
+全局配置副表逻辑删除条件的位置 <Badge type="tip" text="1.4.4+" vertical="top" />
   ```yaml
     mybatis-plus-join:
       #副表逻辑删除条件的位置 支持 where / on  

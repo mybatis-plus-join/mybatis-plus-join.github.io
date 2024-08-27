@@ -52,7 +52,7 @@ public class MybatisPlusConfig {
 因此自定义sql注入器需要**继承 MPJSqlInjector** 而不能继承 DefaultSqlInjector，通过**多层继承**实现自定义sql注入器。
 :::
 
-```java
+```java:no-line-numbers
 @component
 public class MySqlInjector extends MPJSqlInjector {
 
@@ -70,7 +70,7 @@ public class MySqlInjector extends MPJSqlInjector {
 
 或者
 
-```java
+```java:no-line-numbers
 @Configuration
 public class MybatisPlusConfig {
 
@@ -94,7 +94,7 @@ public class MybatisPlusConfig {
 
 如果你没有自定义sqlSessionFactory, 不要添加此配置, 通常情况下stater会自动添加, 不需要配置
 
-```java
+```java:no-line-numbers
 @Configuration
 public class MybatisPlusConfig {
 

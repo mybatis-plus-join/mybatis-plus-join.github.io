@@ -65,7 +65,7 @@ wrapper.eqIfExists(UserDO::getName, name)
 ```yml
 mybatis-plus-join:
   #xxIfExists判断策略 not_null/not_empty/not_blank
-  if-absent: not_empty
+  if-exists: not_empty
 ```
 
 自定义Wrapper策略

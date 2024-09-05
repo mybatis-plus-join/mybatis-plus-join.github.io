@@ -91,28 +91,32 @@ public class MybatisPlusConfig {
         // val是条件值 enums是条件类型
         return (val, enums) -> null != val;
     }
+```
 
-//    /**
-//     * 不同条件使用不同策略
-//     */
-//    @Bean
-//    public MybatisPlusJoinIfExistsConsumer mybatisPlusJoinIfExistsConsumer() {
-//        /* val是条件值 enums是条件类型
-//           以下代码解释 
-//           eqIfExists 判断条件为 Objects.nonNull
-//           likeIfExists 判断条件为 NOT_BLANK
-//           其他 xxIfExists 判断条件为 NOT_NULL
-//         */
-//        return (val, enums) -> {
-//            switch (enums) {
-//                case EQ:
-//                    return Objects.nonNull(val);
-//                case LIKE:
-//                    return IfExistsEnum.NOT_BLANK.test(val);
-//                default:
-//                    return IfExistsEnum.NOT_NULL.test(val);
-//            }
-//        };
-//    }
+不同条件使用不同策略
+
+```java
+@Configuration
+public class MybatisPlusConfig {
+
+    @Bean
+    public MybatisPlusJoinIfExistsConsumer mybatisPlusJoinIfExistsConsumer() {
+        /* val是条件值 enums是条件类型
+           以下代码解释 
+           eqIfExists 判断条件为 Objects.nonNull
+           likeIfExists 判断条件为 NOT_BLANK
+           其他 xxIfExists 判断条件为 NOT_NULL
+         */
+        return (val, enums) -> {
+            switch (enums) {
+                case EQ:
+                    return Objects.nonNull(val);
+                case LIKE:
+                    return IfExistsEnum.NOT_BLANK.test(val);
+                default:
+                    return IfExistsEnum.NOT_NULL.test(val);
+            }
+        };
+    }
 }
 ```

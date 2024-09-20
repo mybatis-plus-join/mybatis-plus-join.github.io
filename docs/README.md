@@ -3,7 +3,7 @@ home: true
 heroText: MyBatis-Plus-Join
 heroImage: /lg-max.png
 actions:
-  - text: 快速开始 →
+  - text: 快速开始
     link: /pages/quickstart/ksks
     type: primary
   - text: 项目简介

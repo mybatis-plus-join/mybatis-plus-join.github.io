@@ -3,13 +3,12 @@
 
 我们将通过一个简单的 Demo 来阐述 MyBatis-Plus-Join 的强大功能，在此之前，我们假设您已经：
 
-拥有 Java 开发环境以及相应 IDE
-
+* 拥有 Java 开发环境以及相应 IDE
 * 熟悉 Spring Boot
 * 熟悉 MyBatis-Plus
 * 熟悉 Maven
 
-### 现有一张User表和一张address表，其表结构如下：
+### 现有一张user表和一张address表，其表结构如下：
 
 user
 
@@ -170,7 +169,7 @@ public class Application {
 ```
 
 ###  编码
-编写实体类 User.java（此处使用了 Lombok 简化代码）
+编写实体类 User.java、Addser.java和自定义resultType UserDTO.java（此处使用了 Lombok 简化代码）
 
 ```java
 @Data
@@ -193,6 +192,7 @@ public class Address {
  * 自定义resultType
  */
 @Data
+@ToString
 public class UserDTO {
     private Long id;
     private String name;

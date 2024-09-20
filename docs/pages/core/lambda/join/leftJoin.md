@@ -43,8 +43,9 @@ LEFT JOIN user_address t1 on t1.user_id = t.id
         .eq(UserAddressDO::getId,UserDO::getId))
 //自定义别名
 .leftJoin(UserAddressDO.class, "addr", on -> on
-        .eq(UserAddressDO::getUserId,UserDO::getId)
-        .eq(UserAddressDO::getId,UserDO::getId))
+        .eq(UserAddressDO::getUserId, UserDO::getId)
+        .eq(UserAddressDO::getId, UserDO::getId)
+        .ge(UserAddressDO::getId, 10))
 ```
 
 对应sql

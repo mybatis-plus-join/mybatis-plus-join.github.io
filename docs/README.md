@@ -4,8 +4,11 @@ heroText: MyBatis-Plus-Join
 heroImage: /lg-max.png
 actions:
   - text: 快速开始 →
-    link: /pages/quickstart/js
+    link: /pages/quickstart/ksks
     type: primary
+  - text: 项目简介
+    link: /pages/quickstart/js
+    type: secondary
 
 features:
   - title: 润物无声

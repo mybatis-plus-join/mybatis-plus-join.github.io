@@ -2,7 +2,7 @@ import {searchPlugin} from '@vuepress/plugin-search'
 import {defaultTheme} from '@vuepress/theme-default'
 import {defineUserConfig} from 'vuepress'
 import {viteBundler} from '@vuepress/bundler-vite'
-import {Sidebar} from "./sidebar.js";
+import {sidebar} from "./sidebar.js";
 
 // 新文档地址 https://mybatis-plus-join.github.io
 const base = '/'
@@ -40,7 +40,7 @@ export default defineUserConfig({
         ],
         locales: {
             '/': {
-                sidebar: Sidebar,
+                sidebar: sidebar,
                 sidebarDepth: 0,
             }
         },

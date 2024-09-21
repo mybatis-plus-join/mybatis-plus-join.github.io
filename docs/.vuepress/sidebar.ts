@@ -1,4 +1,4 @@
-export const Sidebar = {
+export const sidebar = {
     '/pages/': [
         {
             text: '快速入门',

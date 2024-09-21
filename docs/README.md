@@ -24,7 +24,7 @@ footer: Apache Licensed | Copyright © 2022-2024
 <br/>
 <br/>
 
-## 当前MyBatis-Plus-Join最新版本
+## 当前 MyBatis-Plus-Join 最新版本
 
 :::: code-group
 ::: code-group-item Maven

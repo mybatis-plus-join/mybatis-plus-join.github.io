@@ -14,9 +14,6 @@ export const sidebar = {
             text: 'MPJBaseMapper',
             collapsible: true,
             children: [
-                {link: '/pages/core/api/deleteJoin', text: 'deleteJoin'},
-                {link: '/pages/core/api/updateJoin', text: 'updateJoin'},
-                {link: '/pages/core/api/updateJoinAndNull', text: 'updateJoinAndNull'},
                 {link: '/pages/core/api/selectJoinCount', text: 'selectJoinCount'},
                 {link: '/pages/core/api/selectJoinOne', text: 'selectJoinOne'},
                 {link: '/pages/core/api/selectJoinList', text: 'selectJoinList'},
@@ -24,6 +21,9 @@ export const sidebar = {
                 {link: '/pages/core/api/selectJoinMap', text: 'selectJoinMap'},
                 {link: '/pages/core/api/selectJoinMaps', text: 'selectJoinMaps'},
                 {link: '/pages/core/api/selectJoinMapsPage', text: 'selectJoinMapsPage'},
+                {link: '/pages/core/api/deleteJoin', text: 'deleteJoin'},
+                {link: '/pages/core/api/updateJoin', text: 'updateJoin'},
+                {link: '/pages/core/api/updateJoinAndNull', text: 'updateJoinAndNull'},
             ],
         },
         {

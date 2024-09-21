@@ -64,5 +64,5 @@
 ## mapPage <Badge type="tip" text="1.5.0+" vertical="top" />
   分页查询
   ```java
-    Page<Map<String, Object>> list = wrapper.mapPage(new Page(1, 10));
+    Page<Map<String, Object>> page = wrapper.mapPage(new Page(1, 10));
   ```

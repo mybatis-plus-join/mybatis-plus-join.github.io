@@ -6,7 +6,7 @@ tags:
 
 # 动态表名
 
-## [MyBatis-Plus 动态表名插件](https://baomidou.com/pages/2a45ff/#dynamictablenameinnerinterceptor)
+## [MyBatis-Plus 动态表名插件](https://baomidou.com/plugins/dynamic-table-name/)
 
 ## wrapper动态表名支持 <Badge type="tip" text="1.4.4+" vertical="top" />
 

@@ -50,14 +50,14 @@ wrapper.eqIfExists(UserDO::getName, name)
 # 判断策略
 
 ## **not_empty** 默认  
-  如果值类型为String则调用 [StringUtils.isNotEmpty](https://gitee.com/best_handsome/mybatis-plus-join/blob/master/mybatis-plus-join-core/src/main/java/com/github/yulichang/toolkit/MPJStringUtils.java#L107)  
+  如果值类型为String则调用 [StringUtils.isNotEmpty](https://gitee.com/best_handsome/mybatis-plus-join/blob/master/mybatis-plus-join-core/src/main/java/com/github/yulichang/toolkit/MPJStringUtils.java#L111)  
   其他数据类型调用 Objects.nonNull
 
 ## **not_null**  
   全部调用 Objects.nonNull
 
 ## **not_blank**  
-  如果值类型为String则调用 [StringUtils.isNotBlank](https://gitee.com/best_handsome/mybatis-plus-join/blob/master/mybatis-plus-join-core/src/main/java/com/github/yulichang/toolkit/MPJStringUtils.java#L99)  
+  如果值类型为String则调用 [StringUtils.isNotBlank](https://gitee.com/best_handsome/mybatis-plus-join/blob/master/mybatis-plus-join-core/src/main/java/com/github/yulichang/toolkit/MPJStringUtils.java#L103)  
   其他数据类型调用 Objects.nonNull  
 
 ## 配置文件

@@ -55,14 +55,15 @@ export const sidebar = {
                         {link: '/pages/core/lambda/join/join', text: 'join'},
                     ]
                 },
-                {link: '/pages/core/logic/logic', text: '逻辑删除'},
-                {link: '/pages/core/qt/zlj', text: '自连接'},
-                {link: '/pages/core/qt/many', text: '关联同一张表多次'},
-                {link: '/pages/core/logic/chain', text: '链式调用'},
-                {link: '/pages/core/logic/union', text: 'union/union all'},
-                {link: '/pages/core/logic/tbn', text: '动态表名'},
-                {link: '/pages/core/tj/tj', text: '条件构造器'},
-                {link: '/pages/core/tj/ifExists', text: 'ifExists'},
+                {link: '/pages/core/other/logic-delete', text: '逻辑删除'},
+                {link: '/pages/core/other/chain', text: '链式调用'},
+                {link: '/pages/core/other/apply-func', text: '条件函数(applyFunc)'},
+                {link: '/pages/core/other/dynamic-table-name', text: '动态表名'},
+                {link: '/pages/core/other/union', text: 'union/union all'},
+                {link: '/pages/core/other/if-exists', text: 'ifExists'},
+                {link: '/pages/core/other/condition-wrapper', text: '条件构造器'},
+                {link: '/pages/core/other/join-same-table-many', text: '关联同一张表多次'},
+                {link: '/pages/core/other/self-join', text: '自连接'},
             ],
         },
         {
@@ -86,14 +87,14 @@ export const sidebar = {
             text: '注解映射',
             collapsible: true,
             children: [
-                {link: '/pages/core/anno/az', text: '注解映射'},
+                {link: '/pages/core/mapping/intro', text: '注解映射'},
             ]
         },
         {
             text: '配置',
             collapsible: true,
             children: [
-                {link: '/pages/core/cf/cf', text: '配置'},
+                {link: '/pages/core/config/config', text: '配置'},
             ]
         },
         {

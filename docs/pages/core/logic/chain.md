@@ -52,7 +52,7 @@
     Map<String, Object> one = wrapper.mapOne();
   ```
 ## mapFirst <Badge type="tip" text="1.5.0+" vertical="top" />
-  返回第一个Map&lt;String, Object&gt;对象 （使用分页逻辑（Page(1,1)））  
+  返回第一个Map&lt;String, Object&gt;对象，使用分页逻辑Page(1,1)  
   ```java
     Map<String, Object> first = wrapper.mapFirst();
   ```
@@ -64,5 +64,5 @@
 ## mapPage <Badge type="tip" text="1.5.0+" vertical="top" />
   分页查询
   ```java
-    Page<Map<String, Object>> list = wrapper.mapPage();
+    Page<Map<String, Object>> list = wrapper.mapPage(new Page(1, 10));
   ```

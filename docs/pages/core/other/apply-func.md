@@ -1,4 +1,4 @@
-# 函数条件 applyFunc <Badge type="tip" text="1.3.13+" vertical="top" />
+# 函数条件 applyFunc <Badge type="tip" text="1.4.13+" vertical="top" />
 
 支持在 where 语句中使用函数  
 由 MyBatis-Plus 中的 [apply()方法](https://baomidou.com/guides/wrapper/#apply) 扩展而来

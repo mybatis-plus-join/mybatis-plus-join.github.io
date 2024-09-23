@@ -9,4 +9,4 @@
 
 非常感谢！ ❤️
 
-![捐赠 mybatis-plus-join](https://foruda.gitee.com/images/1717191488951888381/8463cfcd_2020985.png "支持一下mybatis-plus-join")
+![捐赠 mybatis-plus-join](/support.png "支持一下mybatis-plus-join")

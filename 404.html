@@ -3,37 +3,41 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="generator" content="VuePress 2.0.0-rc.14" />
+    <meta name="generator" content="VuePress 2.0.0-rc.17" />
     <style>
       :root {
-        --c-bg: #fff;
+        --vp-c-bg: #fff;
       }
 
-      html.dark {
-        --c-bg: #22272e;
+      [data-theme='dark'] {
+        --vp-c-bg: #1b1b1f;
       }
 
       html,
       body {
-        background-color: var(--c-bg);
+        background-color: var(--vp-c-bg);
       }
     </style>
     <script>
       const userMode = localStorage.getItem('vuepress-color-scheme')
       const systemDarkMode =
-        window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-      if (userMode === 'dark' || (userMode !== 'light' && systemDarkMode)) {
-        document.documentElement.classList.toggle('dark', true)
+        'matchMedia' in window
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          : false
+
+      if (userMode === 'light') {
+        document.documentElement.dataset.theme = 'light'
+      } else if (userMode === 'dark' || systemDarkMode) {
+        document.documentElement.dataset.theme = 'dark'
       }
     </script>
     <link rel="icon" href="/lg-xs.png"><link rel="stylesheet" type="text/css" href="/css/cs.css"><title>MyBatis-Plus-Join</title><meta name="description" content="🚀为简化开发而生">
-    <link rel="preload" href="/assets/style-D-ADQy24.css" as="style"><link rel="stylesheet" href="/assets/style-D-ADQy24.css">
-    <link rel="modulepreload" href="/assets/app-YboS6vGC.js"><link rel="modulepreload" href="/assets/404.html-FseLHfXB.js">
-    <link rel="prefetch" href="/assets/index.html-DT9ZtEkC.js" as="script"><link rel="prefetch" href="/assets/problem.html-CisPBSLw.js" as="script"><link rel="prefetch" href="/assets/az.html-CI_Fa9jn.js" as="script"><link rel="prefetch" href="/assets/js.html-IY3V1jKU.js" as="script"><link rel="prefetch" href="/assets/ksks.html-0dv-zqoc.js" as="script"><link rel="prefetch" href="/assets/support.html-DZDTPfIM.js" as="script"><link rel="prefetch" href="/assets/deleteJoin.html-D19LkTMO.js" as="script"><link rel="prefetch" href="/assets/selectJoinCount.html-h7vfONb4.js" as="script"><link rel="prefetch" href="/assets/selectJoinList.html-DLTc9fhh.js" as="script"><link rel="prefetch" href="/assets/selectJoinMap.html-DAfzq_rU.js" as="script"><link rel="prefetch" href="/assets/selectJoinMaps.html-ChiER9PW.js" as="script"><link rel="prefetch" href="/assets/selectJoinMapsPage.html-BL6Ptv_A.js" as="script"><link rel="prefetch" href="/assets/selectJoinOne.html-DqZ_utYC.js" as="script"><link rel="prefetch" href="/assets/selectJoinPage.html-D-hZpHpW.js" as="script"><link rel="prefetch" href="/assets/updateJoin.html-CCJKtoUf.js" as="script"><link rel="prefetch" href="/assets/updateJoinAndNull.html-CJq-Tpj0.js" as="script"><link rel="prefetch" href="/assets/config.html-Blcfojlo.js" as="script"><link rel="prefetch" href="/assets/intro.html-D_9myjXh.js" as="script"><link rel="prefetch" href="/assets/apply-func.html-C6Un_7Xw.js" as="script"><link rel="prefetch" href="/assets/chain.html-3DQgZuaA.js" as="script"><link rel="prefetch" href="/assets/condition-wrapper.html-CQ5q8C6L.js" as="script"><link rel="prefetch" href="/assets/dynamic-table-name.html-Cf2PofZC.js" as="script"><link rel="prefetch" href="/assets/if-exists.html-DiwodBiN.js" as="script"><link rel="prefetch" href="/assets/join-same-table-many.html-DxCY9KZ2.js" as="script"><link rel="prefetch" href="/assets/logic-delete.html-BeZ3so-5.js" as="script"><link rel="prefetch" href="/assets/self-join.html-DFsRX4lO.js" as="script"><link rel="prefetch" href="/assets/union.html-BvZok0Ju.js" as="script"><link rel="prefetch" href="/assets/select.html-CK-x7mmY.js" as="script"><link rel="prefetch" href="/assets/innerJoin.html-DVcZgJZ6.js" as="script"><link rel="prefetch" href="/assets/join.html-WsyXJQwJ.js" as="script"><link rel="prefetch" href="/assets/leftJoin.html-CpY13wPA.js" as="script"><link rel="prefetch" href="/assets/rightJoin.html-CoLotP7P.js" as="script"><link rel="prefetch" href="/assets/distinct.html-DHJNuAVX.js" as="script"><link rel="prefetch" href="/assets/select.html-BNNVPe94.js" as="script"><link rel="prefetch" href="/assets/selectAll.html-DwgVZGJt.js" as="script"><link rel="prefetch" href="/assets/selectAs.html-Db8tBEu6.js" as="script"><link rel="prefetch" href="/assets/selectAsClass.html-yS7ESajO.js" as="script"><link rel="prefetch" href="/assets/selectAssociation.html-CKEPrOjv.js" as="script"><link rel="prefetch" href="/assets/selectCollection.html-CRdTIfBO.js" as="script"><link rel="prefetch" href="/assets/selectFunc.html-k8XsLD7C.js" as="script"><link rel="prefetch" href="/assets/selectSub.html-0pLzmFwv.js" as="script"><link rel="prefetch" href="/assets/innerJoin.html-BsP8wjFy.js" as="script"><link rel="prefetch" href="/assets/join.html-D3Xc92L0.js" as="script"><link rel="prefetch" href="/assets/leftJoin.html-B4_RBymc.js" as="script"><link rel="prefetch" href="/assets/rightJoin.html-BWZSxa_Z.js" as="script"><link rel="prefetch" href="/assets/setupDevtools-HHDGOOYC-DzGPnfo6.js" as="script">
+    <link rel="preload" href="/assets/style-CjWZC6rx.css" as="style"><link rel="stylesheet" href="/assets/style-CjWZC6rx.css">
+    <link rel="modulepreload" href="/assets/app-Eaq0FEP2.js"><link rel="modulepreload" href="/assets/404.html-BNW6M9S3.js">
+    <link rel="prefetch" href="/assets/index.html-Cni1uQYZ.js" as="script"><link rel="prefetch" href="/assets/problem.html-C2dIgOGg.js" as="script"><link rel="prefetch" href="/assets/az.html---AepoIR.js" as="script"><link rel="prefetch" href="/assets/js.html-BD0BLODY.js" as="script"><link rel="prefetch" href="/assets/ksks.html-HVnAKou0.js" as="script"><link rel="prefetch" href="/assets/support.html-KuNA4kZi.js" as="script"><link rel="prefetch" href="/assets/deleteJoin.html-CdPoS_WW.js" as="script"><link rel="prefetch" href="/assets/selectJoinCount.html-CKMLeaup.js" as="script"><link rel="prefetch" href="/assets/selectJoinList.html-CSim_Ct3.js" as="script"><link rel="prefetch" href="/assets/selectJoinMap.html-CAUqG-Ff.js" as="script"><link rel="prefetch" href="/assets/selectJoinMaps.html-CMSwI4zF.js" as="script"><link rel="prefetch" href="/assets/selectJoinMapsPage.html-CrCyr3mA.js" as="script"><link rel="prefetch" href="/assets/selectJoinOne.html-jWjuwhPi.js" as="script"><link rel="prefetch" href="/assets/selectJoinPage.html-GOoVMp1a.js" as="script"><link rel="prefetch" href="/assets/updateJoin.html-CIyyxu8S.js" as="script"><link rel="prefetch" href="/assets/updateJoinAndNull.html-DUJfmT5v.js" as="script"><link rel="prefetch" href="/assets/config.html-VezctGPp.js" as="script"><link rel="prefetch" href="/assets/intro.html-dkHJgEIo.js" as="script"><link rel="prefetch" href="/assets/apply-func.html-kyr9o8vG.js" as="script"><link rel="prefetch" href="/assets/chain.html-C3HWwm55.js" as="script"><link rel="prefetch" href="/assets/condition-wrapper.html-CpU2V8Te.js" as="script"><link rel="prefetch" href="/assets/dynamic-table-name.html-Dd7VZRQf.js" as="script"><link rel="prefetch" href="/assets/if-exists.html-DRfVR92P.js" as="script"><link rel="prefetch" href="/assets/join-same-table-many.html-DwmNOEvF.js" as="script"><link rel="prefetch" href="/assets/logic-delete.html-Cnr8sDFg.js" as="script"><link rel="prefetch" href="/assets/self-join.html-BfuP5wPn.js" as="script"><link rel="prefetch" href="/assets/union.html-DpNYjU8T.js" as="script"><link rel="prefetch" href="/assets/select.html-BkR9A6QA.js" as="script"><link rel="prefetch" href="/assets/innerJoin.html-x2nj8UR9.js" as="script"><link rel="prefetch" href="/assets/join.html-DkcGACzn.js" as="script"><link rel="prefetch" href="/assets/leftJoin.html-5gHKn7mK.js" as="script"><link rel="prefetch" href="/assets/rightJoin.html-j5Ilvivo.js" as="script"><link rel="prefetch" href="/assets/distinct.html-B4UvINO1.js" as="script"><link rel="prefetch" href="/assets/select.html-Bgap1nFf.js" as="script"><link rel="prefetch" href="/assets/selectAll.html-ZLw5mWj6.js" as="script"><link rel="prefetch" href="/assets/selectAs.html-BWGeDjCb.js" as="script"><link rel="prefetch" href="/assets/selectAsClass.html-CQNkJw0U.js" as="script"><link rel="prefetch" href="/assets/selectAssociation.html-BVJ3dBsd.js" as="script"><link rel="prefetch" href="/assets/selectCollection.html-BkHncNtb.js" as="script"><link rel="prefetch" href="/assets/selectFunc.html-3RbCI1gT.js" as="script"><link rel="prefetch" href="/assets/selectSub.html-DXKZAqS6.js" as="script"><link rel="prefetch" href="/assets/innerJoin.html-DBkWNmNN.js" as="script"><link rel="prefetch" href="/assets/join.html-CFDbJTVZ.js" as="script"><link rel="prefetch" href="/assets/leftJoin.html-MTKQBowl.js" as="script"><link rel="prefetch" href="/assets/rightJoin.html-D8WR0fmy.js" as="script"><link rel="prefetch" href="/assets/setupDevtools-7MC2TMWH-yT3W7nlC.js" as="script">
   </head>
   <body>
-    <div id="app"><!----></div>
-    <script type="module" src="/assets/app-YboS6vGC.js" defer></script>
+    <div id="app"><!--[--><div class="vp-theme-container" vp-container data-v-67c08c1d><main class="page" data-v-67c08c1d><div class="theme-default-content" vp-content data-v-67c08c1d><h1 data-v-67c08c1d>404</h1><blockquote data-v-67c08c1d>How did we get here?</blockquote><a class="route-link" href="/" data-v-67c08c1d>Take me home</a></div></main></div><!--[--><!----><!--]--><!--]--></div>
+    <script type="module" src="/assets/app-Eaq0FEP2.js" defer></script>
   </body>
 </html>

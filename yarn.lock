@@ -1743,7 +1743,7 @@ vue-router@^4.4.5:
     "@vue/server-renderer" "3.5.11"
     "@vue/shared" "3.5.11"
 
-vuepress@^2.0.0-rc.15, vuepress@2.0.0-rc.17:
+vuepress@^2.0.0-rc.17, vuepress@2.0.0-rc.17:
   version "2.0.0-rc.17"
   resolved "https://registry.npmmirror.com/vuepress/-/vuepress-2.0.0-rc.17.tgz"
   integrity sha512-KUWHbB4c9bEeFa8Zx9OAz0e1n8Ae9bEvu0T+Yuhm73cnLONxvhLveBdaLjCwrQZC78auP1L5xL8R1voq0ahXYQ==
@@ -1774,6 +1774,11 @@ which@^2.0.1:
   integrity sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==
   dependencies:
     isexe "^2.0.0"
+
+yarn@^1.22.22:
+  version "1.22.22"
+  resolved "https://registry.npmmirror.com/yarn/-/yarn-1.22.22.tgz"
+  integrity sha512-prL3kGtyG7o9Z9Sv8IPfBNrWTDmXB4Qbes8A9rEzt6wkJV8mUvoirjU0Mp3GGAU06Y0XQyA3/2/RQFVuK7MTfg==
 
 yoctocolors@^2.0.0:
   version "2.1.1"

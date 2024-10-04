@@ -15,6 +15,9 @@
     "@vuepress/plugin-search": "^2.0.0-rc.52",
     "@vuepress/theme-default": "^2.0.0-rc.52",
     "vue": "^3.5.10",
-    "vuepress": "^2.0.0-rc.15"
+    "vuepress": "^2.0.0-rc.17"
+  },
+  "dependencies": {
+    "yarn": "^1.22.22"
   }
 }

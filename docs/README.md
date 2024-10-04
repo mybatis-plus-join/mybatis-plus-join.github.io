@@ -26,10 +26,11 @@ footer: Apache Licensed | Copyright © 2022-2024
 
 ## 当前 MyBatis-Plus-Join 最新版本
 
-:::: code-group
-::: code-group-item Maven
+::: code-tabs
 
-```xml:no-line-numbers
+@tab Maven
+
+```xml :no-line-numbers
 <dependency>
     <groupId>com.github.yulichang</groupId>
     <artifactId>mybatis-plus-join-boot-starter</artifactId>
@@ -37,11 +38,9 @@ footer: Apache Licensed | Copyright © 2022-2024
 </dependency>
 ```
 
-:::
+@tab Gradle
 
-::: code-group-item Gradle
-
-```gradle:no-line-numbers
+```gradle :no-line-numbers
 //Gradle
 implementation group: 'com.github.yulichang', name: 'mybatis-plus-join-boot-starter', version: '1.5.0'
 //Gradle short
@@ -50,8 +49,57 @@ implementation 'com.github.yulichang:mybatis-plus-join-boot-starter:1.5.0'
 implementation("com.github.yulichang:mybatis-plus-join-boot-starter:1.5.0")
 ```
 
+@tab Test
+
+```java
+package com.github.yulichang.test.join.entity;
+
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
+import com.github.yulichang.annotation.Table;
+import lombok.Data;
+import lombok.ToString;
+import lombok.experimental.Accessors;
+
+import java.util.List;
+import java.util.Map;
+
+@Table
+@Data
+@ToString
+@Accessors(chain = true)
+@TableName(value = "tablea", autoResultMap = true)
+public class TableA {
+
+    @TableId
+    private Integer id;
+
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private Map<String, Integer> mapCol;
+
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private Inner entryCol;
+
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private List<String> listCol;
+
+    @Data
+    @ToString
+    public static class Inner{
+        private String name;
+    }
+}
+```
+
+@tab js
+
+```js
+document.getElementById("aa")
+```
+
 :::
-::::
 
 
 

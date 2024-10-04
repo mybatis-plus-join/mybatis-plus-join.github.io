@@ -14,8 +14,9 @@ tags:
 
 添加依赖
 
-:::: code-group
-::: code-group-item Maven
+::: code-tabs
+
+@tab Maven
 
 ```xml:no-line-numbers
 <dependency>
@@ -25,16 +26,13 @@ tags:
 </dependency>
 ```
 
-:::
-
-::: code-group-item Gradle
+@tab Gradle
 
 ```gradle
 implementation 'com.github.yulichang:mybatis-plus-join-boot-starter:最新版本'
 ```
 
 :::
-::::
 
 ::: warning 注意
 

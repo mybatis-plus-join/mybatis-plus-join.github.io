@@ -47,17 +47,17 @@
     Page<UserDTO> page = wrapper.page(new Page(1, 10), UserDTO.class);
   ```
 ## mapOne <Badge type="tip" text="1.5.0+" vertical="top" />
-  返回一个Map&lt;String, Object&gt;对象  
+  返回一个`Map<String, Object>`对象  
   ```java
     Map<String, Object> one = wrapper.mapOne();
   ```
 ## mapFirst <Badge type="tip" text="1.5.0+" vertical="top" />
-  返回第一个Map&lt;String, Object&gt;对象，使用分页逻辑Page(1,1)  
+  返回第一个`Map<String, Object>`对象，使用分页逻辑Page(1,1)  
   ```java
     Map<String, Object> first = wrapper.mapFirst();
   ```
 ## mapList <Badge type="tip" text="1.5.0+" vertical="top" />
-  返回一个List&lt;Map&lt;String, Object&gt;&gt;对象  
+  返回一个`List<Map<String, Object>>`对象  
   ```java
     List<Map<String, Object>> list = wrapper.mapList();
   ```

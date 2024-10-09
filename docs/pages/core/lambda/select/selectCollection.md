@@ -11,7 +11,7 @@ tags:
   ```java
   .selectCollection(AddressDO.class, UserDTO::getAddressList)
    ```
-- 指定实体字段映射(只映射 id 和 address 两个字段) id、result方法对应mybatis中ResultMap里的\<id\> \<result\>标签
+- 指定实体字段映射(只映射 id 和 address 两个字段) id、result方法对应mybatis中ResultMap里的 `<id>` 和 `<result>` 标签
     ```java
     .selectCollection(AddressDO.class, UserDTO::getAddressList, map -> map
             //此处只能映射 AddressDO.class 中的字段到 UserDTO::getAddressList 中
@@ -20,12 +20,12 @@ tags:
             //别名映射
             .result(AddressDO::getAddress, AddressDTO::getAddress));
     ```
-- 字段映射，把address表中的id映射到UserDTO的List\<String\>属性的addressIds字段中
+- 字段映射，把address表中的id映射到UserDTO的 `List<String>` 属性的addressIds字段中
     ```java
     .selectCollection(AddressDO.class, UserDTO::getAddressIds, map -> map
                         .result(AddressDO::getId))
     ```
-- 不指定实体字段映射(只映射 id 和 address 两个字段) id、result方法对应mybatis中ResultMap里的\<id\> \<result\>标签 <Badge type="tip" text="1.4.4+" vertical="top" />
+- 不指定实体字段映射(只映射 id 和 address 两个字段) id、result方法对应mybatis中ResultMap里的 `<id>` 和 `<result>` 标签 <Badge type="tip" text="1.4.4+" vertical="top" />
     ```java
     .selectCollection(UserDTO::getAddressList, map -> map
             //可以映射不同类的字段 到 UserDTO::getAddressList 中 比如 AddressDO 和 UserDO

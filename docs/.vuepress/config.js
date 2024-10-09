@@ -7,6 +7,7 @@ import {sidebar} from "./sidebar.js";
 // 新文档地址 https://mybatis-plus-join.github.io
 const base = '/'
 const baseUri = ''
+const docsBranch = 'master'
 const repoUri = 'https://github.com/mybatis-plus-join/mybatis-plus-join.github.io'
 
 export default defineUserConfig({
@@ -45,7 +46,7 @@ export default defineUserConfig({
             }
         },
         docsRepo: repoUri,
-        docsBranch: 'main',
+        docsBranch: docsBranch,
         docsDir: 'docs',
         editLinkText: '在 GitHub 上编辑此页',
         lastUpdatedText: '上次更新',

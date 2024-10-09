@@ -33,7 +33,7 @@ footer: Apache Licensed | Copyright © 2022-2024
 <dependency>
     <groupId>com.github.yulichang</groupId>
     <artifactId>mybatis-plus-join-boot-starter</artifactId>
-    <version>1.5.0</version>
+    <version>1.5.1</version>
 </dependency>
 ```
 
@@ -43,11 +43,11 @@ footer: Apache Licensed | Copyright © 2022-2024
 
 ```gradle:no-line-numbers
 //Gradle
-implementation group: 'com.github.yulichang', name: 'mybatis-plus-join-boot-starter', version: '1.5.0'
+implementation group: 'com.github.yulichang', name: 'mybatis-plus-join-boot-starter', version: '1.5.1'
 //Gradle short
-implementation 'com.github.yulichang:mybatis-plus-join-boot-starter:1.5.0'
+implementation 'com.github.yulichang:mybatis-plus-join-boot-starter:1.5.1'
 //Gradle kotlin
-implementation("com.github.yulichang:mybatis-plus-join-boot-starter:1.5.0")
+implementation("com.github.yulichang:mybatis-plus-join-boot-starter:1.5.1")
 ```
 
 :::

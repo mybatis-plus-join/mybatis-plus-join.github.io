@@ -4,10 +4,10 @@ heroText: MyBatis-Plus-Join
 heroImage: /lg-max.png
 actions:
   - text: 快速开始
-    link: /pages/quickstart/ksks
+    link: /pages/quickstart/quickstart
     type: primary
   - text: 项目简介
-    link: /pages/quickstart/js
+    link: /pages/quickstart/introduce
     type: secondary
 
 features:

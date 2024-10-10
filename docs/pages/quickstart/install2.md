@@ -32,7 +32,7 @@ tags:
 <dependency>
     <groupId>com.baomidou</groupId>
     <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
-    <version>version</version>
+    <version>3.5.8</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ tags:
 <dependency>
     <groupId>com.github.yulichang</groupId>
     <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
-    <version>version</version>
+    <version>3.5.8-001</version>
 </dependency>
 ```
 
@@ -52,7 +52,7 @@ tags:
 <dependency>
     <groupId>com.baomidou</groupId>
     <artifactId>mybatis-plus-boot-starter</artifactId>
-    <version>version</version>
+    <version>3.5.7</version>
 </dependency>
 ```
 
@@ -62,7 +62,7 @@ tags:
 <dependency>
     <groupId>com.github.yulichang</groupId>
     <artifactId>mybatis-plus-boot-starter</artifactId>
-    <version>version</version>
+    <version>3.5.7-001</version>
 </dependency>
 ```
 

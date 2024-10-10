@@ -7,10 +7,11 @@ tags:
 
 这种安装方式是基于MyBatis-Plus源码重新编译实现的  
 
-如果您以<font color="red">插件方式安装报错</font>又或者您不喜欢改动 `Mapper` 和 `Service` 则可以选择这种安装方式
+如果您以<font color="red">插件方式安装报错</font>又或者<font color="red">是以spring mvc方式使用</font>又或者您不喜欢改动 `Mapper` 和 `Service` 则可以选择这种安装方式
 
 ### 特点
 
+* 源码级别改动，无兼容问题
 * `Mapper` 无需继承 `MPJBaseMapper<T>` 使用原生的 `BaseMapper<T>` 就能实现join相关的api
 * `Service` 无需继承 `MPJBaseService<T>` 使用原生的 `IService<T>` 就能实现join相关的api
 * 无额外配置，即便您使用了自定义的 `SqlSessionFactory` 也无需额外配置

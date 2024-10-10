@@ -18,8 +18,9 @@ tags:
 
 ## 安装
 
-您需要将MyBatis-Plus `groupId` 由原来的 `com.baomidou` 替换为 `com.github.yulichang`  
-并且替换版本 [版本对应在文章最后](./install2.html#对应版本)
+您需要替换 `groupId` 和 `version`  
+将MyBatis-Plus `groupId` 由原来的 `com.baomidou` 替换为 `com.github.yulichang`  
+替换版本 [版本对应在文章最后](./install2.html#对应版本)
 
 ::: tip 提示:
 已包含join插件依赖，替换后无需再引入`mybatis-plus-join`依赖

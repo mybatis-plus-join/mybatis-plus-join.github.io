@@ -7,7 +7,7 @@ tags:
 
 这种安装方式是基于MyBatis-Plus源码重新编译实现的  
 
-如果您以<font color="red">插件方式安装报错</font>又或者<font color="red">是以spring mvc方式使用</font>又或者您不喜欢改动 `Mapper` 和 `Service` 则可以选择这种安装方式
+如果您以<font color="red">插件方式安装报错</font>或者是<font color="red">以spring mvc方式使用</font>又或者您不喜欢改动 `Mapper` 和 `Service` 则可以选择这种安装方式
 
 ### 特点
 

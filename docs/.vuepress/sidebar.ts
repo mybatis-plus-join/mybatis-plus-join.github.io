@@ -5,8 +5,8 @@ export const sidebar = {
             collapsible: false,
             children: [
                 {text: '介绍', link: '/pages/quickstart/introduce'},
-                {text: '快速开始', link: '/pages/quickstart/quickstart'},
                 {text: '安装', link: '/pages/quickstart/install'},
+                {text: '快速开始', link: '/pages/quickstart/quickstart'},
                 {text: '支持与赞助', link: '/pages/quickstart/support'},
             ],
         },

@@ -11,7 +11,7 @@
     "docs:update-package": "yarn dlx vp-update"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "^2.0.0-rc.17",
+    "@vuepress/bundler-vite": "^2.0.0-rc.18",
     "@vuepress/plugin-search": "^2.0.0-rc.52",
     "@vuepress/theme-default": "^2.0.0-rc.52",
     "sass-embedded": "^1.79.4",

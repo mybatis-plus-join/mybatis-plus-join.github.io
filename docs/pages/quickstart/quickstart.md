@@ -97,7 +97,6 @@ VALUES (1, 1, '北京', '人民广场'),
 引入 Spring Boot Starter 父工程：
 
 ```xml
-
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -109,7 +108,6 @@ VALUES (1, 1, '北京', '人民广场'),
 引入 spring-boot-starter、spring-boot-starter-test、mybatis-plus-boot-starter、h2 依赖：
 
 ```xml
-
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -161,7 +159,6 @@ spring:
 在 Spring Boot 启动类中添加 @MapperScan 注解，扫描 Mapper 文件夹：
 
 ```java
-
 @SpringBootApplication
 @MapperScan("com.baomidou.mybatisplus.samples.quickstart.mapper")
 public class Application {
@@ -178,7 +175,6 @@ public class Application {
 编写实体类 User.java、Addser.java和自定义resultType UserDTO.java（此处使用了 Lombok 简化代码）
 
 ```java
-
 @Data
 public class User {
     private Long id;
@@ -214,7 +210,6 @@ public class UserDTO {
 编写 Mapper 包下的 UserMapper接口
 
 ```java
-
 @Mapper
 public interface UserMapper extends MPJBaseMapper<User> {
 
@@ -231,7 +226,6 @@ public interface AddressMapper extends MPJBaseMapper<Address> {
 添加测试类，进行功能测试：
 
 ```java
-
 @SpringBootTest
 public class SampleTest {
 

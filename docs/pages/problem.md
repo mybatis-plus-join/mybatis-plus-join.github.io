@@ -1,9 +1,6 @@
 # 常见问题
 
-* [分页失效](./problem.html#分页失效)
-* [分页条数错误](./problem.html#分页条数错误)
-* [Invalid bound statement (not found)](./problem.html#invalid-bound-statement-not-found)
-* [1.2.x升级1.4.x](./problem.html#_1-2-x升级1-4-x)
+[[toc]]
 
 ## 分页失效
 MyBatis-Plus-Join分页相关API是基于MyBatis-Plus的分页插件实现的，使用MPJ分页需要开启MP的分页  
@@ -42,12 +39,14 @@ public class MybatisPlusConfig {
 * [自定义sql注入器](./problem.html#自定义sql注入器)
 * [自定义sqlSessionFactory](./problem.html#自定义sqlsessionfactory)
 
-## 自定义sql注入器
+### 自定义sql注入器
 
 自定义sql注入器继承MPJSqlInjector
 
 ::: warning 注意事项:
-因为 MPJSqlInjector 已经继承了[com.baomidou.mybatisplus.core.injector.DefaultSqlInjector](https://baomidou.com/guides/sql-injector)，如果自定义sql注入器直接继承 DefaultSqlInjector，会导致 MyBatis-Plus-Join 的 MPJSqlInjector 失效，从而引发“Invalid bound statement (not found)”异常。  
+因为 MPJSqlInjector 已经继承了[com.baomidou.mybatisplus.core.injector.DefaultSqlInjector](https://baomidou.com/guides/sql-injector)，
+如果自定义sql注入器直接继承 DefaultSqlInjector，会导致 MyBatis-Plus-Join 的 MPJSqlInjector 失效，
+从而引发“Invalid bound statement (not found)”异常。  
 
 因此自定义sql注入器需要**继承 MPJSqlInjector** 而不能继承 DefaultSqlInjector，通过**多层继承**实现自定义sql注入器。
 :::
@@ -90,7 +89,7 @@ public class MybatisPlusConfig {
 }
 ```
 
-## 自定义sqlSessionFactory
+### 自定义sqlSessionFactory
 
 如果你没有自定义sqlSessionFactory, 不要添加此配置, 通常情况下stater会自动添加, 不需要配置
 

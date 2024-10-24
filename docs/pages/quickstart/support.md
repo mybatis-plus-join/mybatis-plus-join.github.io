@@ -9,4 +9,4 @@
 
 非常感谢！ ❤️
 
-![捐赠 mybatis-plus-join](/support.png "支持一下mybatis-plus-join")
+![捐赠 mybatis-plus-join](/public/support.png "支持一下mybatis-plus-join")

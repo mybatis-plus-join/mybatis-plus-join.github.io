@@ -9,7 +9,7 @@
 MyBatis-Plus-Join分页相关API是基于MyBatis-Plus的分页插件实现的，使用MPJ分页需要开启MP的分页  
 [Mybatis-Plus分页插件](https://baomidou.com/plugins/pagination/)
 
-```java:no-line-numbers
+```java
 @Configuration
 @MapperScan("scan.your.mapper.package")
 public class MybatisPlusConfig {
@@ -52,7 +52,7 @@ public class MybatisPlusConfig {
 因此自定义sql注入器需要**继承 MPJSqlInjector** 而不能继承 DefaultSqlInjector，通过**多层继承**实现自定义sql注入器。
 :::
 
-```java:no-line-numbers
+```java
 @component
 public class MySqlInjector extends MPJSqlInjector {
 
@@ -70,7 +70,7 @@ public class MySqlInjector extends MPJSqlInjector {
 
 或者
 
-```java:no-line-numbers
+```java
 @Configuration
 public class MybatisPlusConfig {
 
@@ -94,7 +94,7 @@ public class MybatisPlusConfig {
 
 如果你没有自定义sqlSessionFactory, 不要添加此配置, 通常情况下stater会自动添加, 不需要配置
 
-```java:no-line-numbers
+```java
 @Configuration
 public class MybatisPlusConfig {
 

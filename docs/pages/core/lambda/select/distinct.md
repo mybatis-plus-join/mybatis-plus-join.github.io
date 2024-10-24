@@ -1,9 +1,6 @@
----
-tags:
-  - '去重'
----
-
 # distinct
+
+## 去重
 
 添加 distinct
 

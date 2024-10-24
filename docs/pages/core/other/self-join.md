@@ -11,33 +11,36 @@
 MPJLambdaWrapper可以这么写
 
 ```java
-List<UserDO> dtos = userMapper.selectJoinList(UserDO.class, new MPJLambdaWrapper<UserDO>()
+MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
         .selectAll(UserDO.class)
         .select("u.`name` as createName")
-        .leftJoin("`user` u on u.pid = t.id"));
+        .leftJoin("`user` u on u.pid = t.id");
+List<UserDO> dtos = userMapper.selectJoinList(UserDO.class, wrapper);
 ```
 
 也可以lambda + String实现
 
 ```java
-List<UserDO> dtos1 = userMapper.selectJoinList(UserDO.class, new MPJLambdaWrapper<UserDO>()
+MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
         .selectAll(UserDO.class)
         //这个select 和 后面的两个selectAs等效
         .select("u.`name` as createName")
         .selectAs("u.`name`", UserDO::getCreateName)
         .selectAs("u", UserDO::getName, UserDO::getCreateName)
         //这里容易混淆, on语句两个参数都是UserDO, 第一个为副表条件, 第二个为主表条件, 不要弄混了
-        .leftJoin(UserDO.class, "u", UserDO::getPid, UserDO::getId));
+        .leftJoin(UserDO.class, "u", UserDO::getPid, UserDO::getId);
+List<UserDO> dtos1 = userMapper.selectJoinList(UserDO.class, wrapper);
 ```
 
 也可以纯lambda实现
 
 ```java
-List<UserDO> dtos = userMapper.selectJoinList(UserDO.class, new MPJLambdaWrapper<UserDO>()
+MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
         .selectAll(UserDO.class)
         //这里容易混淆, on语句两个参数都是UserDO, 第一个为副表条件, 第二个为主表条件, 不要弄混了
         .leftJoin(UserDO.class, UserDO::getPid, UserDO::getId, ext -> ext
-                .selectAs(UserDO::getName,UserDO::getCreateName))
+                .selectAs(UserDO::getName, UserDO::getCreateName))
         //查询 t1.`name` AS createTime
-        .lt(UserDO::getId,5));
+        .lt(UserDO::getId, 5);
+List<UserDO> dtos = userMapper.selectJoinList(UserDO.class, wrapper);
 ```

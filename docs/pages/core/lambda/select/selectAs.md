@@ -1,9 +1,6 @@
----
-tags:
-  - 'selectAs'
----
+# selectAs
 
-# 别名查询
+## 别名查询
 
 字段别名
 

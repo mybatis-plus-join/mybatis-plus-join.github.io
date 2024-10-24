@@ -1,24 +1,10 @@
 {
-  "name": "yjs",
-  "version": "0.0.1",
-  "description": "A VuePress project",
-  "license": "MIT",
-  "type": "module",
-  "scripts": {
-    "docs:build": "vuepress build docs",
-    "docs:clean-dev": "vuepress dev docs --clean-cache",
-    "docs:dev": "vuepress dev docs",
-    "docs:update-package": "yarn dlx vp-update"
-  },
   "devDependencies": {
-    "@vuepress/bundler-vite": "^2.0.0-rc.17",
-    "@vuepress/plugin-search": "^2.0.0-rc.52",
-    "@vuepress/theme-default": "^2.0.0-rc.52",
-    "sass-embedded": "^1.79.4",
-    "vue": "^3.5.11",
-    "vuepress": "^2.0.0-rc.17"
+    "vitepress": "^1.4.1"
   },
-  "dependencies": {
-    "yarn": "^1.22.22"
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   }
 }

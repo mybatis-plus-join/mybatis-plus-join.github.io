@@ -1,14 +1,6 @@
----
-tags:
-  - 'MybatisPlusConfig'
-  - 'MybatisPlusJoinPropertiesConsumer'
-  - 'banner'
-  - 'sub-table-logic'
-  - 'ms-cache'
-  - 'logic-del-type'
----
+# config
 
-# 配置文件 config
+## 配置文件
 
 ```yaml
 mybatis-plus-join:
@@ -25,7 +17,7 @@ mybatis-plus-join:
   logic-del-type: on
 ```
 
-# MybatisPlusJoinPropertiesConsumer <Badge type="tip" text="1.4.9+" vertical="top" />
+## MybatisPlusJoinPropertiesConsumer <Badge type="tip" text="1.4.9+" vertical="top" />
 
 ```java
 @Configuration

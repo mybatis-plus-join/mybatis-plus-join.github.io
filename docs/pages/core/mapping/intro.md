@@ -86,7 +86,7 @@ public class UserDO {
 
 ::: tip
 可以使用 lombok 的 @FieldNameConstants 注解生成字段常量
-[lombok优化](./az.html#lombok优化注解写法)
+[lombok优化](./intro.html#lombok优化注解写法)
 :::
 
 调用

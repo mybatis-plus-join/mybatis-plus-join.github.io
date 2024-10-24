@@ -9,9 +9,10 @@ class MpJoinTest {
 
     @Test
     void joinTest() {
-        Integer count = userMapper.selectJoinCount(new MPJLambdaWrapper<>()
+        MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
                 .leftJoin(UserAddressDO.class, UserAddressDO::getUserId, UserDO::getId)
-                .eq(UserDO::getId, 2));
+                .eq(UserDO::getId, 2);
+        Integer count = userMapper.selectJoinCount(wrapper);
         System.out.println(count);
     }
 }
@@ -35,10 +36,11 @@ class MpJoinTest {
 
     @Test
     void joinTest1() {
-        Integer count = userMapper.selectJoinCount(new MPJLambdaWrapper<>()
+        MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
                 .select(UserDO::getId)
                 .leftJoin(UserAddressDO.class, UserAddressDO::getUserId, UserDO::getId)
-                .eq(UserDO::getId, 2));
+                .eq(UserDO::getId, 2);
+        Integer count = userMapper.selectJoinCount(wrapper);
         System.out.println(count);
     }
 }
@@ -62,9 +64,10 @@ class MpJoinTest {
 
     @Test
     void joinTest() {
-        Integer count = userMapper.selectJoinCount(new MPJQueryWrapper<UserDO>()
+        MPJQueryWrapper<UserDO> wrapper = new MPJQueryWrapper<UserDO>()
                 .leftJoin("user_address addr on addr.user_id = t.id")
-                .eq("t.id", 2));
+                .eq("t.id", 2);
+        Integer count = userMapper.selectJoinCount(wrapper);
         System.out.println(count);
     }
 }
@@ -88,10 +91,11 @@ class MpJoinTest {
 
     @Test
     void joinTest() {
-        Integer count = userMapper.selectJoinCount(new MPJQueryWrapper<UserDO>()
+        MPJQueryWrapper<UserDO> wrapper = new MPJQueryWrapper<UserDO>()
                 .select("t.id")
                 .leftJoin("user_address addr on addr.user_id = t.id")
-                .eq("t.id", 2));
+                .eq("t.id", 2);
+        Integer count = userMapper.selectJoinCount(wrapper);
         System.out.println(count);
     }
 }

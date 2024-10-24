@@ -1,16 +1,4 @@
----
-tags:
-  - 'selectSum'
-  - 'selectCount'
-  - 'selectMax'
-  - 'selectMin'
-  - 'selectAvg'
-  - 'selectLen'
-  - 'selectFunc'
----
-
 # SQL函数
-
 
 ## Wrapper内置的常用函数支持
 
@@ -58,7 +46,7 @@ public enum FuncEnum implements BaseFuncEnum {
 
 ```java
 void funcTest() {
-    userMapper.selectJoinList(UserDTO.class, new MPJLambdaWrapper<>()
+    MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
             // 自定义的函数枚举
             .selectFunc(FuncEnum.DATE_FORMAT, UserDO::getDel)
             // 也可以用lambda自定义
@@ -67,13 +55,14 @@ void funcTest() {
             .selectFunc("concat(%s, %s)", arg -> arg.accept(UserDO::getName, UserDO::getId), UserDO::getSex)
             // 自定义字段别名
             .selectFunc("concat(%s, %s)", arg -> arg.accept(
-                     Fun.f("t", UserDO::getName), //t.name
-                     Fun.f("t", UserDO::getId)    //t.id
-                ), UserDO::getSex)
+                    Fun.f("t", UserDO::getName), //t.name
+                    Fun.f("t", UserDO::getId)    //t.id
+            ), UserDO::getSex)
             .leftJoin(UserAddressDO.class, on -> on
                     .eq(UserAddressDO::getUserId, UserDO::getId)
                     .eq(UserAddressDO::getId, UserDO::getId))
-            .eq(UserDO::getId, 2));
+            .eq(UserDO::getId, 2);
+    userMapper.selectJoinList(UserDTO.class, wrapper);
 }
 ```
 

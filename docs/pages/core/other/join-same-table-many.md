@@ -9,46 +9,49 @@
 ## MPJLambdaWrapper
 
 ```java
-List<UserDTO> dtos = userMapper.selectJoinList(UserDTO.class, new MPJQueryWrapper<UserDO>()
+MPJQueryWrapper<UserDO> wrapper = new MPJQueryWrapper<UserDO>()
         .selectAll(UserDO.class)
         .select("a.`name` as createName1")
         .select("b.`name` as createName2")
         .leftJoin("address a on a.id = t.address_id1")
-        .leftJoin("address b on b.id = t.address_id2"));
+        .leftJoin("address b on b.id = t.address_id2");
+List<UserDTO> dtos = userMapper.selectJoinList(UserDTO.class, wrapper);
 ```
 
 也可以lambda + String实现
 
 ```java
-List<UserDTO> dtos1 = userMapper.selectJoinList(UserDTO.class, new MPJLambdaWrapper<UserDO>()
-                .selectAll(UserDO.class)
-                .selectAs("a", AddressDO::getName, UserDTO::getCreateName1)
-                .selectAs("b", AddressDO::getName, UserDTO::getCreateName2)
-                .leftJoin(AddressDO.class, "a", AddressDO::getId, UserDO::getAddressId1)
-                .leftJoin(AddressDO.class, "b", AddressDO::getId, UserDO::getAddressId2))
+MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
+        .selectAll(UserDO.class)
+        .selectAs("a", AddressDO::getName, UserDTO::getCreateName1)
+        .selectAs("b", AddressDO::getName, UserDTO::getCreateName2)
+        .leftJoin(AddressDO.class, "a", AddressDO::getId, UserDO::getAddressId1)
+        .leftJoin(AddressDO.class, "b", AddressDO::getId, UserDO::getAddressId2)
         //指定address表别名
-        .leftJoin(AreaDO.class, AreaDO::getId, "a", AddressDO::getAreaId));
+        .leftJoin(AreaDO.class, AreaDO::getId, "a", AddressDO::getAreaId);
+List<UserDTO> dtos1 = userMapper.selectJoinList(UserDTO.class, wrapper);
 ```
 
 条件别名 <Badge type="tip" text="1.4.8+" vertical="top" />
 
 ```java
-List<UserDTO> dtos1 = userMapper.selectJoinList(UserDTO.class, new MPJLambdaWrapper<UserDO>()
-                .selectAll(UserDO.class)
-                .selectAs("a", AddressDO::getName, UserDTO::getCreateName1)
-                .selectAs("b", AddressDO::getName, UserDTO::getCreateName2)
-                .leftJoin(AddressDO.class, "a", AddressDO::getId, UserDO::getAddressId1)
-                .leftJoin(AddressDO.class, "b", AddressDO::getId, UserDO::getAddressId2)
-                //指定address表别名
-                .leftJoin(AreaDO.class, AreaDO::getId, "a", AddressDO::getAreaId))
+MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
+        .selectAll(UserDO.class)
+        .selectAs("a", AddressDO::getName, UserDTO::getCreateName1)
+        .selectAs("b", AddressDO::getName, UserDTO::getCreateName2)
+        .leftJoin(AddressDO.class, "a", AddressDO::getId, UserDO::getAddressId1)
+        .leftJoin(AddressDO.class, "b", AddressDO::getId, UserDO::getAddressId2)
+        //指定address表别名
+        .leftJoin(AreaDO.class, AreaDO::getId, "a", AddressDO::getAreaId)
         .eq("a", AddressDO::getId, 1)
         .eq("b", AddressDO::getId, 1);
+List<UserDTO> dtos1 = userMapper.selectJoinList(UserDTO.class, wrapper);
 ```
 
 也可以纯lambda实现
 
 ```java
-List<UserDTO> dtos = userMapper.selectJoinList(UserDTO.class, new MPJLambdaWrapper<UserDO>()
+MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
         .selectAll(UserDO.class)
         .leftJoin(AddressDO.class, AddressDO::getId, UserDO::getAddressId1, ext -> ext
                 .selectAs(AddressDO::getName, UserDTO::getAddressId1)
@@ -56,7 +59,8 @@ List<UserDTO> dtos = userMapper.selectJoinList(UserDTO.class, new MPJLambdaWrapp
         .leftJoin(AddressDO.class, AddressDO::getId, UserDO::getAddressId2, ext -> ext
                 .selectAs(AddressDO::getName, UserDTO::getAddressId2)
                 .like(AddressDO::getName, "abc"))
-        .lt(UserDO::getId, 5));
+        .lt(UserDO::getId, 5);
+List<UserDTO> dtos = userMapper.selectJoinList(UserDTO.class, wrapper);
 ```
 
 # 对一或对多查询

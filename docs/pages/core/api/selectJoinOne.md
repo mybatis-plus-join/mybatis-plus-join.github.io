@@ -9,12 +9,12 @@ class MpJoinTest {
 
     @Test
     void joinTest() {
-        UserDTO dto = userMapper.selectJoinOne(UserDTO.class,
-                new MPJLambdaWrapper<>()
-                        .selectAll(UserDO.class)
-                        .select(UserAddressDO::getAddress)
-                        .leftJoin(UserAddressDO.class, UserAddressDO::getUserId,UserDO::getId)
-                        .eq(UserDO::getId, 2));
+        MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
+                .selectAll(UserDO.class)
+                .select(UserAddressDO::getAddress)
+                .leftJoin(UserAddressDO.class, UserAddressDO::getUserId,UserDO::getId)
+                .eq(UserDO::getId, 2);
+        UserDTO dto = userMapper.selectJoinOne(UserDTO.class, wrapper);
     }
 }
 ```
@@ -50,11 +50,12 @@ class MpJoinTest {
 
     @Test
     void joinTest() {
-        UserDTO dto = userMapper.selectJoinOne(UserDTO.class, new MPJQueryWrapper<UserDO>()
+        MPJQueryWrapper<UserDO> wrapper = new MPJQueryWrapper<UserDO>()
                 .selectAll(UserDO.class)
                 .select("addr.address")
                 .leftJoin("user_address addr on addr.user_id = t.id")
-                .eq("t.id", 2));
+                .eq("t.id", 2);
+        UserDTO dto = userMapper.selectJoinOne(UserDTO.class, wrapper);
     }
 }
 ```

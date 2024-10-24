@@ -1,6 +1,5 @@
 # 快速开始
 
-
 我们将通过一个简单的 Demo 来阐述 MyBatis-Plus-Join 的强大功能，在此之前，我们假设您已经：
 
 * 拥有 Java 开发环境以及相应 IDE
@@ -8,27 +7,29 @@
 * 熟悉 MyBatis-Plus
 * 熟悉 Maven
 
-### 现有一张user表和一张address表，其表结构如下：
+## 建表
+
+现有一张user表和一张address表，其表结构如下：
 
 user
 
-| id  | name    | age | email              |
-|-----|---------|-----|--------------------|
-| 1   | Jone    | 18  | test1@baomidou.com |
-| 2   | Jack    | 20  | test2@baomidou.com |
-| 3   | Tom     | 28  | test3@baomidou.com |
-| 4   | Sandy   | 21  | test4@baomidou.com |
-| 5   | Billie	 | 24  | test5@baomidou.com |
+| id | name    | age | email              |
+|----|---------|-----|--------------------|
+| 1  | Jone    | 18  | test1@baomidou.com |
+| 2  | Jack    | 20  | test2@baomidou.com |
+| 3  | Tom     | 28  | test3@baomidou.com |
+| 4  | Sandy   | 21  | test4@baomidou.com |
+| 5  | Billie	 | 24  | test5@baomidou.com |
 
 address
 
-| id  | user_id | city | address |
-|-----|---------|------|---------|
-| 1   | 1       | 北京   | 人民广场    |
-| 2   | 2       | 上海   | 人民广场    |
-| 3   | 3       | 广州   | 人民广场    |
-| 4   | 4       | 上海   | 人民广场    |
-| 5   | 5       | 北京   | 人民广场    |
+| id | user_id | city | address |
+|----|---------|------|---------|
+| 1  | 1       | 北京   | 人民广场    |
+| 2  | 2       | 上海   | 人民广场    |
+| 3  | 3       | 广州   | 人民广场    |
+| 4  | 4       | 上海   | 人民广场    |
+| 5  | 5       | 北京   | 人民广场    |
 
 其对应的数据库 Schema 脚本如下：
 
@@ -80,7 +81,7 @@ VALUES (1, 1, '北京', '人民广场'),
        (5, 5, '北京', '人民广场');
 ```
 
-### 问题
+## 问题
 
 如果从零开始用 MyBatis-Plus-Join 来实现该表的增删改查我们需要做什么呢？
 
@@ -91,11 +92,12 @@ VALUES (1, 1, '北京', '人民广场'),
 
 可以使用 Spring Initializer 快速初始化一个 Spring Boot 工程
 
-### 添加依赖
+## 添加依赖
 
 引入 Spring Boot Starter 父工程：
 
 ```xml
+
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -107,6 +109,7 @@ VALUES (1, 1, '北京', '人民广场'),
 引入 spring-boot-starter、spring-boot-starter-test、mybatis-plus-boot-starter、h2 依赖：
 
 ```xml
+
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -135,7 +138,8 @@ VALUES (1, 1, '北京', '人民广场'),
 </dependencies>
 ```
 
-###  配置
+## 配置
+
 在 application.yml 配置文件中添加 H2 数据库的相关配置：
 
 数据源配置
@@ -157,6 +161,7 @@ spring:
 在 Spring Boot 启动类中添加 @MapperScan 注解，扫描 Mapper 文件夹：
 
 ```java
+
 @SpringBootApplication
 @MapperScan("com.baomidou.mybatisplus.samples.quickstart.mapper")
 public class Application {
@@ -168,10 +173,12 @@ public class Application {
 }
 ```
 
-###  编码
+## 编码
+
 编写实体类 User.java、Addser.java和自定义resultType UserDTO.java（此处使用了 Lombok 简化代码）
 
 ```java
+
 @Data
 public class User {
     private Long id;
@@ -207,6 +214,7 @@ public class UserDTO {
 编写 Mapper 包下的 UserMapper接口
 
 ```java
+
 @Mapper
 public interface UserMapper extends MPJBaseMapper<User> {
 
@@ -218,11 +226,12 @@ public interface AddressMapper extends MPJBaseMapper<Address> {
 }
 ```
 
-###  开始使用
+## 开始使用
 
 添加测试类，进行功能测试：
 
 ```java
+
 @SpringBootTest
 public class SampleTest {
 
@@ -243,6 +252,7 @@ public class SampleTest {
 
 }
 ```
+
 ::: tip 提示
 MPJLambdaWrapper类的泛型必须是主表类型, 并且要用主表对应的Mapper调用
 :::
@@ -257,11 +267,11 @@ User(id=4, name=Sandy, age=21, email=test4@baomidou.com,city=上海,address=人�
 User(id=5, name=Billie, age=24, email=test5@baomidou.com,city=北京,address=人民广场)
 ```
 
-###  提示
+### 提示
 
 完整的代码示例请移步：[Spring Boot 快速启动示例](https://gitee.com/best_handsome/mybatis-plus-join-demo)
 
-###  小结
+## 小结
 
 通过以上几个简单的步骤，我们就实现了 User 表的连表功能，甚至连 XML 文件都不用编写！
 

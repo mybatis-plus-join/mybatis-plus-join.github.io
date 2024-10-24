@@ -1,23 +1,3 @@
----
-tags:
-  - 'eqIfExists'
-  - 'neIfExists'
-  - 'gtIfExists'
-  - 'geIfExists'
-  - 'ltIfExists'
-  - 'leIfExists'
-  - 'likeIfExists'
-  - 'notLikeIfExists'
-  - 'likeLeftIfExists'
-  - 'likeRightIfExists'
-  - 'notLikeLeftIfExists'
-  - 'notLikeRightIfExists'
-  - 'if-absent'
-  - 'not_empty'
-  - 'not_null'
-  - 'not_blank'
----
-
 # IfExists <Badge type="tip" text="1.4.9+" vertical="top" />
 
 xxIfExists会自动判断条件值是否为空，且只会在不为空的情况下生效
@@ -47,16 +27,16 @@ wrapper.eqIfExists(UserDO::getName, name)
 ```
 :::
 
-# 判断策略
+## 判断策略
 
-## **not_empty** 默认  
+### **not_empty** 默认  
   如果值类型为String则调用 [StringUtils.isNotEmpty](https://gitee.com/best_handsome/mybatis-plus-join/blob/master/mybatis-plus-join-core/src/main/java/com/github/yulichang/toolkit/MPJStringUtils.java#L111)  
   其他数据类型调用 Objects.nonNull
 
-## **not_null**  
+### **not_null**  
   全部调用 Objects.nonNull
 
-## **not_blank**  
+### **not_blank**  
   如果值类型为String则调用 [StringUtils.isNotBlank](https://gitee.com/best_handsome/mybatis-plus-join/blob/master/mybatis-plus-join-core/src/main/java/com/github/yulichang/toolkit/MPJStringUtils.java#L103)  
   其他数据类型调用 Objects.nonNull  
 

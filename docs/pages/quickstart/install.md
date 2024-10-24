@@ -14,25 +14,7 @@ tags:
 
 添加依赖
 
-::: code-tabs
-
-@tab Maven
-
-```xml:no-line-numbers
-<dependency>
-    <groupId>com.github.yulichang</groupId>
-    <artifactId>mybatis-plus-join-boot-starter</artifactId>
-    <version>最新版本</version>
-</dependency>
-```
-
-@tab Gradle
-
-```gradle
-implementation 'com.github.yulichang:mybatis-plus-join-boot-starter:最新版本'
-```
-
-:::
+<!--@include: ../../component/version.md-->
 
 ::: warning 注意
 

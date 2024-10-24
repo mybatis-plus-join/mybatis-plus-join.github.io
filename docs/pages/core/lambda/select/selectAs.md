@@ -7,9 +7,10 @@
 ```java
 selectAs(User::getName, UserDTO::getNickname);
 selectAs("t", User::getName, UserDTO::getNickname);
-selectAs("t", User::getName, "nickname");
+selectAs(User::getName, "nickname");
 selectAs("t.name", UserDTO::getNickname);
-selectAs("t.name AS nickname");
+
+select("t.name AS nickname");
 ```
 
 对应sql

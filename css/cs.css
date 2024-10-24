@@ -1,0 +1,7 @@
+.vp-page > .theme-default-content {
+    min-height: calc(100vh - 235px) !important;
+}
+
+#app > div > .vp-home > div.vp-features  {
+    text-align: center;
+}

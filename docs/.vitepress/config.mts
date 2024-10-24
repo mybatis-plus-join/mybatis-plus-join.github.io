@@ -59,7 +59,7 @@ export default defineConfig({
         outline: {level: 2, label: '页面导航'},
 
         editLink: {
-            pattern: 'https://github.com/mybatis-plus-join/mybatis-plus-join.github.io/edit/vitepress/docs/:path',
+            pattern: 'https://github.com/mybatis-plus-join/mybatis-plus-join.github.io/edit/main/docs/:path',
             text: '在 GitHub 上编辑此页面'
         },
 

@@ -16,7 +16,7 @@ hero:
       text: Github
       link: https://github.com/yulichang/mybatis-plus-join
   image:
-    src: /public/log.svg
+    src: /log.svg
     alt: MyBatis-Plus-Join
 features:
   - title: 润物无声

@@ -8,7 +8,7 @@ export default defineConfig({
     description: "MyBatis-Plus 最佳搭档，只做增强不做改变，为简化开发、提高效率而生。",
     head: [
         ['link', {rel: 'icon', href: '/log.svg'}],
-        ['link', {rel: 'stylesheet', type: 'text/css', href: `/public/css/css.css`}],
+        ['link', {rel: 'stylesheet', type: 'text/css', href: `/css/css.css`}],
     ],
     themeConfig: {
         logo: '/log.svg',

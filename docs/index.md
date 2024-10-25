@@ -2,6 +2,7 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
+title: MyBatis-Plus-Join 🚀 为简化开发而生
 hero:
   name: "MyBatis-Plus-Join"
   tagline: "MyBatis-Plus 最佳搭档，只做增强不做改变，为简化开发、提高效率而生。"

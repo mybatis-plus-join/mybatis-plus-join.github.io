@@ -80,7 +80,7 @@ class MpJoinTest {
 
 ::: warning 注意事项:
 实体类更新**所有字段( 包括空字段 )**, 如果要只更新非空字段  
-[参考**updateJoin**方法](./updateJoin.html)
+[参考**updateJoin**方法](./updateJoin)
 :::
 
 ## 主表根据实体更新, 副表手动设置set语句
@@ -117,7 +117,7 @@ class MpJoinTest {
 
 ::: warning 注意事项:
 实体类只更新非空字段, 如果要更新全部字段(非空字段和空字段)  
-[参考**updateJoinAndNull**方法](./updateJoinAndNull.html)
+[参考**updateJoinAndNull**方法](./updateJoinAndNull)
 :::
 
 ## 根据主表和副表实体类更新, wrapper作为where条件
@@ -172,5 +172,5 @@ class MpJoinTest {
 
 ::: warning 注意事项:
 实体类更新**所有字段( 包括空字段 )**, 如果要只更新非空字段  
-[参考**updateJoin**方法](./updateJoin.html)
+[参考**updateJoin**方法](./updateJoin)
 :::

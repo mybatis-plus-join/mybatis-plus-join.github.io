@@ -35,7 +35,7 @@ LEFT JOIN user_address t1 on t1.user_id = t.id
 ```
 
 比如需要关联同一张表两次及以上时候就需要自定义别名进行区分  
-[别名使用案例](/pages/core/other/join-same-table-many.html)
+[别名使用案例](/pages/core/other/join-same-table-many)
 
 ## 多条件示例
 

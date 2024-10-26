@@ -81,7 +81,7 @@ WHERE (t.id = ?)
 
 ::: warning 注意事项:
 实体类只更新非空字段, 如果要更新全部字段(非空字段和空字段)  
-[参考**updateJoinAndNull**方法](./updateJoinAndNull.html)
+[参考**updateJoinAndNull**方法](./updateJoinAndNull)
 :::
 
 ## 主表根据实体更新, 副表手动设置set语句
@@ -121,7 +121,7 @@ WHERE (t.id = ?)
 
 ::: warning 注意事项:
 实体类只更新非空字段, 如果要更新全部字段(非空字段和空字段)  
-[参考**updateJoinAndNull**方法](./updateJoinAndNull.html)
+[参考**updateJoinAndNull**方法](./updateJoinAndNull)
 :::
 
 ## 根据主表和副表实体类更新, wrapper作为where条件
@@ -179,5 +179,5 @@ WHERE (t.id = ?)
 
 ::: warning 注意事项:
 实体类只更新非空字段, 如果要更新全部字段(非空字段和空字段)  
-[参考**updateJoinAndNull**方法](./updateJoinAndNull.html)
+[参考**updateJoinAndNull**方法](./updateJoinAndNull)
 :::

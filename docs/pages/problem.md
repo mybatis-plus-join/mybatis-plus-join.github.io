@@ -126,4 +126,4 @@ public class MybatisPlusConfig {
 1.3.6以及之前的版本查询只会带上主表的逻辑删除, 副表逻辑删除需要手动添加  
 1.3.7以及之后的版本会自动带上副表的逻辑删除  
 可以通过全局配置关闭逻辑删除, 保证原代码的正常使用  
-[逻辑删除](core/other/logic-delete.html)
+[逻辑删除](core/other/logic-delete)

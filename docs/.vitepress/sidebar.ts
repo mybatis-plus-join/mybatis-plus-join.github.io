@@ -83,23 +83,11 @@ export const sidebar = [
         ],
     },
     {
-        text: '注解映射',
-        collapsed: true,
+        text: '参考',
+        collapsed: false,
         items: [
             {link: '/pages/core/mapping/intro', text: '注解映射'},
-        ]
-    },
-    {
-        text: '配置',
-        collapsed: true,
-        items: [
             {link: '/pages/core/config/config', text: '配置'},
-        ]
-    },
-    {
-        text: '常见问题',
-        collapsed: true,
-        items: [
             {link: '/pages/problem', text: '常见问题'},
         ]
     },

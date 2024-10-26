@@ -7,7 +7,7 @@
 * 熟悉 MyBatis-Plus
 * 熟悉 Maven
 
-## 建表
+## 数据库
 
 现有一张user表和一张address表，其表结构如下：
 
@@ -15,11 +15,11 @@ user
 
 | id | name    | age | email              |
 |----|---------|-----|--------------------|
-| 1  | Jone    | 18  | test1@baomidou.com |
-| 2  | Jack    | 20  | test2@baomidou.com |
-| 3  | Tom     | 28  | test3@baomidou.com |
-| 4  | Sandy   | 21  | test4@baomidou.com |
-| 5  | Billie	 | 24  | test5@baomidou.com |
+| 1  | Jone    | 18  | `test1@baomidou.com` |
+| 2  | Jack    | 20  | `test2@baomidou.com` |
+| 3  | Tom     | 28  | `test3@baomidou.com` |
+| 4  | Sandy   | 21  | `test4@baomidou.com` |
+| 5  | Billie	 | 24  | `test5@baomidou.com` |
 
 address
 
@@ -81,60 +81,18 @@ VALUES (1, 1, '北京', '人民广场'),
        (5, 5, '北京', '人民广场');
 ```
 
-## 问题
-
-如果从零开始用 MyBatis-Plus-Join 来实现该表的增删改查我们需要做什么呢？
-
-初始化工程
+## 初始化工程
 创建一个空的 Spring Boot 工程（工程将以 H2 作为默认数据库进行演示）
 
-### 提示
-
-可以使用 Spring Initializer 快速初始化一个 Spring Boot 工程
+::: tip 提示
+点此 [Spring Initializer](https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.1.8&packaging=jar&jvmVersion=17&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo&dependencies=h2) 可快速初始化一个 Spring Boot 工程
+:::
 
 ## 添加依赖
 
-引入 Spring Boot Starter 父工程：
+引入 MyBatis-Plus-Join Starter 依赖
 
-```xml
-<parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.0+ 版本</version>
-    <relativePath/>
-</parent>
-```
-
-引入 spring-boot-starter、spring-boot-starter-test、mybatis-plus-boot-starter、h2 依赖：
-
-```xml
-<dependencies>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-test</artifactId>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>com.github.yulichang</groupId>
-        <artifactId>mybatis-plus-join-boot-starter</artifactId>
-        <version>最新版本</version>
-    </dependency>
-    <dependency>
-        <groupId>com.baomidou</groupId>
-        <artifactId>mybatis-plus-boot-starter</artifactId>
-        <version>最新版本</version>
-    </dependency>
-    <dependency>
-        <groupId>com.h2database</groupId>
-        <artifactId>h2</artifactId>
-        <scope>runtime</scope>
-    </dependency>
-</dependencies>
-```
+<!--@include: ../../component/version.md-->
 
 ## 配置
 
@@ -143,12 +101,12 @@ VALUES (1, 1, '北京', '人民广场'),
 数据源配置
 
 ```yaml
+# DataSource Config
 spring:
   datasource:
-  driver-class-name: org.h2.Driver
-  schema: classpath:db/schema-h2.sql
-  username: root
-  password: test
+    driver-class-name: org.h2.Driver
+    username: root
+    password: test
   sql:
     init:
       schema-locations: classpath:db/schema-h2.sql
@@ -156,7 +114,9 @@ spring:
 
 ```
 
-在 Spring Boot 启动类中添加 @MapperScan 注解，扫描 Mapper 文件夹：
+上面的配置是任何一个 Spring Boot 工程都会配置的数据库链接信息，如果您使用的是其他数据库，如 MySQL，则需要修改相应的配置信息。
+
+在 Spring Boot 启动类中添加 `@MapperScan` 注解，扫描 Mapper 文件夹：
 
 ```java
 @SpringBootApplication
@@ -170,9 +130,10 @@ public class Application {
 }
 ```
 
+
 ## 编码
 
-编写实体类 User.java、Addser.java和自定义resultType UserDTO.java（此处使用了 Lombok 简化代码）
+编写实体类 `User.java`、`Address.java` 和自定义查询结果 `UserDTO.java`（此处使用了 Lombok 简化代码）
 
 ```java
 @Data
@@ -206,6 +167,10 @@ public class UserDTO {
     private String address;
 }
 ```
+
+::: warning 说明
+上面的代码中使用了 [Lombok](https://projectlombok.org/) 进行代码生成，如果您不习惯，请自行生成相关 Getter/Setter 方法。
+:::
 
 编写 Mapper 包下的 UserMapper接口
 
@@ -247,7 +212,7 @@ public class SampleTest {
 }
 ```
 
-::: tip 提示
+::: danger 注意
 MPJLambdaWrapper类的泛型必须是主表类型, 并且要用主表对应的Mapper调用
 :::
 
@@ -261,9 +226,9 @@ User(id=4, name=Sandy, age=21, email=test4@baomidou.com,city=上海,address=人�
 User(id=5, name=Billie, age=24, email=test5@baomidou.com,city=北京,address=人民广场)
 ```
 
-### 提示
-
+::: tip 提示
 完整的代码示例请移步：[Spring Boot 快速启动示例](https://gitee.com/best_handsome/mybatis-plus-join-demo)
+:::
 
 ## 小结
 

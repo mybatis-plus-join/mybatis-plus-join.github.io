@@ -8,19 +8,19 @@
 ## 示例
 
 ```java
-    List<UserDO> list = JoinWrappers.lambda(UserDO.class)
-        .selectAll(UserDO.class)
-        .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
-        .applyFunc("concat(%s,%s,{0}) is not null",
-                arg -> arg.accept(UserDO::getId, AddressDO::getUserId),
-                "12")
-        //自定义别名
-        .applyFunc("concat(%s,%s,{0}) is not null",
-                arg -> arg.accept(
-                        Fun.f("t", UserDO::getId),
-                        Fun.f("t1", AddressDO::getUserId)),
-                "12")
-        .list();
+List<UserDO> list = JoinWrappers.lambda(UserDO.class)
+    .selectAll(UserDO.class)
+    .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
+    .applyFunc("concat(%s,%s,{0}) is not null",
+            arg -> arg.accept(UserDO::getId, AddressDO::getUserId),
+            "12")
+    //自定义别名
+    .applyFunc("concat(%s,%s,{0}) is not null",
+            arg -> arg.accept(
+                    Fun.f("t", UserDO::getId),
+                    Fun.f("t1", AddressDO::getUserId)),
+            "12")
+    .list();
 ```
 
 对应sql

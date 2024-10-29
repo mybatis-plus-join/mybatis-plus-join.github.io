@@ -62,7 +62,7 @@ public enum FuncEnum implements BaseFuncEnum {
 示例
 ```java
 .selectFunc(FuncEnum.DATE_FORMAT, UserDO::getCreateTime);
-//如果不想定义枚举，或不通用的可以直接写函数，效果是一样的
+//如果不想定义枚举，可以直接写函数，效果是一样的
 .selectFunc(() -> "DATE_FORMAT(%s, '%%Y-%%m-%%d')", UserDO::getCreateTime);
 ```
 对应sql

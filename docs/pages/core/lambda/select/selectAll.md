@@ -12,11 +12,11 @@
 :::
 
 ```java
-wrapper.selectAll(User .class)
+wrapper.selectAll(User.class)
 ```
 
-User类的全部字段，除了name，支持可变参数 <Badge type="tip" text="1.4.13+" vertical="top" />
+查询User类的全部字段，除了name，支持可变参数 <Badge type="tip" text="1.4.13+" vertical="top" />
 
 ```java
-wrapper.selectAll(User .class, User::getName)
+wrapper.selectAll(User.class, User::getName)
 ```

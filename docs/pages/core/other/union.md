@@ -11,9 +11,9 @@ class MpJoinTest {
     void union() {
         MPJLambdaWrapper<UserDO> w = JoinWrappers.lambda(UserDO.class)
                 .selectAll(UserDO.class)
-                .union(AddressDO.class, union -> union
+                .union(UserDO.class, union -> union
                         .selectAll(UserDO.class))
-                .union(AddressDO.class, union -> union
+                .union(UserDO.class, union -> union
                         .selectAll(UserDO.class));
         //union all 调用unionAll即可 如下
         //.unionAll(AddressDO.class, union -> union...);

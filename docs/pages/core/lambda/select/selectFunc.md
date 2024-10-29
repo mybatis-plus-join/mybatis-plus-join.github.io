@@ -1,13 +1,13 @@
 # SQL函数
 
-## Wrapper内置的常用函数支持
+## 内置函数支持
 
-* selectSum(UserDO::getId)   
-* selectCount(UserDO::getId) 
-* selectMax(UserDO::getId)   
-* selectMin(UserDO::getId)   
-* selectAvg(UserDO::getId)   
-* selectLen(UserDO::getId)   
+* selectSum(UserDO::getId)
+* selectCount(UserDO::getId)
+* selectMax(UserDO::getId)
+* selectMin(UserDO::getId)
+* selectAvg(UserDO::getId)
+* selectLen(UserDO::getId)
 
 支持自定义别名
 
@@ -23,14 +23,22 @@ SUM(t.id) AS total
 
 ## 自定义聚合函数用法
 
+### 使用函数枚举
+
+::: tip 提示
+框架自带的枚举类 [`DefaultFuncEnum.java`](https://github.com/yulichang/mybatis-plus-join/blob/master/mybatis-plus-join-core/src/main/java/com/github/yulichang/wrapper/enums/DefaultFuncEnum.java)
+:::
+
+自定义函数枚举类 `FuncEnum` 继承 `BaseFuncEnum`
+
 ```java
 public enum FuncEnum implements BaseFuncEnum {
     IF_SEX("IF(%s=1,'男','女')"),                         //if 性别转换
     CASE_SEX("CASE %s WHEN 1 THEN '男' ELSE '女' END"),   //case 性别转换
     LCASE("LCASE(%s)");
-    
+
     private final String sql;
-    
+
     FuncEnum(String sql) {
         this.sql = sql;
     }
@@ -42,38 +50,72 @@ public enum FuncEnum implements BaseFuncEnum {
 }
 ```
 
-测试
+::: warning 通配符说明
+底层实现调用的是`String.format(String format, Object... args)`  
+会存在 `String.format` 占位符与sql冲突的情况  
+比如日期格式化    
+错误写法 `DATE_FORMAT(%s, '%Y-%m-%d')`  
+存在其他占位符，要用 `%%` 来代替 `%`  
+正确写法 `DATE_FORMAT(%s, '%%Y-%%m-%%d')`
+:::
 
+示例
 ```java
-void funcTest() {
-    MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
-            // 自定义的函数枚举
-            .selectFunc(FuncEnum.DATE_FORMAT, UserDO::getDel)
-            // 也可以用lambda自定义
-            .selectFunc(() -> "IF(%s=1,'男','女')", UserDO::getSex)
-            // 支持多个通配符,参数顺序与arg参数顺序保持一致
-            .selectFunc("concat(%s, %s)", arg -> arg.accept(UserDO::getName, UserDO::getId), UserDO::getSex)
-            // 自定义字段别名
-            .selectFunc("concat(%s, %s)", arg -> arg.accept(
-                    Fun.f("t", UserDO::getName), //t.name
-                    Fun.f("t", UserDO::getId)    //t.id
-            ), UserDO::getSex)
-            .leftJoin(UserAddressDO.class, on -> on
-                    .eq(UserAddressDO::getUserId, UserDO::getId)
-                    .eq(UserAddressDO::getId, UserDO::getId))
-            .eq(UserDO::getId, 2);
-    userMapper.selectJoinList(UserDTO.class, wrapper);
-}
+.selectFunc(FuncEnum.DATE_FORMAT, UserDO::getCreateTime);
+//如果不想定义枚举，或不通用的可以直接写函数，效果是一样的
+.selectFunc(() -> "DATE_FORMAT(%s, '%%Y-%%m-%%d')", UserDO::getCreateTime);
+```
+对应sql
+```sql
+DATE_FORMAT(t.create_time, '%Y-%m-%d') AS createTime
+```
+
+### 多个字段的函数
+
+示例
+```java
+.selectFunc("concat(%s, %s)", arg -> arg
+        .accept(UserDO::getFirstName, UserDO::getLastName)
+        , UserDTO::getFullName)
+```
+对应sql
+```sql
+concat(t.first_name, t.last_name) AS fullName
+```
+
+### 带参数的函数 <Badge type="tip" text="1.5.2+" />
+
+示例
+```java
+.selectFunc("if(%s < 18, {0}, {1})", arg -> arg
+        .accept(UserDO::getAge).values("未成年", "成年")
+        , UserDTO::getStatus)
+```
+对应sql
+```sql
+if(t.age < 18, ?, ?) AS status
+```
+
+## 完整示例
+```java
+MPJLambdaWrapper<UserDO> wrapper = JoinWrappers.lambda(UserDO.class)
+        .selectFunc(() -> "DATE_FORMAT(%s, '%%Y-%%m-%%d')", UserDO::getCreateTime)
+        .selectFunc("concat(%s, %s)", arg -> arg
+                .accept(UserDO::getFirstName, UserDO::getLastName)
+                , UserDTO::getFullName)
+        .selectFunc("if(%s < 18, {0}, {1})", arg -> arg
+                .accept(UserDO::getAge).values("未成年", "成年")
+                , UserDTO::getStatus);
+
+List<UserDTO> userList = wrapper.list(UserDTO.class);
 ```
 
 对应sql
 
 ```sql
-SELECT DATE_FORMAT(t.del, '%Y-%m-%d')            AS del,
-       UCASE(t1.address)                         AS address,
-       CASE t.sex WHEN 1 THEN '男' ELSE '女' END AS sex,
-       IF(t.sex = 1, '男', '女')                 AS sex
-FROM user t
-         LEFT JOIN user_address t1 ON (t1.user_id = t.id AND t1.id = t.id)
-WHERE (t.id = ?)
+select 
+    DATE_FORMAT(t.create_time, '%Y-%m-%d') AS createTime,
+    concat(t.first_name, t.last_name) AS fullName,
+    if(t.age < 18, ?, ?) AS status
+from user t
 ```

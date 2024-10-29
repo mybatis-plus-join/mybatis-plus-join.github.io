@@ -56,7 +56,7 @@ export default defineConfig({
 
         returnToTopLabel: '返回顶部',
 
-        outline: {level: 2, label: '页面导航'},
+        outline: {level: [2, 4], label: '页面导航'},
 
         editLink: {
             pattern: 'https://github.com/mybatis-plus-join/mybatis-plus-join.github.io/edit/main/docs/:path',

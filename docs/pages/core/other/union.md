@@ -16,7 +16,7 @@ class MpJoinTest {
                 .union(UserDO.class, union -> union
                         .selectAll(UserDO.class));
         //union all 调用unionAll即可 如下
-        //.unionAll(AddressDO.class, union -> union...);
+        //.unionAll(UserDO.class, union -> union...);
         w.list();
     }
 }

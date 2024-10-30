@@ -31,7 +31,7 @@ export const sidebar = [
         items: [
             {
                 text: 'select',
-                collapsed: true,
+                collapsed: false,
                 items: [
                     {link: '/pages/core/lambda/select/distinct', text: 'distinct'},
                     {link: '/pages/core/lambda/select/select', text: 'select'},
@@ -46,7 +46,7 @@ export const sidebar = [
             },
             {
                 text: 'join',
-                collapsed: true,
+                collapsed: false,
                 items: [
                     {link: '/pages/core/lambda/join/leftJoin', text: 'leftJoin'},
                     {link: '/pages/core/lambda/join/rightJoin', text: 'rightJoin'},

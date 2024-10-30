@@ -77,6 +77,11 @@ DATE_FORMAT(t.create_time, '%Y-%m-%d') AS createTime
 .selectFunc("concat(%s, %s)", arg -> arg
         .accept(UserDO::getFirstName, UserDO::getLastName)
         , UserDTO::getFullName)
+//支持自定义别名
+.selectFunc("concat(%s, %s)", arg -> arg
+        .accept(Fun.f("t", UserDO::getFirstName), 
+                Fun.f("t", UserDO::getLastName))
+        , UserDTO::getFullName)
 ```
 对应sql
 ```sql
@@ -94,6 +99,22 @@ concat(t.first_name, t.last_name) AS fullName
 对应sql
 ```sql
 if(t.age < 18, ?, ?) AS status
+```
+
+带子查询 
+```java
+.selectFunc("concat(%s, %s, {0}, {1})", arg -> arg
+        .accept(UserDO::getId,
+                Fun.f(UserDO.class, u -> u
+                    .select(UserDO::getId)
+                    .eq(UserDO::getId, UserDO::getId)))
+        .values("abc", 123),
+        UserDTO::getAddress)
+```
+对应sql (此sql无意义，此处只做功能演示)
+```sql
+concat(t.id, (SELECT st.id FROM `user` st WHERE st.del = false AND (st.id = t.id)), 
+      ?, ?) AS address
 ```
 
 ## 完整示例

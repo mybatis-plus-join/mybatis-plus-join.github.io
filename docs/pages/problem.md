@@ -118,7 +118,11 @@ public class MybatisPlusConfig {
 
 ## 使用快照版本
 
-最新快照版本 [![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/https/oss.sonatype.org/com.github.yulichang/mybatis-plus-join-boot-starter.svg)](https://oss.sonatype.org/content/repositories/snapshots/com/github/yulichang/mybatis-plus-join-boot-starter/)
+最新快照版本 
+<a href="https://www.baidu.com" target="_blank" rel="noreferrer">
+    <img id="problem-snapshot-img" style="display: inline !important; ::after" src="https://img.shields.io/nexus/s/https/oss.sonatype.org/com.github.yulichang/mybatis-plus-join-boot-starter.svg"  alt="maven"/>
+</a>
+
 
 ```xml
 <dependencies>

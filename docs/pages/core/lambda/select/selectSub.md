@@ -25,10 +25,12 @@ class MpJoinTest {
 
 对应log
 
-```log
-==>  Preparing: SELECT ( SELECT st.id FROM `user` st WHERE (st.id = t.id) limit 1 ) AS id FROM `user` t LEFT JOIN address t1 ON (t1.user_id = t.id) WHERE t1.del=false AND (t.id <= ?)
-==> Parameters: 100(Integer)
-<==      Total: 18
+```sql
+SELECT 
+    (SELECT st.id FROM `user` st WHERE (st.id = t.id) limit 1 ) AS id
+FROM `user` t LEFT JOIN address t1
+ON (t1.user_id = t.id)
+WHERE t1.del= false AND (t.id <= ?)
 ```
 
 ::: tip 提示:

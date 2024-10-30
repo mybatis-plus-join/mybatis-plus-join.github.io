@@ -116,6 +116,34 @@ public class MybatisPlusConfig {
 
 ```
 
+## 使用快照版本
+
+最新快照版本 [![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/https/oss.sonatype.org/com.github.yulichang/mybatis-plus-join-boot-starter.svg)](https://oss.sonatype.org/content/repositories/snapshots/com/github/yulichang/mybatis-plus-join-boot-starter/)
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.github.yulichang</groupId>
+        <artifactId>mybatis-plus-join-boot-starter</artifactId>
+        <!--  快照版本通常以 SNAPSHOT 结尾  -->
+        <version>xxx-SNAPSHOT</version>
+    </dependency>
+</dependencies>
+<!-- 快照对应的仓库地址 -->
+<repositories>
+    <repository>
+        <id>central</id>
+        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+        <releases>
+            <enabled>false</enabled>
+        </releases>
+    </repository>
+</repositories>
+```
+
 ## 1.2.x升级1.4.x
 * Wrapper泛必须是主表(1.2不做限制) new MPJLambdaWrapper<主表>()
 * 移除api selectIgnore

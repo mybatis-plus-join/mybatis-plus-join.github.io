@@ -5,6 +5,7 @@
 单条件(等于 = )示例:
 
 ```java
+.leftJoin("address t1 on t1.user_id = t.id)
 .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId) 
 ```
 
@@ -78,6 +79,14 @@ LEFT JOIN address addr ON (t1.user_id = u1.id AND t1.id = u2.id AND addr1.id = u
 join一个自定义表
 
 ```java
+//String
+JoinWrappers.lambda(UserDO.class)
+        .selectAll()
+        .leftJoin("(select * from address addr where addr.id = {0})", 1)
+        .le(AddressDO::getId, 10000)
+        .list(UserDTO.class);
+wrapper.list();
+//lambda
 JoinWrappers.lambda(UserDO.class)
         .selectAll()
         .leftJoin(AddressDO.class, t -> {

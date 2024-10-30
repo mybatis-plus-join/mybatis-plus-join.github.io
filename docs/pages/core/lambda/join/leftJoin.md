@@ -5,7 +5,9 @@
 单条件(等于 = )示例:
 
 ```java
+//String
 .leftJoin("address t1 on t1.user_id = t.id)
+//lambda
 .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId) 
 ```
 

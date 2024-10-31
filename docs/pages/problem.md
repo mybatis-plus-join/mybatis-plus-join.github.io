@@ -123,7 +123,7 @@ public class MybatisPlusConfig {
     <img id="problem-snapshot-img" style="display: inline !important;" src="https://img.shields.io/nexus/s/https/oss.sonatype.org/com.github.yulichang/mybatis-plus-join-boot-starter.svg"  alt="maven"/>
 </a>
 
-添加依赖 （Maven）
+添加依赖
 ```xml
 <dependencies>
     <dependency>
@@ -134,7 +134,7 @@ public class MybatisPlusConfig {
     </dependency>
 </dependencies>
 ```
-添加快照惨哭
+添加快照仓库
 
 ```xml
 <repository>

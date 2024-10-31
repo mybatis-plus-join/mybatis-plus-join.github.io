@@ -61,6 +61,7 @@ export const sidebar = [
             {link: '/pages/core/other/union', text: 'union/union all'},
             {link: '/pages/core/other/if-exists', text: 'ifExists'},
             {link: '/pages/core/other/sub-query', text: '子查询'},
+            {link: '/pages/core/other/from', text: 'from'},
             {link: '/pages/core/other/condition-wrapper', text: '条件构造器'},
             {link: '/pages/core/other/join-same-table-many', text: '关联同一张表多次'},
             {link: '/pages/core/other/self-join', text: '自连接'},

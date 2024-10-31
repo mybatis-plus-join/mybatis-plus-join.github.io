@@ -6,9 +6,9 @@
 
 ```java
 //String
-.leftJoin("address t1 on t1.user_id = t.id)
+leftJoin("address t1 on t1.user_id = t.id);
 //lambda
-.leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId) 
+leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId);
 ```
 
 对应sql
@@ -27,14 +27,14 @@ LEFT JOIN address t1 on t1.user_id = t.id
 
 ```java
 // LEFT JOIN address addr on addr.user_id = t.id
-.leftJoin(AddressDO.class, "addr", AddressDO::getUserId, UserDO::getId)
+leftJoin(AddressDO.class, "addr", AddressDO::getUserId, UserDO::getId)
 ```
 
 指定其他表别名
 
 ```java
 // LEFT JOIN address addr on addr.user_id = user.id
-.leftJoin(AddressDO.class, "addr", AddressDO::getUserId, "user", UserDO::getId)
+leftJoin(AddressDO.class, "addr", AddressDO::getUserId, "user", UserDO::getId)
 ```
 
 比如需要关联同一张表两次及以上时候就需要自定义别名进行区分  
@@ -43,11 +43,11 @@ LEFT JOIN address t1 on t1.user_id = t.id
 ## 多条件示例
 
 ```java
-.leftJoin(AddressDO.class, on -> on
+leftJoin(AddressDO.class, on -> on
         .eq(AddressDO::getUserId,UserDO::getId)
         .eq(AddressDO::getId,UserDO::getId))
 //自定义别名
-.leftJoin(AddressDO.class, "addr", on -> on
+leftJoin(AddressDO.class, "addr", on -> on
         .eq(AddressDO::getUserId, UserDO::getId)
         .eq(AddressDO::getId, UserDO::getId)
         .ge(AddressDO::getId, 10))
@@ -64,7 +64,7 @@ LEFT JOIN address addr ON (addr.user_id = t.id AND addr.id = t.id AND addr.id = 
 多条件字段别名示例
 
 ```java
-.leftJoin(AddressDO.class, "addr", on -> on
+leftJoin(AddressDO.class, "addr", on -> on
         .eq(AddressDO::getUserId, "u1", UserDO::getId)
         .eq(AddressDO::getId, "u2", UserDO::getId)
         .eq("addr1", AddressDO::getId, "u2", UserDO::getId))
@@ -82,12 +82,7 @@ join一个自定义表
 
 ```java
 //String
-JoinWrappers.lambda(UserDO.class)
-        .selectAll()
-        .leftJoin("(select * from address addr where addr.id = {0})", 1)
-        .le(AddressDO::getId, 10000)
-        .list(UserDTO.class);
-wrapper.list();
+leftJoin("(select * from address addr where addr.id = {0})", 1);
 //lambda
 JoinWrappers.lambda(UserDO.class)
         .selectAll()

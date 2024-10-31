@@ -16,7 +16,7 @@ leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId);
 LEFT JOIN address t1 on t1.user_id = t.id
 ```
 
-说明:
+lambda调用参数说明:
 
 第一个参数: 参与连表的实体类class  
 第二个参数: 连表的ON字段,这个属性必须是第一个参数实体类的属性  
@@ -144,7 +144,4 @@ FROM `user` t LEFT JOIN
 WHERE (t1.id <= ?)
 ```
 
-::: warning 提示
-复杂需求或sql不推荐使用  
-建议使用xml
-:::
+<!--@include: ../../../../component/code-warn.md-->

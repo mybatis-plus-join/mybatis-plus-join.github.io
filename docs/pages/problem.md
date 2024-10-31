@@ -123,7 +123,7 @@ public class MybatisPlusConfig {
     <img id="problem-snapshot-img" style="display: inline !important;" src="https://img.shields.io/nexus/s/https/oss.sonatype.org/com.github.yulichang/mybatis-plus-join-boot-starter.svg"  alt="maven"/>
 </a>
 
-
+添加依赖 （Maven）
 ```xml
 <dependencies>
     <dependency>
@@ -133,19 +133,33 @@ public class MybatisPlusConfig {
         <version>xxx-SNAPSHOT</version>
     </dependency>
 </dependencies>
-<!-- 快照对应的仓库地址 -->
-<repositories>
-    <repository>
-        <id>central</id>
-        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        <snapshots>
-            <enabled>true</enabled>
-        </snapshots>
-        <releases>
-            <enabled>false</enabled>
-        </releases>
-    </repository>
-</repositories>
+```
+添加快照惨哭
+
+```xml
+<repository>
+    <id>snapshots</id>
+    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+</repository>
+```
+
+当使用阿里云仓库无法下载快照时，请在 mirrorOf 中加上。
+
+```xml
+<mirror>
+  <id>aliyunmaven</id>
+  <mirrorOf>*,!snapshots</mirrorOf>
+  <name>阿里云公共仓库</name>
+  <url>https://maven.aliyun.com/repository/public</url>
+</mirror>
+```
+
+Gradle：
+
+```groovy
+repositories {
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+}
 ```
 
 ## 1.2.x升级1.4.x

@@ -143,3 +143,8 @@ FROM `user` t LEFT JOIN
        ) t1 ON (t1.user_id = t.id)
 WHERE (t1.id <= ?)
 ```
+
+::: warning 提示
+复杂需求或sql不推荐使用  
+建议使用xml
+:::

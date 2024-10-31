@@ -140,3 +140,7 @@ select
     if(t.age < 18, ?, ?) AS status
 from user t
 ```
+::: warning 提示
+复杂需求或sql不推荐使用  
+建议使用xml
+:::

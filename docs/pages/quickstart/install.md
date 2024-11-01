@@ -30,6 +30,11 @@ public interface UserMapper extends MPJBaseMapper<UserDO> {
 }
 ```
 
+::: warning 提示
+如遇到异常或报错可参考 [常见问题](../problem)  
+若还是无法解决可到GitHub提Issue或添加作者微信咨询
+:::
+
 ::: details Service(可选)
 ```java
 public interface UserService extends MPJBaseService<UserDO> {
@@ -45,6 +50,7 @@ public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, UserDO> impl
 
 }
 ```
+:::
 
 ::: details Repository(可选) <Badge type="tip" text="MPJ 1.5.2+" /> <Badge type="tip" text="MP 3.5.9+" />
 ```java
@@ -53,3 +59,4 @@ public class UserRepository extends JoinCrudRepository<UserMapper, UserDO>  {
 
 }
 ```
+:::

@@ -33,6 +33,7 @@ select ... form user_2023 t
 
 ::: danger 说明
 <Badge type="danger" text="1.5.2" vertical="top" /> 之前版本必须配置  
+
 <Badge type="tip" text="1.5.2-" vertical="top" /> 及之后版本无需添加此注解
 :::
 

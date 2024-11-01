@@ -17,12 +17,11 @@ tags:
 <!--@include: ../../component/version.md-->
 
 ::: warning 注意
-
 MyBatis-Plus-Join 需要配合 MyBatis-plus 3.3.0 及以上的版本使用 
 :::
 
 
-## mapper继承MPJBaseMapper
+## 修改代码
 
 ```java
 @Mapper
@@ -31,20 +30,26 @@ public interface UserMapper extends MPJBaseMapper<UserDO> {
 }
 ```
 
-## (可选)service继承MPJBaseService
-
+::: details Service(可选)
 ```java
 public interface UserService extends MPJBaseService<UserDO> {
 
 }
 ```
+:::
 
-## (可选)serviceImpl继承MPJBaseServiceImpl
-
-
+::: details ServiceImpl(可选)
 ```java
 @Service
 public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, UserDO> implements UserService {
+
+}
+```
+
+::: details Repository(可选) <Badge type="tip" text="MPJ 1.5.2+" /> <Badge type="tip" text="MP 3.5.9+" />
+```java
+@Repository
+public class UserRepository extends JoinCrudRepository<UserMapper, UserDO>  {
 
 }
 ```

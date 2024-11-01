@@ -16,7 +16,7 @@ wrapper.selectAll(User.class)
 ```
 
 若Wrapper构造传了class可省略class  
-new MPJLambdaWrapper<>(class) 或者 JoinWrappers.lambda(class)
+如 `new MPJLambdaWrapper<>(class)` 或者 `JoinWrappers.lambda(class)`
 
 ```java
 wrapper.selectAll()

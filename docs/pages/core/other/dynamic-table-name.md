@@ -29,7 +29,13 @@ select ... from user t
 select ... form user_2023 t
 :::
 
-## 配置 @DynamicTableName
+## 配置 <s>@DynamicTableName</s> <Badge type="danger" text="1.5.2-" vertical="top" />
+
+::: danger 说明
+<Badge type="danger" text="1.5.2" vertical="top" /> 之前版本必须配置  
+<Badge type="tip" text="1.5.2-" vertical="top" /> 及之后版本无需添加此注解
+:::
+
 支持主表和副表动态表名  
 主表需要添加@DynamicTableName注解启用动态表名 副表不需要添加也能实现动态表名
 ```java
@@ -45,11 +51,11 @@ MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
         .leftJoin(AddressDO.class, on -> on
                 .eq(AddressDO::getUserId, UserDO::getId)
                 // 副表动态表名 name 为原副表名 返回新表名
-                .setTableName(name -> name + "aaaaaaaaaa"))
+                .setTableName(name -> name + "aaaaaaaaaa")) // [!code ++]
         .leftJoin(AreaDO.class, AreaDO::getId, AddressDO::getAreaId)
         .le(UserDO::getId, 10000)
         .orderByDesc(UserDO::getId)
         // 主表动态表名 name 为原主表表名 返回新表名
-        .setTableName(name -> name + "bbbbbbb");
+        .setTableName(name -> name + "bbbbbbb"); // [!code ++]
 ```
  

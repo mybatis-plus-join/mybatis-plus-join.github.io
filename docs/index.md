@@ -57,16 +57,3 @@ features:
 ## 当前 MyBatis-Plus-Join 最新版本
 
 <!--@include: ./component/version.md-->
-
-
-## 代码托管
-
-👉️ [Github](https://github.com/yulichang/mybatis-plus-join) | 👉️ [Gitee](https://gitee.com/best_handsome/mybatis-plus-join)
-
-## 演示工程
-
-👉️ [Github](https://github.com/yulichang/mybatis-plus-join-demo) | 👉️ [Gitee](https://gitee.com/best_handsome/mybatis-plus-join-demo)
-
-## 友情链接
-
-[MyBatis-Plus](https://baomidou.com/)

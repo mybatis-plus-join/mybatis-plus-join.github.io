@@ -105,7 +105,9 @@ public class MybatisPlusConfig {
         MybatisSqlSessionFactoryBean sessionFactory = new MybatisSqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         // 关联SqlSessionFactory与GlobalConfig
-        sessionFactory.setGlobalConfig(new GlobalConfig().setSqlInjector(new MPJSqlInjector()));
+        GlobalConfig globalConfig = new GlobalConfig();
+        globalConfig.setSqlInjector(new MPJSqlInjector()); // [!code ++]
+        sessionFactory.setGlobalConfig(globalConfig);
         // 添加拦截器 MPJInterceptor需要放在最后面
         // 如果项目没有使用拦截器, 只需要添加MPJ拦截器sessionFactory.setPlugins(new MPJInterceptor());
         sessionFactory.setPlugins(你的拦截器, new MPJInterceptor());

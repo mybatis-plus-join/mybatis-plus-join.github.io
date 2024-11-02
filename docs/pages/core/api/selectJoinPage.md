@@ -1,6 +1,6 @@
 # selectJoinPage 连表分页查询返回所有命中记录(需要启用mybatis-plus分页插件)
 
-## MPJLambdaWrapper
+## 示例
 
 ```java
 class MpJoinTest {
@@ -19,7 +19,7 @@ class MpJoinTest {
 }
 ```
 
-对应sql
+## 对应sql
 
 ```sql
 SELECT t.id,
@@ -31,37 +31,3 @@ FROM user t
          LEFT JOIN user_address t1 ON t1.user_id = t.id
 WHERE (t.id = ?) LIMIT ?
 ```
-
-## MPJQueryWrapper
-
-```java
-class MpJoinTest {
-    @Resource
-    private UserMapper userMapper;
-
-    @Test
-    void joinTest() {
-        MPJQueryWrapper<UserDO> wrapper = new MPJQueryWrapper<UserDO>()
-                .selectAll(UserDO.class)
-                .select("addr.address")
-                .leftJoin("user_address addr on addr.user_id = t.id")
-                .eq("t.id", 1);
-        IPage<UserDTO> page = userMapper.selectJoinPage(new Page<>(1, 10), UserDTO.class, wrapper);
-    }
-}
-```
-
-对应sql
-
-```sql
-SELECT t.id,
-       t.name,
-       t.sex,
-       t.head_img,
-       addr.address
-FROM user t
-         LEFT JOIN user_address addr on addr.user_id = t.id
-WHERE (t.id = ?) LIMIT ?,?
-```
-
-

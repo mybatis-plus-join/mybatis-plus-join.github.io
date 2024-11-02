@@ -1,6 +1,8 @@
-# leftJoin
+# 连表查询
 
-## 左连接
+支持 `left join` 、 `right join` 、 `inner join` 、 和其他自定义连接
+
+## left join
 
 单条件(等于 = )示例:
 
@@ -23,7 +25,7 @@ lambda调用参数说明:
 第三个参数: 参与连表的ON的另一个实体类属性
 
 
-## 自定义表别名
+### 自定义表别名
 
 ```java
 // LEFT JOIN address addr on addr.user_id = t.id
@@ -40,7 +42,7 @@ leftJoin(AddressDO.class, "addr", AddressDO::getUserId, "user", UserDO::getId)
 比如需要关联同一张表两次及以上时候就需要自定义别名进行区分  
 [别名使用案例](/pages/core/other/join-same-table-many)
 
-## 多条件示例
+### 多条件示例
 
 ```java
 leftJoin(AddressDO.class, on -> on
@@ -76,7 +78,7 @@ leftJoin(AddressDO.class, "addr", on -> on
 LEFT JOIN address addr ON (t1.user_id = u1.id AND t1.id = u2.id AND addr1.id = u2.id)
 ```
 
-## 自定义数据表 <Badge type="tip" text="1.5.2+" />
+### 自定义数据表 <Badge type="tip" text="1.5.2+" />
 
 join一个自定义表
 
@@ -145,3 +147,27 @@ WHERE (t1.id <= ?)
 ```
 
 <!--@include: ../../../../component/code-warn.md-->
+
+## right join
+
+用法与 `left join` 一致，请参考 [`left join`](./join.html#left-join)
+
+## inner join
+
+用法与 `left join` 一致，请参考 [`left join`](./join.html#left-join)
+
+## 自定义连接
+
+支持传入自定义关键词，以 `full join` 为例
+
+```java
+.join("FULL JOIN", UserAddressDO.class, on -> on
+                        .eq(UserAddressDO::getUserId, UserDO::getId)
+                        .eq(UserAddressDO::getId, UserDO::getId))
+```
+
+对应sql
+
+```sql
+FULL JOIN user_address t1 ON (t1.user_id = t.id AND t1.id = t.id)
+```

@@ -30,7 +30,6 @@ export const sidebar = [
         items: [
             {
                 text: 'select',
-                collapsed: false,
                 items: [
                     {link: '/pages/core/lambda/select/distinct', text: 'distinct'},
                     {link: '/pages/core/lambda/select/select', text: 'select'},
@@ -43,16 +42,7 @@ export const sidebar = [
                     {link: '/pages/core/lambda/select/selectSub', text: 'selectSub'},
                 ]
             },
-            {
-                text: 'join',
-                collapsed: false,
-                items: [
-                    {link: '/pages/core/lambda/join/leftJoin', text: 'leftJoin'},
-                    {link: '/pages/core/lambda/join/rightJoin', text: 'rightJoin'},
-                    {link: '/pages/core/lambda/join/innerJoin', text: 'innerJoin'},
-                    {link: '/pages/core/lambda/join/join', text: 'join'},
-                ]
-            },
+            {link: '/pages/core/lambda/join', text: 'join'},
             {link: '/pages/core/other/logic-delete', text: '逻辑删除'},
             {link: '/pages/core/other/chain', text: '链式调用'},
             {link: '/pages/core/other/apply-func', text: '条件函数(applyFunc)'},
@@ -64,23 +54,6 @@ export const sidebar = [
             {link: '/pages/core/other/condition-wrapper', text: '条件构造器'},
             {link: '/pages/core/other/join-same-table-many', text: '关联同一张表多次'},
             {link: '/pages/core/other/self-join', text: '自连接'},
-        ],
-    },
-    {
-        text: 'MPJQueryWrapper',
-        collapsed: true,
-        items: [
-            {link: '/pages/core/str/select', text: 'select'},
-            {
-                text: 'join',
-                collapsed: true,
-                children: [
-                    {link: '/pages/core/str/join/leftJoin', text: 'leftJoin'},
-                    {link: '/pages/core/str/join/rightJoin', text: 'rightJoin'},
-                    {link: '/pages/core/str/join/innerJoin', text: 'innerJoin'},
-                    {link: '/pages/core/str/join/join', text: 'join'},
-                ]
-            },
         ],
     },
     {

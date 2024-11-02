@@ -1,6 +1,6 @@
 # 连表查询返回一条记录 selectJoinOne
 
-## MPJLambdaWrapper
+## 示例
 
 ```java
 class MpJoinTest {
@@ -19,7 +19,7 @@ class MpJoinTest {
 }
 ```
 
-对应sql
+## 对应sql
 
 ```sql
 SELECT 
@@ -39,40 +39,3 @@ WHERE (
 ```java
 org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 2
 ```
-
-
-## MPJQueryWrapper
-
-```java
-class MpJoinTest {
-    @Resource
-    private UserMapper userMapper;
-
-    @Test
-    void joinTest() {
-        MPJQueryWrapper<UserDO> wrapper = new MPJQueryWrapper<UserDO>()
-                .selectAll(UserDO.class)
-                .select("addr.address")
-                .leftJoin("user_address addr on addr.user_id = t.id")
-                .eq("t.id", 2);
-        UserDTO dto = userMapper.selectJoinOne(UserDTO.class, wrapper);
-    }
-}
-```
-
-对应sql
-
-```sql
-SELECT 
-    t.id,
-    t.name,
-    t.sex,
-    t.head_img,
-    addr.address,
-FROM 
-    user t 
-    LEFT JOIN user_address addr on addr.user_id = t.id 
-WHERE (
-    t.id = ?)
-```
-

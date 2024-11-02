@@ -10,9 +10,7 @@ tags:
 * JDK 8+
 * Maven or Gradle
 
-## Spring Boot
-
-添加依赖
+## 添加依赖
 
 <!--@include: ../../component/version.md-->
 

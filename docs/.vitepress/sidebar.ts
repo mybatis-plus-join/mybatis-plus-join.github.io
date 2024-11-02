@@ -1,7 +1,6 @@
 export const sidebar = [
     {
         text: '快速入门',
-        collapsed: false,
         items: [
             {text: '介绍', link: '/pages/quickstart/introduce'},
             {text: '快速开始', link: '/pages/quickstart/quickstart'},
@@ -86,7 +85,6 @@ export const sidebar = [
     },
     {
         text: '参考',
-        collapsed: false,
         items: [
             {link: '/pages/core/mapping/intro', text: '注解映射'},
             {link: '/pages/core/config/config', text: '配置'},

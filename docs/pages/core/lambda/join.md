@@ -146,7 +146,7 @@ FROM `user` t LEFT JOIN
 WHERE (t1.id <= ?)
 ```
 
-<!--@include: ../../../../component/code-warn.md-->
+<!--@include: ../../../component/code-warn.md-->
 
 ## right join
 

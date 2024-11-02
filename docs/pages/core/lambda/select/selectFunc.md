@@ -113,8 +113,7 @@ if(t.age < 18, ?, ?) AS status
 ```
 对应sql (此sql无意义，此处只做功能演示)
 ```sql
-concat(t.id, (SELECT st.id FROM `user` st WHERE st.del = false AND (st.id = t.id)), 
-      ?, ?) AS address
+concat(t.id, (SELECT st.id FROM `user` st WHERE (st.id = t.id)), ?, ?) AS address
 ```
 
 ## 完整示例

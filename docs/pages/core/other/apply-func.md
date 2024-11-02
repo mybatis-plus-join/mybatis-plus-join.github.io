@@ -32,12 +32,7 @@ SELECT t.id,
        t.`json`,
        t.sex,
        t.head_img,
-       t.create_time,
-       t.address_id,
-       t.address_id2,
-       t.del,
-       t.create_by,
-       t.update_by
+       t.create_time
 FROM `user` t
          LEFT JOIN address t1 ON (t1.user_id = t.id)
 WHERE concat(t.id, t1.user_id, ?) is not null

@@ -111,7 +111,7 @@ if(t.age < 18, ?, ?) AS status
         .values("abc", 123),
         UserDTO::getAddress)
 ```
-对应sql (此sql无意义，此处只做功能演示)
+对应sql
 ```sql
 concat(t.id, (SELECT st.id FROM `user` st WHERE (st.id = t.id)), ?, ?) AS address
 ```

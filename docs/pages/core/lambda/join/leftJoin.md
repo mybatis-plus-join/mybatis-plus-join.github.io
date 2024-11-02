@@ -98,7 +98,7 @@ wrapper.list();
 
 对应sql
 ```sql
-SELECT t.id, t.pid, t.`name`, t.`json`, t.sex, t.head_img, t.del,
+SELECT t.id, t.pid, t.`name`, t.`json`, t.sex, t.head_img, t.del
 FROM `user` t LEFT JOIN
        (
             SELECT tt.id, tt.user_id, tt.area_id, tt.tel, tt.address, tt.del
@@ -130,7 +130,7 @@ wrapper.list();
 对应sql
 
 ```sql
-SELECT t.id, t.pid, t.`name`, t.`json`, t.sex, t.head_img, t.del,
+SELECT t.id, t.pid, t.`name`, t.`json`, t.sex, t.head_img, t.del
 FROM `user` t LEFT JOIN
        (
             SELECT tt.id, tt.user_id, tt.area_id, tt.tel, tt.address, tt.del

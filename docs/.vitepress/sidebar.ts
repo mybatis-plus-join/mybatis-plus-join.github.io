@@ -26,7 +26,6 @@ export const sidebar = [
     },
     {
         text: 'MPJLambdaWrapper',
-        collapsed: false,
         items: [
             {
                 text: 'select',
@@ -43,14 +42,14 @@ export const sidebar = [
                 ]
             },
             {link: '/pages/core/lambda/join', text: 'join'},
-            {link: '/pages/core/other/logic-delete', text: '逻辑删除'},
+            {link: '/pages/core/other/from', text: 'from'},
+            {link: '/pages/core/other/if-exists', text: 'ifExists'},
             {link: '/pages/core/other/chain', text: '链式调用'},
             {link: '/pages/core/other/apply-func', text: '条件函数(applyFunc)'},
+            {link: '/pages/core/other/logic-delete', text: '逻辑删除'},
             {link: '/pages/core/other/dynamic-table-name', text: '动态表名'},
             {link: '/pages/core/other/union', text: 'union/union all'},
-            {link: '/pages/core/other/if-exists', text: 'ifExists'},
             {link: '/pages/core/other/sub-query', text: '子查询'},
-            {link: '/pages/core/other/from', text: 'from'},
             {link: '/pages/core/other/condition-wrapper', text: '条件构造器'},
             {link: '/pages/core/other/join-same-table-many', text: '关联同一张表多次'},
             {link: '/pages/core/other/self-join', text: '自连接'},

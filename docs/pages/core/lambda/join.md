@@ -86,7 +86,7 @@ join一个自定义表
 //String
 leftJoin("(select * from address addr where addr.id = {0})", 1);
 //lambda
-JoinWrappers.lambda(UserDO.class)
+var wrapper = JoinWrappers.lambda(UserDO.class)
         .selectAll()
         .leftJoin(AddressDO.class, t -> {
                t.setAlias("tt")
@@ -112,7 +112,7 @@ WHERE (t1.id <= ?)
 多层
 
 ```java
-JoinWrappers.lambda(UserDO.class)
+var wrapper = JoinWrappers.lambda(UserDO.class)
         .selectAll()
         .leftJoin(AddressDO.class, t -> {
                t.setAlias("tt")

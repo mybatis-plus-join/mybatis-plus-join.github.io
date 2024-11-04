@@ -93,8 +93,7 @@ JoinWrappers.lambda(UserDO.class)
                 .selectAll()
                 .ge(AddressDO::getId, 0);
                }, AddressDO::getUserId, UserDO::getId)
-        .le(AddressDO::getId, 10000)
-        .list(UserDTO.class);
+        .le(AddressDO::getId, 10000);
 wrapper.list();
 ```
 
@@ -124,8 +123,7 @@ JoinWrappers.lambda(UserDO.class)
                       }, AreaDO::getId, AddressDO::getAreaId)
                 .ge(AddressDO::getId, 0);
                 }, AddressDO::getUserId, UserDO::getId)
-        .le(AddressDO::getId, 10000)
-        .list(UserDTO.class);
+        .le(AddressDO::getId, 10000);
 wrapper.list();
 ```
 

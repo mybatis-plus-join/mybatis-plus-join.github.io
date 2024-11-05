@@ -61,7 +61,7 @@ SELECT t.id,
        t.create_time
 FROM `user` t
          LEFT JOIN address t1 ON (t1.user_id = t.id)
-WHERE t.id IN (SELECT t.id FROM `user` t WHERE t.del = false AND (t.id BETWEEN ? AND ?))
+WHERE t.id IN (SELECT t.id FROM `user` t WHERE (t.id BETWEEN ? AND ?))
 ```
 
 ## 子查询别名

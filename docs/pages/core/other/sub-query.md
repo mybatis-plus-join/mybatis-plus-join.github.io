@@ -24,6 +24,7 @@
 ```java
 /**
  * 参数说明
+ *
  * @param colum eq对应的列
  * @param queryClass 子查询对应的主表类
  * @param wrapper 子查询构造器

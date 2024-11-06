@@ -31,7 +31,9 @@
  * @param wrapper 子查询构造器
  */
 eq(SFunction colum, Class queryClass, Function wrapper);// [!code highlight]
-// 条件重载 condition 为 false 时不添加条件
+/**
+ * 条件重载 condition 为 false 时不添加条件
+ */
 eq(boolean condition, SFunction colum, Class queryClass, Function wrapper);// [!code highlight]
 ```
 

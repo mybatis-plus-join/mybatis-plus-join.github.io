@@ -17,8 +17,6 @@
  <li style="width: 255px">isNotNull</li>
 </ul>
 
-<br/>
-
 ## API
 
 以eq为例

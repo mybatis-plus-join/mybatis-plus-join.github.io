@@ -14,11 +14,6 @@ tags:
 
 <!--@include: ../../component/version.md-->
 
-::: warning 注意
-MyBatis-Plus-Join 需要配合 MyBatis-plus 3.3.0 及以上的版本使用 
-:::
-
-
 ## 修改代码
 
 ```java

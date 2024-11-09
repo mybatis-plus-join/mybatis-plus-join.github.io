@@ -16,6 +16,8 @@ export default defineConfig({
         nav: [
             {text: '首页', link: '/',},
             {text: '问答', link: '/pages/problem',},
+            {text: 'Github', link: 'https://github.com/yulichang/mybatis-plus-join',},
+            {text: 'Gitee', link: 'https://gitee.com/best_handsome/mybatis-plus-join',},
         ],
         search: {
             provider: 'local',

@@ -44,7 +44,7 @@ eq(boolean condition, SFunction colum, Class queryClass, Function wrapper);// [!
 MPJLambdaWrapper<UserDO> wrapper = JoinWrappers.lambda(UserDO.class)
         .selectAll()
         .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
-        .in(UserDO::getId, UserDO.class, u -> u// [!code highlight]
+        .in(UserDO::getId, UserDO.class, in -> in// [!code highlight]
                 .select(UserDO::getId)// [!code highlight]
                 .between(UserDO::getId, 0, 100));// [!code highlight]
 wrapper.list();

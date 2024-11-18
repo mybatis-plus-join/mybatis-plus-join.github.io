@@ -201,8 +201,8 @@ public class SampleTest {
     public void testSelect() {
         MPJLambdaWrapper<User> wrapper = new MPJLambdaWrapper<User>()
                 .selectAll(User.class)//查询user表全部字段
-                .select(AddressDO::getCity, AddressDO::getAddress)
-                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId);
+                .select(Address::getCity, Address::getAddress)
+                .leftJoin(Address.class, Address::getUserId, User::getId);
 
         List<UserDTO> userList = userMapper.selectJoinList(UserDTO.class, wrapper);
 

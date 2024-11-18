@@ -32,11 +32,7 @@ SELECT t.id,
        t.`json`,
        t.sex,
        t.head_img,
-       t.create_time,
-       t.address_id,
-       t.address_id2,
-       t.create_by,
-       t.update_by
+       t.create_time
 FROM `user` t
 UNION
 SELECT t.id,
@@ -45,11 +41,7 @@ SELECT t.id,
        t.`json`,
        t.sex,
        t.head_img,
-       t.create_time,
-       t.address_id,
-       t.address_id2,
-       t.create_by,
-       t.update_by
+       t.create_time
 FROM `user` t
 UNION
 SELECT t.id,
@@ -58,10 +50,6 @@ SELECT t.id,
        t.`json`,
        t.sex,
        t.head_img,
-       t.create_time,
-       t.address_id,
-       t.address_id2,
-       t.create_by,
-       t.update_by
+       t.create_time
 FROM `user` t
 ```

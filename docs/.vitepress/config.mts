@@ -18,6 +18,7 @@ export default defineConfig({
             {text: '问答', link: '/pages/problem',},
             {text: 'Github', link: 'https://github.com/yulichang/mybatis-plus-join',},
             {text: 'Gitee', link: 'https://gitee.com/best_handsome/mybatis-plus-join',},
+            {text: '更新日志', link: 'https://github.com/yulichang/mybatis-plus-join/releases',},
         ],
         search: {
             provider: 'local',

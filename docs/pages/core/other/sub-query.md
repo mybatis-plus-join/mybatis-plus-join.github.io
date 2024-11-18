@@ -73,7 +73,7 @@ setAlias
 MPJLambdaWrapper<UserDO> wrapper = JoinWrappers.lambda(UserDO.class)
         .selectAll()
         .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
-        .in(UserDO::getId, UserDO.class, u -> u
+        .in(UserDO::getId, UserDO.class, in -> in
                 .setAlias("sub") // [!code ++]
                 .select(UserDO::getId)
                 .between(UserDO::getId, 0, 100));

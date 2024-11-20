@@ -85,7 +85,7 @@ VALUES (1, 1, '北京', '人民广场'),
 创建一个空的 Spring Boot 工程（工程将以 H2 作为默认数据库进行演示）
 
 ::: tip 提示
-点此 [Spring Initializer](https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.1.8&packaging=jar&jvmVersion=17&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo&dependencies=h2) 可快速初始化一个 Spring Boot 工程
+点此 [Spring Initializer](https://start.spring.io/#!type=maven-project&language=java&packaging=jar&jvmVersion=17&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo&dependencies=h2) 可快速初始化一个 Spring Boot 工程
 :::
 
 ## 添加依赖

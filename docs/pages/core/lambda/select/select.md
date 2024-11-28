@@ -24,7 +24,7 @@ select("t.id", "t.name");
 支持可变参数
 
 ```java
-select(UserDO::getId,User::getSex,User::getName)
+select(User::getId,User::getSex,User::getName)
 ```
 
 ## 字段过滤 selectFilter <Badge type="tip" text="1.4.4.1+" vertical="top" />
@@ -44,5 +44,5 @@ select(UserDO::getId,User::getSex,User::getName)
 只要 java 字段类型是String的
 
 ```java
-.selectFilter(UserDO.class, e -> e.getColumnType() == String.class)
+.selectFilter(User.class, e -> e.getColumnType() == String.class)
 ```

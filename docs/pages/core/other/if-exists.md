@@ -19,11 +19,11 @@ xxIfExists会自动判断条件值是否为空，且只会在不为空的情况�
 
 ::: tip 举例:
 ```java
-wrapper.eq(Objects.nonNull(name), UserDO::getName, name)  
+wrapper.eq(Objects.nonNull(name), User::getName, name)  
 ```
 等效于
 ```java
-wrapper.eqIfExists(UserDO::getName, name)  
+wrapper.eqIfExists(User::getName, name)  
 ```
 :::
 

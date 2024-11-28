@@ -28,10 +28,10 @@ class MpJoinTest {
      */
     @Test
     void update() {
-        DeleteJoinWrapper<UserDO> wrapper = JoinWrappers.delete(UserDO.class)
-                .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
+        DeleteJoinWrapper<User> wrapper = JoinWrappers.delete(User.class)
+                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
                 .leftJoin(AreaDO.class, AreaDO::getId, AddressDO::getAreaId)
-                .eq(UserDO::getId, 1);
+                .eq(User::getId, 1);
         int i = userMapper.deleteJoin(wrapper);
     }
 }
@@ -58,14 +58,14 @@ class MpJoinTest {
      */
     @Test
     void update() {
-        DeleteJoinWrapper<UserDO> wrapper = JoinWrappers.delete(UserDO.class)
+        DeleteJoinWrapper<User> wrapper = JoinWrappers.delete(User.class)
                 //删除全部的表数据 (主表和副表)
                 .deleteAll()
                 //也可以删除指定的表数据,调用 delete() 传要删除的实体类class 如下
-                //.delete(UserDO.class, AddressDO.class, AreaDO.class)
-                .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
+                //.delete(User.class, AddressDO.class, AreaDO.class)
+                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
                 .leftJoin(AreaDO.class, AreaDO::getId, AddressDO::getAreaId)
-                .eq(UserDO::getId, 1);
+                .eq(User::getId, 1);
         int i = userMapper.deleteJoin(wrapper);
     }
 }

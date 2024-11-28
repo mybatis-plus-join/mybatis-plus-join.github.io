@@ -41,21 +41,21 @@ select ... form user_2023 t
 主表需要添加@DynamicTableName注解启用动态表名 副表不需要添加也能实现动态表名
 ```java
 @DynamicTableName
-public class UserDO{
+public class User{
 }
 ```
 
 代码
 ```java
-MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
-        .select(UserDO::getId)
+MPJLambdaWrapper<User> wrapper = new MPJLambdaWrapper<User>()
+        .select(User::getId)
         .leftJoin(AddressDO.class, on -> on
-                .eq(AddressDO::getUserId, UserDO::getId)
+                .eq(AddressDO::getUserId, User::getId)
                 // 副表动态表名 name 为原副表名 返回新表名
                 .setTableName(name -> name + "aaaaaaaaaa")) // [!code ++]
         .leftJoin(AreaDO.class, AreaDO::getId, AddressDO::getAreaId)
-        .le(UserDO::getId, 10000)
-        .orderByDesc(UserDO::getId)
+        .le(User::getId, 10000)
+        .orderByDesc(User::getId)
         // 主表动态表名 name 为原主表表名 返回新表名
         .setTableName(name -> name + "bbbbbbb"); // [!code ++]
 ```

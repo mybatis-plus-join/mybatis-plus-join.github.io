@@ -51,14 +51,14 @@ tags:
 
 如果既需要where又需要on可以关闭附表逻辑删除，自定义条件实现
 ```java
-List<Map<String, Object>> list = userMapper.selectJoinMaps(JoinWrappers.lambda(UserDO.class)
-        .selectAll(UserDO.class)
+List<Map<String, Object>> list = userMapper.selectJoinMaps(JoinWrappers.lambda(User.class)
+        .selectAll(User.class)
         //关闭本次查询副表逻辑删除
         .disableSubLogicDel()
         .leftJoin(AddressDO.class, on -> on
-                .eq(AddressDO::getUserId, UserDO::getId)
+                .eq(AddressDO::getUserId, User::getId)
                 //手动添加 ON 语句逻辑删除
                 .eq(AddressDO::getDel, "未删除标识"))
         //手动添加 where 语句逻辑删除
-        .eq(UserDO::getDel, "未删除标识"));
+        .eq(User::getDel, "未删除标识"));
 ```

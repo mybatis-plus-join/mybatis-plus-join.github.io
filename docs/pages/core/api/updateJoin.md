@@ -25,11 +25,11 @@ class MpJoinTest {
      */
     @Test
     void update() {
-        UpdateJoinWrapper<UserDO> update = JoinWrappers.update(UserDO.class)
-                .set(UserDO::getName, "aaaaaa")
+        UpdateJoinWrapper<User> update = JoinWrappers.update(User.class)
+                .set(User::getName, "aaaaaa")
                 .set(AddressDO::getAddress, "bbbbb")
-                .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
-                .eq(UserDO::getId, 1);
+                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
+                .eq(User::getId, 1);
         int i = userMapper.updateJoin(null, update);
     }
 }
@@ -59,10 +59,10 @@ class MpJoinTest {
     @Test
     void update() {
         //主表实体 用于生成 set 语句
-        UserDO user = new UserDO().setName("aaa").setUpdateBy(123);
-        UpdateJoinWrapper<UserDO> update = JoinWrappers.update(UserDO.class)
-                .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
-                .eq(UserDO::getId, 1);
+        User user = new User().setName("aaa").setUpdateBy(123);
+        UpdateJoinWrapper<User> update = JoinWrappers.update(User.class)
+                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
+                .eq(User::getId, 1);
         int i = userMapper.updateJoin(user, update);
     }
 }
@@ -97,12 +97,12 @@ class MpJoinTest {
     @Test
     void update() {
         //主表实体 用于生成 set 语句
-        UserDO user = new UserDO().setName("aaa").setUpdateBy(123);
-        UpdateJoinWrapper<UserDO> update = JoinWrappers.update(UserDO.class)
+        User user = new User().setName("aaa").setUpdateBy(123);
+        UpdateJoinWrapper<User> update = JoinWrappers.update(User.class)
                 //设置副表 set 语句
                 .set(AddressDO::getAddress, "bbbbb")
-                .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
-                .eq(UserDO::getId, 1);
+                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
+                .eq(User::getId, 1);
         int i = userMapper.updateJoin(user, update);
     }
 }
@@ -147,19 +147,19 @@ class MpJoinTest {
     @Test
     void update() {
         //主表类 用于生成 set 语句
-        UserDO user = new UserDO().setName("aaa").setUpdateBy(123);
+        User user = new User().setName("aaa").setUpdateBy(123);
         //两个关联表 用于生成 set 语句
         AddressDO address = new AddressDO().setTel("119").setAddress("人民广场");
         AreaDO area = new AreaDO().setProvince("北京").setCity("北京!");
 
-        UpdateJoinWrapper<UserDO> update = JoinWrappers.update(UserDO.class)
+        UpdateJoinWrapper<User> update = JoinWrappers.update(User.class)
                 //设置两个副表的 set 语句
                 .setUpdateEntity(address, area)
                 //address和area 两张表空字段和非空字段一起更新 可以改成如下setUpdateEntityAndNull
                 //.setUpdateEntityAndNull(address, area)
-                .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
+                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
                 .leftJoin(AreaDO.class, AreaDO::getId, AddressDO::getAreaId)
-                .eq(UserDO::getId, 1);
+                .eq(User::getId, 1);
         int i = userMapper.updateJoin(user, update);
     }
 }

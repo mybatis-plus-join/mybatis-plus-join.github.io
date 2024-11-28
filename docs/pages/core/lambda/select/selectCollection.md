@@ -25,11 +25,11 @@
 - 不指定实体字段映射(只映射 id 和 address 两个字段) id、result方法对应mybatis中ResultMap里的 `<id>` 和 `<result>` 标签 <Badge type="tip" text="1.4.4+" vertical="top" />
     ```java
     .selectCollection(UserDTO::getAddressList, map -> map
-            //可以映射不同类的字段 到 UserDTO::getAddressList 中 比如 AddressDO 和 UserDO
+            //可以映射不同类的字段 到 UserDTO::getAddressList 中 比如 AddressDO 和 User
             .id(AddressDO::getId)
-            .result(UserDO::getName, AddressDTO::getAddress)
+            .result(User::getName, AddressDTO::getAddress)
             //别名映射
-            .result(UserDO::getAddr, AddressDTO::getAddress));
+            .result(User::getAddr, AddressDTO::getAddress));
     ```
 
 ::: warning 注意事项:
@@ -52,11 +52,11 @@ class JoinTest {
     @Test
     void test() {
         //和MyBatis plus一致，MPJLambdaWrapper的泛型必须是主表的泛型，并且要用主表的Mapper来调用
-        MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
-                .selectAll(UserDO.class)
+        MPJLambdaWrapper<User> wrapper = new MPJLambdaWrapper<User>()
+                .selectAll(User.class)
                 //全部映射 不用考虑字段名重复问题(比如 id), 会对重复列自动添加别名
                 .selectCollection(AddressDO.class, UserDTO::getAddressList)
-                .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId);
+                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId);
         List<UserDTO> dtoList= userMapper.selectJoinList(UserDTO.class, wrapper);
     }
 
@@ -86,13 +86,13 @@ class JoinTest {
      */
     @Test
     void testField() {
-        MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
-                .selectAll(UserDO.class)
+        MPJLambdaWrapper<User> wrapper = new MPJLambdaWrapper<User>()
+                .selectAll(User.class)
                 .selectCollection(AddressDO.class, UserDTO::getAddressIds, map -> map
                         .result(AddressDO::getId))
-                .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
-                .le(UserDO::getId, 10000)
-                .orderByDesc(UserDO::getId);
+                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
+                .le(User::getId, 10000)
+                .orderByDesc(User::getId);
         List<UserDTO> list = userMapper.selectJoinList(UserDTO.class, wrapper);
         System.out.println(list);
     }

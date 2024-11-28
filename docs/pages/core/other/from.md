@@ -5,13 +5,13 @@
 示例
 
 ```java
-MPJLambdaWrapper<UserDO> wrapper = JoinWrappers.lambda(UserDO.class)
+MPJLambdaWrapper<User> wrapper = JoinWrappers.lambda(User.class)
         .selectAll()
         .from(from -> from
                 .selectAll()
-                .ge(UserDO::getId, 0)
+                .ge(User::getId, 0)
                 .last("LIMIT 10"))
-        .ge(UserDO::getId, 0);
+        .ge(User::getId, 0);
 wrapper.list();
 ```
 
@@ -40,15 +40,15 @@ WHERE t.id >= ?
 ## 支持自定义别名
 
 ```java
-MPJLambdaWrapper<UserDO> wrapper = JoinWrappers.lambda(UserDO.class)
+MPJLambdaWrapper<User> wrapper = JoinWrappers.lambda(User.class)
         .selectAll()
         .from(from -> from
                 .setAlias("tb") // [!code ++]
                 .selectAll()
-                .ge(UserDO::getId, 0)
+                .ge(User::getId, 0)
                 .last("LIMIT 10"))
-        .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
-        .ge(UserDO::getId, 0);
+        .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
+        .ge(User::getId, 0);
 wrapper.list();
 ```
 

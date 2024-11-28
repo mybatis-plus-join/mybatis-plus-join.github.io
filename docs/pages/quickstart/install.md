@@ -18,7 +18,7 @@ tags:
 
 ```java
 @Mapper
-public interface UserMapper extends MPJBaseMapper<UserDO> {
+public interface UserMapper extends MPJBaseMapper<User> {
 
 }
 ```
@@ -30,7 +30,7 @@ public interface UserMapper extends MPJBaseMapper<UserDO> {
 
 ::: details Service(可选)
 ```java
-public interface UserService extends MPJBaseService<UserDO> {
+public interface UserService extends MPJBaseService<User> {
 
 }
 ```
@@ -39,7 +39,7 @@ public interface UserService extends MPJBaseService<UserDO> {
 ::: details ServiceImpl(可选)
 ```java
 @Service
-public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, UserDO> implements UserService {
+public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, User> implements UserService {
 
 }
 ```
@@ -48,7 +48,7 @@ public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, UserDO> impl
 ::: details Repository(可选) <Badge type="tip" text="MPJ 1.5.2+" /> <Badge type="tip" text="MP 3.5.9+" />
 ```java
 @Repository
-public class UserRepository extends JoinCrudRepository<UserMapper, UserDO>  {
+public class UserRepository extends JoinCrudRepository<UserMapper, User>  {
 
 }
 ```

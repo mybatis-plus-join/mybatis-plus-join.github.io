@@ -23,7 +23,7 @@ tags:
 MPJDeepService\<T\> 继承MP的IService\<T\> ,所以改了不会对原有代码产生影响
 
 ```java
-public interface UserService extends MPJDeepService<UserDO> {
+public interface UserService extends MPJDeepService<User> {
 }
 ```
 
@@ -33,7 +33,7 @@ public interface UserService extends MPJDeepService<UserDO> {
 
 @Data
 @TableName("user")
-public class UserDO {
+public class User {
 
     @TableId
     private Integer id;
@@ -45,14 +45,14 @@ public class UserDO {
      */
     @TableField(exist = false)
     @EntityMapping(thisField = "pid", joinField = "id")
-    private UserDO parentUser;
+    private User parentUser;
 
     /**
      * 查询下级 一对多
      */
     @TableField(exist = false)
     @EntityMapping(thisField = "id", joinField = "pid")
-    private List<UserDO> childUser;
+    private List<User> childUser;
 
     /**
      * 带条件的查询下级 一对多
@@ -66,20 +66,20 @@ public class UserDO {
                     @Condition(column = "name", value = "张三", keyWord = SqlKeyword.LIKE)
             },
             apply = @Apply(value = "id between 1 and 20"))//拼接sql 同 wrapper.apply()
-    private List<UserDO> childUserCondition;
+    private List<User> childUserCondition;
 
     /**
      * 查询地址 (一对多)
      */
     @TableField(exist = false)
     @EntityMapping(thisField = "id", joinField = "userId")
-    private List<UserAddressDO> addressList;
+    private List<Address> addressList;
 
     /**
      * 绑定字段 （一对多）
      */
     @TableField(exist = false)
-    @FieldMapping(tag = UserDO.class, thisField = "id", joinField = "pid", select = "id")
+    @FieldMapping(tag = User.class, thisField = "id", joinField = "pid", select = "id")
     private List<Integer> childIds;
 }
 ```
@@ -106,20 +106,20 @@ class MappingTest {
 
     @Test
     void test1() {
-        UserDO uesr = userService.getByIdDeep(2);
+        User uesr = userService.getByIdDeep(2);
         System.out.println(deep);
     }
 
     @Test
     void test2() {
-        List<UserDO> list = userService.listDeep(Wrappers.emptyWrapper());
+        List<User> list = userService.listDeep(Wrappers.emptyWrapper());
         list.forEach(System.out::println);
     }
 
     @Test
     void test3() {
-        Page<UserDO> page = new Page<>(2, 2);
-        Page<UserDO> result = userService.pageDeep(page, Wrappers.emptyWrapper());
+        Page<User> page = new Page<>(2, 2);
+        Page<User> result = userService.pageDeep(page, Wrappers.emptyWrapper());
         result.getRecords().forEach(System.out::println);
     }
 }
@@ -149,7 +149,7 @@ userService.listDeep(Wrappers.emptyWrapper(), conf -> conf.loop(true));
 @Data
 @FieldNameConstants
 @TableName("user")
-public class UserDO {
+public class User {
 
     @TableId
     private Integer id;
@@ -161,14 +161,14 @@ public class UserDO {
      */
     @TableField(exist = false)
     @EntityMapping(thisField = Fields.pid, joinField = Fields.id)
-    private UserDO parentUser;
+    private User parentUser;
 
     /**
      * 查询下级 一对多
      */
     @TableField(exist = false)
     @EntityMapping(thisField = Fields.id, joinField = Fields.pid)
-    private List<UserDO> childUser;
+    private List<User> childUser;
 
     /**
      * 带条件的查询下级 一对多
@@ -182,20 +182,20 @@ public class UserDO {
                     @Condition(column = Fields.name, value = "张三", keyWord = SqlKeyword.LIKE)
             },
             apply = @Apply(value = "id between 1 and 20"))//拼接sql 同 wrapper.apply()
-    private List<UserDO> childUserCondition;
+    private List<User> childUserCondition;
 
     /**
      * 查询地址 (一对多)
      */
     @TableField(exist = false)
-    @EntityMapping(thisField = Fields.id, joinField = UserAddressDO.Fields.userId)
-    private List<UserAddressDO> addressList;
+    @EntityMapping(thisField = Fields.id, joinField = Address.Fields.userId)
+    private List<Address> addressList;
 
     /**
      * 绑定字段 （一对多）
      */
     @TableField(exist = false)
-    @FieldMapping(tag = UserDO.class, thisField = Fields.id, joinField = Fields.pid, select = Fields.id)
+    @FieldMapping(tag = User.class, thisField = Fields.id, joinField = Fields.pid, select = Fields.id)
     private List<Integer> childIds;
 }
 ```

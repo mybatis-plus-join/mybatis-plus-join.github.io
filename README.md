@@ -74,16 +74,16 @@ class test {
 
     void testJoin() {
         //和Mybatis plus一致，MPJLambdaWrapper的泛型必须是主表的泛型，并且要用主表的Mapper来调用
-        MPJLambdaWrapper<UserDO> wrapper = JoinWrappers.lambda(UserDO.class)
-                .selectAll(UserDO.class)//查询user表全部字段
-                .select(UserAddressDO::getTel)//查询user_address tel 字段
-                .selectAs(UserAddressDO::getAddress, UserDTO::getUserAddress)//别名
+        MPJLambdaWrapper<User> wrapper = JoinWrappers.lambda(User.class)
+                .selectAll(User.class)//查询user表全部字段
+                .select(Address::getTel)//查询address tel 字段
+                .selectAs(Address::getAddress, UserDTO::getUserAddress)//别名
                 .select(AreaDO::getProvince, AreaDO::getCity)
-                .leftJoin(UserAddressDO.class, UserAddressDO::getUserId, UserDO::getId)
-                .leftJoin(AreaDO.class, AreaDO::getId, UserAddressDO::getAreaId)
-                .eq(UserDO::getId, 1)
-                .like(UserAddressDO::getTel, "1")
-                .gt(UserDO::getId, 5);
+                .leftJoin(Address.class, Address::getUserId, User::getId)
+                .leftJoin(AreaDO.class, AreaDO::getId, Address::getAreaId)
+                .eq(User::getId, 1)
+                .like(Address::getTel, "1")
+                .gt(User::getId, 5);
 
         //连表查询 返回自定义ResultType
         List<UserDTO> list = userMapper.selectJoinList(UserDTO.class, wrapper);
@@ -103,7 +103,7 @@ SELECT
     t2.province, t2.city 
 FROM 
     user t 
-    LEFT JOIN user_address t1 ON t1.user_id = t.id 
+    LEFT JOIN address t1 ON t1.user_id = t.id 
     LEFT JOIN area t2 ON t2.id = t1.area_id 
 WHERE (
     t.id = ? 

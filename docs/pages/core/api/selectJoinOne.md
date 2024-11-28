@@ -9,11 +9,11 @@ class MpJoinTest {
 
     @Test
     void joinTest() {
-        MPJLambdaWrapper<UserDO> wrapper = new MPJLambdaWrapper<UserDO>()
-                .selectAll(UserDO.class)
-                .select(UserAddressDO::getAddress)
-                .leftJoin(UserAddressDO.class, UserAddressDO::getUserId,UserDO::getId)
-                .eq(UserDO::getId, 2);
+        MPJLambdaWrapper<User> wrapper = new MPJLambdaWrapper<User>()
+                .selectAll(User.class)
+                .select(Address::getAddress)
+                .leftJoin(Address.class, Address::getUserId,User::getId)
+                .eq(User::getId, 2);
         UserDTO dto = userMapper.selectJoinOne(UserDTO.class, wrapper);
     }
 }
@@ -30,7 +30,7 @@ SELECT
     t1.address 
 FROM 
     user t 
-    LEFT JOIN user_address t1 ON t1.user_id = t.id 
+    LEFT JOIN address t1 ON t1.user_id = t.id 
 WHERE (
     t.id = ?)
 ```

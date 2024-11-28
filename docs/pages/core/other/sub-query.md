@@ -41,12 +41,12 @@ eq(boolean condition, SFunction colum, Class queryClass, Function wrapper);// [!
 以in为例
 
 ```java
-MPJLambdaWrapper<UserDO> wrapper = JoinWrappers.lambda(UserDO.class)
+MPJLambdaWrapper<User> wrapper = JoinWrappers.lambda(User.class)
         .selectAll()
-        .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
-        .in(UserDO::getId, UserDO.class, u -> u// [!code highlight]
-                .select(UserDO::getId)// [!code highlight]
-                .between(UserDO::getId, 0, 100));// [!code highlight]
+        .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
+        .in(User::getId, User.class, u -> u// [!code highlight]
+                .select(User::getId)// [!code highlight]
+                .between(User::getId, 0, 100));// [!code highlight]
 wrapper.list();
 ```
 
@@ -70,13 +70,13 @@ WHERE t.id IN (SELECT t.id FROM `user` t WHERE (t.id BETWEEN ? AND ?))
 setAlias
 
 ```java
-MPJLambdaWrapper<UserDO> wrapper = JoinWrappers.lambda(UserDO.class)
+MPJLambdaWrapper<User> wrapper = JoinWrappers.lambda(User.class)
         .selectAll()
-        .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
-        .in(UserDO::getId, UserDO.class, u -> u
+        .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
+        .in(User::getId, User.class, u -> u
                 .setAlias("sub") // [!code ++]
-                .select(UserDO::getId)
-                .between(UserDO::getId, 0, 100));
+                .select(User::getId)
+                .between(User::getId, 0, 100));
 wrapper.list();
 ```
 

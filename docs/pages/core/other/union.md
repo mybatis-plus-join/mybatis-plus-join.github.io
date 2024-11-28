@@ -9,14 +9,14 @@ class MpJoinTest {
 
     @Test
     void union() {
-        MPJLambdaWrapper<UserDO> w = JoinWrappers.lambda(UserDO.class)
-                .selectAll(UserDO.class)
-                .union(UserDO.class, union -> union
-                        .selectAll(UserDO.class))
-                .union(UserDO.class, union -> union
-                        .selectAll(UserDO.class));
+        MPJLambdaWrapper<User> w = JoinWrappers.lambda(User.class)
+                .selectAll(User.class)
+                .union(User.class, union -> union
+                        .selectAll(User.class))
+                .union(User.class, union -> union
+                        .selectAll(User.class));
         //union all 调用unionAll即可 如下
-        //.unionAll(UserDO.class, union -> union...);
+        //.unionAll(User.class, union -> union...);
         w.list();
     }
 }

@@ -8,16 +8,16 @@
 ## 示例
 
 ```java
-List<UserDO> list = JoinWrappers.lambda(UserDO.class)
-    .selectAll(UserDO.class)
-    .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
+List<User> list = JoinWrappers.lambda(User.class)
+    .selectAll(User.class)
+    .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
     .applyFunc("concat(%s,%s,{0}) is not null",
-            arg -> arg.accept(UserDO::getId, AddressDO::getUserId),
+            arg -> arg.accept(User::getId, AddressDO::getUserId),
             "12")
     //自定义别名
     .applyFunc("concat(%s,%s,{0}) is not null",
             arg -> arg.accept(
-                    Fun.f("t", UserDO::getId),
+                    Fun.f("t", User::getId),
                     Fun.f("t1", AddressDO::getUserId)),
             "12")
     .list();

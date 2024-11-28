@@ -2,17 +2,17 @@
 
 ## 内置函数支持
 
-* selectSum(UserDO::getId)
-* selectCount(UserDO::getId)
-* selectMax(UserDO::getId)
-* selectMin(UserDO::getId)
-* selectAvg(UserDO::getId)
-* selectLen(UserDO::getId)
+* selectSum(User::getId)
+* selectCount(User::getId)
+* selectMax(User::getId)
+* selectMin(User::getId)
+* selectAvg(User::getId)
+* selectLen(User::getId)
 
 支持自定义别名
 
 ```java
-selectSum(UserDO::getId, UserDTO::getTotal)
+selectSum(User::getId, UserDTO::getTotal)
 ```
 
 对应sql
@@ -61,9 +61,9 @@ public enum FuncEnum implements BaseFuncEnum {
 
 示例
 ```java
-.selectFunc(FuncEnum.DATE_FORMAT, UserDO::getCreateTime);
+.selectFunc(FuncEnum.DATE_FORMAT, User::getCreateTime);
 //如果不想定义枚举，可以直接写函数，效果是一样的
-.selectFunc(() -> "DATE_FORMAT(%s, '%%Y-%%m-%%d')", UserDO::getCreateTime);
+.selectFunc(() -> "DATE_FORMAT(%s, '%%Y-%%m-%%d')", User::getCreateTime);
 ```
 对应sql
 ```sql
@@ -75,12 +75,12 @@ DATE_FORMAT(t.create_time, '%Y-%m-%d') AS createTime
 示例
 ```java
 .selectFunc("concat(%s, %s)", arg -> arg
-        .accept(UserDO::getFirstName, UserDO::getLastName)
+        .accept(User::getFirstName, User::getLastName)
         , UserDTO::getFullName)
 //支持自定义别名
 .selectFunc("concat(%s, %s)", arg -> arg
-        .accept(Fun.f("t", UserDO::getFirstName), 
-                Fun.f("t", UserDO::getLastName))
+        .accept(Fun.f("t", User::getFirstName), 
+                Fun.f("t", User::getLastName))
         , UserDTO::getFullName)
 ```
 对应sql
@@ -93,7 +93,7 @@ concat(t.first_name, t.last_name) AS fullName
 示例
 ```java
 .selectFunc("if(%s < 18, {0}, {1})", arg -> arg
-        .accept(UserDO::getAge).values("未成年", "成年")
+        .accept(User::getAge).values("未成年", "成年")
         , UserDTO::getStatus)
 ```
 对应sql
@@ -104,10 +104,10 @@ if(t.age < 18, ?, ?) AS status
 带子查询 
 ```java
 .selectFunc("concat(%s, %s, {0}, {1})", arg -> arg
-        .accept(UserDO::getId,
-                Fun.f(UserDO.class, u -> u
-                    .select(UserDO::getId)
-                    .eq(UserDO::getId, UserDO::getId)))
+        .accept(User::getId,
+                Fun.f(User.class, u -> u
+                    .select(User::getId)
+                    .eq(User::getId, User::getId)))
         .values("abc", 123),
         UserDTO::getAddress)
 ```
@@ -118,13 +118,13 @@ concat(t.id, (SELECT st.id FROM `user` st WHERE (st.id = t.id)), ?, ?) AS addres
 
 ## 完整示例
 ```java
-MPJLambdaWrapper<UserDO> wrapper = JoinWrappers.lambda(UserDO.class)
-        .selectFunc(() -> "DATE_FORMAT(%s, '%%Y-%%m-%%d')", UserDO::getCreateTime)
+MPJLambdaWrapper<User> wrapper = JoinWrappers.lambda(User.class)
+        .selectFunc(() -> "DATE_FORMAT(%s, '%%Y-%%m-%%d')", User::getCreateTime)
         .selectFunc("concat(%s, %s)", arg -> arg
-                .accept(UserDO::getFirstName, UserDO::getLastName)
+                .accept(User::getFirstName, User::getLastName)
                 , UserDTO::getFullName)
         .selectFunc("if(%s < 18, {0}, {1})", arg -> arg
-                .accept(UserDO::getAge).values("未成年", "成年")
+                .accept(User::getAge).values("未成年", "成年")
                 , UserDTO::getStatus);
 
 List<UserDTO> userList = wrapper.list(UserDTO.class);

@@ -11,12 +11,12 @@ class MpJoinTest {
 
     @Test
     void sub() {
-        MPJLambdaWrapper<UserDO> wrapper = JoinWrappers.lambda(UserDO.class)
-                .selectSub(UserDO.class, w -> w.select(UserDO::getId)
-                        .eq(UserDO::getId, UserDO::getId)
-                        .last("limit 1"), UserDO::getId)
-                .leftJoin(AddressDO.class, AddressDO::getUserId, UserDO::getId)
-                .le(UserDO::getId, 100);
+        MPJLambdaWrapper<User> wrapper = JoinWrappers.lambda(User.class)
+                .selectSub(User.class, w -> w.select(User::getId)
+                        .eq(User::getId, User::getId)
+                        .last("limit 1"), User::getId)
+                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
+                .le(User::getId, 100);
         wrapper.list();
     }
 }

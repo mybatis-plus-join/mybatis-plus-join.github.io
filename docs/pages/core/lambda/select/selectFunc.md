@@ -2,12 +2,12 @@
 
 ## 内置函数支持
 
-* selectSum(User::getId)
-* selectCount(User::getId)
-* selectMax(User::getId)
-* selectMin(User::getId)
-* selectAvg(User::getId)
-* selectLen(User::getId)
+* `selectSum(User::getId)`  -> `SUM(t.id) AS id`
+* `selectCount(User::getId)`  -> `COUNT(t.id) AS id`
+* `selectMax(User::getId)`  -> `MAX(t.id) AS id`
+* `selectMin(User::getId)`  -> `MIN(t.id) AS id`
+* `selectAvg(User::getId)`  -> `AVG(t.id) AS id`
+* `selectLen(User::getId)`  -> `LEN(t.id) AS id`
 
 支持自定义别名
 

@@ -44,7 +44,7 @@ eq(boolean condition, SFunction colum, Class queryClass, Function wrapper);// [!
 MPJLambdaWrapper<User> wrapper = JoinWrappers.lambda(User.class)
         .selectAll()
         .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
-        .in(User::getId, User.class, u -> u// [!code highlight]
+        .in(User::getId, User.class, in -> in// [!code highlight]
                 .select(User::getId)// [!code highlight]
                 .between(User::getId, 0, 100));// [!code highlight]
 wrapper.list();
@@ -73,7 +73,7 @@ setAlias
 MPJLambdaWrapper<User> wrapper = JoinWrappers.lambda(User.class)
         .selectAll()
         .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
-        .in(User::getId, User.class, u -> u
+        .in(User::getId, User.class, in -> in
                 .setAlias("sub") // [!code ++]
                 .select(User::getId)
                 .between(User::getId, 0, 100));

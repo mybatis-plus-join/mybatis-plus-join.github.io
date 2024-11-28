@@ -1,6 +1,6 @@
 # 连表查询
 
-支持 `left join` 、 `right join` 、 `inner join` 、 和其他自定义连接
+支持 `left join` 、 `right join` 、 `inner join` 以及其他自定义连接
 
 ## left join
 

@@ -58,8 +58,8 @@ export const sidebar = [
     {
         text: '参考',
         items: [
-            {link: '/pages/core/mapping/intro', text: '注解映射'},
             {link: '/pages/core/config/config', text: '配置'},
+            {link: '/pages/core/mapping/intro', text: '注解映射'},
             {link: '/pages/problem', text: '常见问题'},
         ]
     },

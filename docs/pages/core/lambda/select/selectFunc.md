@@ -29,7 +29,7 @@ SUM(t.id) AS total
 框架自带的枚举类 [`DefaultFuncEnum.java`](https://github.com/yulichang/mybatis-plus-join/blob/master/mybatis-plus-join-core/src/main/java/com/github/yulichang/wrapper/enums/DefaultFuncEnum.java)
 :::
 
-自定义函数枚举类 `FuncEnum` 继承 `BaseFuncEnum`
+自定义函数枚举类 `FuncEnum` 实现 `BaseFuncEnum`
 
 ```java
 public enum FuncEnum implements BaseFuncEnum {

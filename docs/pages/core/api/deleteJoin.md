@@ -29,8 +29,8 @@ class MpJoinTest {
     @Test
     void update() {
         DeleteJoinWrapper<User> wrapper = JoinWrappers.delete(User.class)
-                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
-                .leftJoin(AreaDO.class, AreaDO::getId, AddressDO::getAreaId)
+                .leftJoin(Address.class, Address::getUserId, User::getId)
+                .leftJoin(Area.class, Area::getId, Address::getAreaId)
                 .eq(User::getId, 1);
         int i = userMapper.deleteJoin(wrapper);
     }
@@ -62,9 +62,9 @@ class MpJoinTest {
                 //删除全部的表数据 (主表和副表)
                 .deleteAll()
                 //也可以删除指定的表数据,调用 delete() 传要删除的实体类class 如下
-                //.delete(User.class, AddressDO.class, AreaDO.class)
-                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
-                .leftJoin(AreaDO.class, AreaDO::getId, AddressDO::getAreaId)
+                //.delete(User.class, Address.class, Area.class)
+                .leftJoin(Address.class, Address::getUserId, User::getId)
+                .leftJoin(Area.class, Area::getId, Address::getAreaId)
                 .eq(User::getId, 1);
         int i = userMapper.deleteJoin(wrapper);
     }

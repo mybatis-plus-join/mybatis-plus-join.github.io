@@ -49,11 +49,11 @@ public class User{
 ```java
 MPJLambdaWrapper<User> wrapper = new MPJLambdaWrapper<User>()
         .select(User::getId)
-        .leftJoin(AddressDO.class, on -> on
-                .eq(AddressDO::getUserId, User::getId)
+        .leftJoin(Address.class, on -> on
+                .eq(Address::getUserId, User::getId)
                 // 副表动态表名 name 为原副表名 返回新表名
                 .setTableName(name -> name + "aaaaaaaaaa")) // [!code ++]
-        .leftJoin(AreaDO.class, AreaDO::getId, AddressDO::getAreaId)
+        .leftJoin(Area.class, Area::getId, Address::getAreaId)
         .le(User::getId, 10000)
         .orderByDesc(User::getId)
         // 主表动态表名 name 为原主表表名 返回新表名

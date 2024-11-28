@@ -55,10 +55,10 @@ List<Map<String, Object>> list = userMapper.selectJoinMaps(JoinWrappers.lambda(U
         .selectAll(User.class)
         //关闭本次查询副表逻辑删除
         .disableSubLogicDel()
-        .leftJoin(AddressDO.class, on -> on
-                .eq(AddressDO::getUserId, User::getId)
+        .leftJoin(Address.class, on -> on
+                .eq(Address::getUserId, User::getId)
                 //手动添加 ON 语句逻辑删除
-                .eq(AddressDO::getDel, "未删除标识"))
+                .eq(Address::getDel, "未删除标识"))
         //手动添加 where 语句逻辑删除
         .eq(User::getDel, "未删除标识"));
 ```

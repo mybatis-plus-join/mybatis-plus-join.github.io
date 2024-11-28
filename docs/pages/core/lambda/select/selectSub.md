@@ -15,7 +15,7 @@ class MpJoinTest {
                 .selectSub(User.class, w -> w.select(User::getId)
                         .eq(User::getId, User::getId)
                         .last("limit 1"), User::getId)
-                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
+                .leftJoin(Address.class, Address::getUserId, User::getId)
                 .le(User::getId, 100);
         wrapper.list();
     }

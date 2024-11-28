@@ -78,9 +78,9 @@ class test {
                 .selectAll(User.class)//查询user表全部字段
                 .select(Address::getTel)//查询address tel 字段
                 .selectAs(Address::getAddress, UserDTO::getUserAddress)//别名
-                .select(AreaDO::getProvince, AreaDO::getCity)
+                .select(Area::getProvince, Area::getCity)
                 .leftJoin(Address.class, Address::getUserId, User::getId)
-                .leftJoin(AreaDO.class, AreaDO::getId, Address::getAreaId)
+                .leftJoin(Area.class, Area::getId, Address::getAreaId)
                 .eq(User::getId, 1)
                 .like(Address::getTel, "1")
                 .gt(User::getId, 5);

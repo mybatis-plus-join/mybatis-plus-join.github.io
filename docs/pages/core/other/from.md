@@ -47,7 +47,7 @@ MPJLambdaWrapper<User> wrapper = JoinWrappers.lambda(User.class)
                 .selectAll()
                 .ge(User::getId, 0)
                 .last("LIMIT 10"))
-        .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
+        .leftJoin(Address.class, Address::getUserId, User::getId)
         .ge(User::getId, 0);
 wrapper.list();
 ```

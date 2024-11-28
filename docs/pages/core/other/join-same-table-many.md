@@ -23,12 +23,12 @@ List<UserDTO> dtos = userMapper.selectJoinList(UserDTO.class, wrapper);
 ```java
 MPJLambdaWrapper<User> wrapper = new MPJLambdaWrapper<User>()
         .selectAll(User.class)
-        .selectAs("a", AddressDO::getName, UserDTO::getCreateName1)
-        .selectAs("b", AddressDO::getName, UserDTO::getCreateName2)
-        .leftJoin(AddressDO.class, "a", AddressDO::getId, User::getAddressId1)
-        .leftJoin(AddressDO.class, "b", AddressDO::getId, User::getAddressId2)
+        .selectAs("a", Address::getName, UserDTO::getCreateName1)
+        .selectAs("b", Address::getName, UserDTO::getCreateName2)
+        .leftJoin(Address.class, "a", Address::getId, User::getAddressId1)
+        .leftJoin(Address.class, "b", Address::getId, User::getAddressId2)
         //指定address表别名
-        .leftJoin(AreaDO.class, AreaDO::getId, "a", AddressDO::getAreaId);
+        .leftJoin(Area.class, Area::getId, "a", Address::getAreaId);
 List<UserDTO> dtos1 = userMapper.selectJoinList(UserDTO.class, wrapper);
 ```
 
@@ -37,14 +37,14 @@ List<UserDTO> dtos1 = userMapper.selectJoinList(UserDTO.class, wrapper);
 ```java
 MPJLambdaWrapper<User> wrapper = new MPJLambdaWrapper<User>()
         .selectAll(User.class)
-        .selectAs("a", AddressDO::getName, UserDTO::getCreateName1)
-        .selectAs("b", AddressDO::getName, UserDTO::getCreateName2)
-        .leftJoin(AddressDO.class, "a", AddressDO::getId, User::getAddressId1)
-        .leftJoin(AddressDO.class, "b", AddressDO::getId, User::getAddressId2)
+        .selectAs("a", Address::getName, UserDTO::getCreateName1)
+        .selectAs("b", Address::getName, UserDTO::getCreateName2)
+        .leftJoin(Address.class, "a", Address::getId, User::getAddressId1)
+        .leftJoin(Address.class, "b", Address::getId, User::getAddressId2)
         //指定address表别名
-        .leftJoin(AreaDO.class, AreaDO::getId, "a", AddressDO::getAreaId)
-        .eq("a", AddressDO::getId, 1)
-        .eq("b", AddressDO::getId, 1);
+        .leftJoin(Area.class, Area::getId, "a", Address::getAreaId)
+        .eq("a", Address::getId, 1)
+        .eq("b", Address::getId, 1);
 List<UserDTO> dtos1 = userMapper.selectJoinList(UserDTO.class, wrapper);
 ```
 
@@ -53,12 +53,12 @@ List<UserDTO> dtos1 = userMapper.selectJoinList(UserDTO.class, wrapper);
 ```java
 MPJLambdaWrapper<User> wrapper = new MPJLambdaWrapper<User>()
         .selectAll(User.class)
-        .leftJoin(AddressDO.class, AddressDO::getId, User::getAddressId1, ext -> ext
-                .selectAs(AddressDO::getName, UserDTO::getAddressId1)
-                .like(AddressDO::getName, "abc"))
-        .leftJoin(AddressDO.class, AddressDO::getId, User::getAddressId2, ext -> ext
-                .selectAs(AddressDO::getName, UserDTO::getAddressId2)
-                .like(AddressDO::getName, "abc"))
+        .leftJoin(Address.class, Address::getId, User::getAddressId1, ext -> ext
+                .selectAs(Address::getName, UserDTO::getAddressId1)
+                .like(Address::getName, "abc"))
+        .leftJoin(Address.class, Address::getId, User::getAddressId2, ext -> ext
+                .selectAs(Address::getName, UserDTO::getAddressId2)
+                .like(Address::getName, "abc"))
         .lt(User::getId, 5);
 List<UserDTO> dtos = userMapper.selectJoinList(UserDTO.class, wrapper);
 ```

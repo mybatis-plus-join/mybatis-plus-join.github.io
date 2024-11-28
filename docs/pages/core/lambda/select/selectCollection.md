@@ -4,29 +4,29 @@
 
 四个重载
 
-- 全部映射，把数据库实体类AddressDO所有属性全部映射到 UserDTO的 addressList列表中
+- 全部映射，把数据库实体类Address所有属性全部映射到 UserDTO的 addressList列表中
   ```java
-  .selectCollection(AddressDO.class, UserDTO::getAddressList)
+  .selectCollection(Address.class, UserDTO::getAddressList)
    ```
 - 指定实体字段映射(只映射 id 和 address 两个字段) id、result方法对应mybatis中ResultMap里的 `<id>` 和 `<result>` 标签
     ```java
-    .selectCollection(AddressDO.class, UserDTO::getAddressList, map -> map
-            //此处只能映射 AddressDO.class 中的字段到 UserDTO::getAddressList 中
-            .id(AddressDO::getId)
-            .result(AddressDO::getAddress)
+    .selectCollection(Address.class, UserDTO::getAddressList, map -> map
+            //此处只能映射 Address.class 中的字段到 UserDTO::getAddressList 中
+            .id(Address::getId)
+            .result(Address::getAddress)
             //别名映射
-            .result(AddressDO::getAddress, AddressDTO::getAddress));
+            .result(Address::getAddress, AddressDTO::getAddress));
     ```
 - 字段映射，把address表中的id映射到UserDTO的 `List<String>` 属性的addressIds字段中
     ```java
-    .selectCollection(AddressDO.class, UserDTO::getAddressIds, map -> map
-                        .result(AddressDO::getId))
+    .selectCollection(Address.class, UserDTO::getAddressIds, map -> map
+                        .result(Address::getId))
     ```
 - 不指定实体字段映射(只映射 id 和 address 两个字段) id、result方法对应mybatis中ResultMap里的 `<id>` 和 `<result>` 标签 <Badge type="tip" text="1.4.4+" vertical="top" />
     ```java
     .selectCollection(UserDTO::getAddressList, map -> map
-            //可以映射不同类的字段 到 UserDTO::getAddressList 中 比如 AddressDO 和 User
-            .id(AddressDO::getId)
+            //可以映射不同类的字段 到 UserDTO::getAddressList 中 比如 Address 和 User
+            .id(Address::getId)
             .result(User::getName, AddressDTO::getAddress)
             //别名映射
             .result(User::getAddr, AddressDTO::getAddress));
@@ -55,8 +55,8 @@ class JoinTest {
         MPJLambdaWrapper<User> wrapper = new MPJLambdaWrapper<User>()
                 .selectAll(User.class)
                 //全部映射 不用考虑字段名重复问题(比如 id), 会对重复列自动添加别名
-                .selectCollection(AddressDO.class, UserDTO::getAddressList)
-                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId);
+                .selectCollection(Address.class, UserDTO::getAddressList)
+                .leftJoin(Address.class, Address::getUserId, User::getId);
         List<UserDTO> dtoList= userMapper.selectJoinList(UserDTO.class, wrapper);
     }
 
@@ -88,9 +88,9 @@ class JoinTest {
     void testField() {
         MPJLambdaWrapper<User> wrapper = new MPJLambdaWrapper<User>()
                 .selectAll(User.class)
-                .selectCollection(AddressDO.class, UserDTO::getAddressIds, map -> map
-                        .result(AddressDO::getId))
-                .leftJoin(AddressDO.class, AddressDO::getUserId, User::getId)
+                .selectCollection(Address.class, UserDTO::getAddressIds, map -> map
+                        .result(Address::getId))
+                .leftJoin(Address.class, Address::getUserId, User::getId)
                 .le(User::getId, 10000)
                 .orderByDesc(User::getId);
         List<UserDTO> list = userMapper.selectJoinList(UserDTO.class, wrapper);

@@ -10,7 +10,7 @@
 //String
 leftJoin("address t1 on t1.user_id = t.id);
 //lambda
-leftJoin(AddressDO.class, AddressDO::getUserId, User::getId);
+leftJoin(Address.class, Address::getUserId, User::getId);
 ```
 
 对应sql
@@ -29,14 +29,14 @@ lambda调用参数说明:
 
 ```java
 // LEFT JOIN address addr on addr.user_id = t.id
-leftJoin(AddressDO.class, "addr", AddressDO::getUserId, User::getId)
+leftJoin(Address.class, "addr", Address::getUserId, User::getId)
 ```
 
 指定其他表别名
 
 ```java
 // LEFT JOIN address addr on addr.user_id = user.id
-leftJoin(AddressDO.class, "addr", AddressDO::getUserId, "user", User::getId)
+leftJoin(Address.class, "addr", Address::getUserId, "user", User::getId)
 ```
 
 比如需要关联同一张表两次及以上时候就需要自定义别名进行区分  
@@ -45,14 +45,14 @@ leftJoin(AddressDO.class, "addr", AddressDO::getUserId, "user", User::getId)
 ### 多条件示例
 
 ```java
-leftJoin(AddressDO.class, on -> on
-        .eq(AddressDO::getUserId,User::getId)
-        .eq(AddressDO::getId,User::getId))
+leftJoin(Address.class, on -> on
+        .eq(Address::getUserId,User::getId)
+        .eq(Address::getId,User::getId))
 //自定义别名
-leftJoin(AddressDO.class, "addr", on -> on
-        .eq(AddressDO::getUserId, User::getId)
-        .eq(AddressDO::getId, User::getId)
-        .ge(AddressDO::getId, 10))
+leftJoin(Address.class, "addr", on -> on
+        .eq(Address::getUserId, User::getId)
+        .eq(Address::getId, User::getId)
+        .ge(Address::getId, 10))
 ```
 
 分别对应sql
@@ -66,10 +66,10 @@ LEFT JOIN address addr ON (addr.user_id = t.id AND addr.id = t.id AND addr.id = 
 多条件字段别名示例
 
 ```java
-leftJoin(AddressDO.class, "addr", on -> on
-        .eq(AddressDO::getUserId, "u1", User::getId)
-        .eq(AddressDO::getId, "u2", User::getId)
-        .eq("addr1", AddressDO::getId, "u2", User::getId))
+leftJoin(Address.class, "addr", on -> on
+        .eq(Address::getUserId, "u1", User::getId)
+        .eq(Address::getId, "u2", User::getId)
+        .eq("addr1", Address::getId, "u2", User::getId))
 ```
 
 对应sql
@@ -88,12 +88,12 @@ leftJoin("(select * from address addr where addr.id = {0})", 1);
 //lambda
 var wrapper = JoinWrappers.lambda(User.class)
         .selectAll()
-        .leftJoin(AddressDO.class, t -> {
+        .leftJoin(Address.class, t -> {
                t.setAlias("tt")
                 .selectAll()
-                .ge(AddressDO::getId, 0);
-               }, AddressDO::getUserId, User::getId)
-        .le(AddressDO::getId, 10000);
+                .ge(Address::getId, 0);
+               }, Address::getUserId, User::getId)
+        .le(Address::getId, 10000);
 wrapper.list();
 ```
 
@@ -114,16 +114,16 @@ WHERE (t1.id <= ?)
 ```java
 var wrapper = JoinWrappers.lambda(User.class)
         .selectAll()
-        .leftJoin(AddressDO.class, t -> {
+        .leftJoin(Address.class, t -> {
                t.setAlias("tt")
                 .selectAll()
-                .leftJoin(AreaDO.class, tt -> {
+                .leftJoin(Area.class, tt -> {
                       tt.selectAll()
-                        .ge(AreaDO::getId, -1);
-                      }, AreaDO::getId, AddressDO::getAreaId)
-                .ge(AddressDO::getId, 0);
-                }, AddressDO::getUserId, User::getId)
-        .le(AddressDO::getId, 10000);
+                        .ge(Area::getId, -1);
+                      }, Area::getId, Address::getAreaId)
+                .ge(Address::getId, 0);
+                }, Address::getUserId, User::getId)
+        .le(Address::getId, 10000);
 wrapper.list();
 ```
 

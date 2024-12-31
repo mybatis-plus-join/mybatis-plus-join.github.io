@@ -82,7 +82,7 @@ export default defineConfig({
 
         footer: {
             message: 'Released under the Apache License.',
-            copyright: 'Copyright © 2022-2024'
+            copyright: 'Copyright © 2022-2025'
         },
     }
 })

@@ -228,7 +228,7 @@ User(id=5, name=Billie, age=24, email=test5@baomidou.com,city=北京,address=人
 
 ::: warning 提示
 如遇到异常或报错可参考 [常见问题](../problem)  
-若还是无法解决可到GitHub提Issue或添加作者微信咨询
+若还是无法解决可到[GitHub提Issue](https://github.com/yulichang/mybatis-plus-join/issues/new/choose)或添加作者微信咨询
 :::
 
 ::: tip 提示

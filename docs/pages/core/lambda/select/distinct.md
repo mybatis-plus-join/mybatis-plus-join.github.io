@@ -11,5 +11,5 @@ wrapper.distinct()
 对应sql
 
 ```sql
-select distinct......
+select distinct ......
 ```

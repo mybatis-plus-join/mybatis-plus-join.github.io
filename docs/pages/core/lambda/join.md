@@ -109,7 +109,7 @@ FROM `user` t LEFT JOIN
 WHERE (t1.id <= ?)
 ```
 
-多层
+支持嵌套
 
 ```java
 var wrapper = JoinWrappers.lambda(User.class)

@@ -7,7 +7,7 @@
   ```java
   User user = wrapper.one();
   ```
-## one(xxx.class) 
+## one(class) 
   返回一个自定义的实体
   ```java
   UserDTO dtp = wrapper.one(UserDTO.class);
@@ -19,29 +19,29 @@
   ```java
   User user = wrapper.first();
   ```
-## first(xxx.class) 
+## first(class) 
   返回第一个自定义的实体    
   <s>先调用list，再取第一个</s> <Badge type="danger" text="1.4.13-" vertical="top" />  
   使用分页逻辑（Page(1,1)）<Badge type="tip" text="1.5.0+" vertical="top" />
   ```java
-  UserDTO dtp = wrapper.first(UserDTO.class);
+  UserDTO dto = wrapper.first(UserDTO.class);
   ```
 ## list() 
   返回主表实体的List
   ```java
   List<User> list = wrapper.list();
   ```
-## list(xxx.class) 
+## list(class) 
   返回自定义实体的List
   ```java
-  List<UserDTO> dtoList = wrapper.list(UserDTO.class);
+  List<UserDTO> list = wrapper.list(UserDTO.class);
   ```
 ## page(page) 
   分页查询主表
   ```java
   Page<User> page = wrapper.page(new Page(1, 10));
   ```
-## page(page, xxx.class) 
+## page(page, class) 
   分页查询自定义实体类
   ```java
   Page<UserDTO> page = wrapper.page(new Page(1, 10), UserDTO.class);

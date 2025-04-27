@@ -26,7 +26,7 @@ wrapper 动态表名版本需要1.4.4+
 修改前：  
 select ... from user t  
 修改后：    
-select ... form user_2023 t
+select ... from user_2023 t
 :::
 
 ## 配置 <s>@DynamicTableName</s> <Badge type="danger" text="1.5.2-" vertical="top" />

@@ -1,4 +1,4 @@
-# MPJLambdaWrapper扩展
+# 自定义 MPJLambdaWrapper
 
 ## 继承
 
@@ -21,33 +21,15 @@ public class MyWrapper<T> extends MPJLambdaWrapper<T> {
 new MyWrapper<User>().eq(User::getId, 1);
 ```
 
-如果您就只是想重写部分方法，那么这种方法没有任何问题  
-但是如果想扩展其他方法，那会有问题，就是无法完整的走完链式调用
+## 扩展 <Badge type="tip" text="1.5.2+" vertical="top" />
 
-```java
-public class MyWrapper<T> extends MPJLambdaWrapper<T> {
+MPJ提供了另一种扩展方式，重写 `com.github.yulichang.wrapper.ext.Ext` 类
 
-    @Override
-    public <X> MyWrapper<T> eqIfPresent(SFunction<X, ?> column, Object val) {
-        super.eq(Objects.nonNull(val), column, val);
-        return this;
-    }
-}
-```
+::: tip 提示 
+适用于多模块项目，通常将 mybatis 或 mybatis-plus 相关配置提取为一个模块
+:::
 
-非扩展方法会返回 `MPJLambdaWrapper` 导致无法再调用扩展方法，需要拆分
-
-```java
-MyWrapper<User> wrapper = new MyWrapper<>();
-wrapper.selectAll();
-wrapper.eqIfPresent(User::getId, 1);
-```
-
-## 扩展
-
-这里提供了另一种扩展方式，重写 `com.github.yulichang.wrapper.ext.Ext` 类
-
-添加依赖时排除扩展包
+### 添加依赖时排除扩展包
 
 ::: code-group
 
@@ -55,11 +37,11 @@ wrapper.eqIfPresent(User::getId, 1);
 <dependency>
     <groupId>com.github.yulichang</groupId>
     <artifactId>mybatis-plus-join-boot-starter</artifactId>
-    <version>${version}</version>
+    <version>version</version>
     <exclusions>
         <exclusion>
-            <groupId>com.github.yulichang</groupId> // [!code ++]
-            <artifactId>mybatis-plus-join-wrapper-ext</artifactId> // [!code ++]
+            <groupId>com.github.yulichang</groupId>
+            <artifactId>mybatis-plus-join-wrapper-ext</artifactId>
         </exclusion>
     </exclusions>
 </dependency>
@@ -77,7 +59,9 @@ dependencies {
 
 这个 `mybatis-plus-join-wrapper-ext` 模块中就一个 `com.github.yulichang.wrapper.ext.Ext` 类
 
-排除后重写
+### 排除后重写扩展类
+
+创建目录 `com.github.yulichang.wrapper.ext` 并添加扩展类
 
 ```java
 package com.github.yulichang.wrapper.ext;
@@ -95,10 +79,11 @@ public interface Ext<Children extends MPJLambdaWrapper<?>> extends IExt<Children
 }
 ```
 ::: warning 提示
-扩展类的包目录和类名要和 `com.github.yulichang.wrapper.ext.Ext` 类一致且需要继承 `IExt` 如上
+包名、类名和继承的接口不可随意更改  
+示例如上
 :::
 
-调用
+### 其他模块引入后可以直接调用扩展方法
 
 ```java
 JoinWrappers.lambda(User.class);
@@ -108,7 +93,7 @@ JoinWrappers.lambda(User.class);
 ```
 
 ::: warning 提示
-扩展的方式不支持重写，只能重载或添加新的方法
+这种扩展方式不支持重写，只能重载或添加新的方法
 
 不论是继承还是扩展在编码时都建议调用公共的方法（文档中提供的API）  
 尽量避免调用 `MPJLambdaWrapper` 内部其他方法，这些方法后续可能会有迭代

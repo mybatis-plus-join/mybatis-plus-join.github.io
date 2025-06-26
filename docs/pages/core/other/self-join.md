@@ -44,3 +44,6 @@ MPJLambdaWrapper<User> wrapper = new MPJLambdaWrapper<User>()
         .lt(User::getId, 5);
 List<User> dtos = userMapper.selectJoinList(User.class, wrapper);
 ```
+
+<!--@include: ../../../component/code-warn.md-->
+

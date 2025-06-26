@@ -109,3 +109,5 @@ MPJLambdaWrapper<TableA> wrapper1 = new MPJLambdaWrapper<TableA>()
         .leftJoin(TableB.class, TableB::getAid, TableA::getId)
         .leftJoin(TableC.class, TableC::getBid, TableB::getId);
 ```
+
+<!--@include: ../../../component/code-warn.md-->

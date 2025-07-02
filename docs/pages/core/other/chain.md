@@ -15,14 +15,14 @@
 ## first() 
   返回第一个主表实体  
   <s>先调用list，再取第一个</s> <Badge type="danger" text="1.4.13-" vertical="top" />  
-  使用分页逻辑（Page(1,1)）<Badge type="tip" text="1.5.0+" vertical="top" />
+  使用分页逻辑 `Page(1,1)` <Badge type="tip" text="1.5.0+" vertical="top" />
   ```java
   User user = wrapper.first();
   ```
 ## first(class) 
   返回第一个自定义的实体    
   <s>先调用list，再取第一个</s> <Badge type="danger" text="1.4.13-" vertical="top" />  
-  使用分页逻辑（Page(1,1)）<Badge type="tip" text="1.5.0+" vertical="top" />
+  使用分页逻辑 `Page(1,1)` <Badge type="tip" text="1.5.0+" vertical="top" />
   ```java
   UserDTO dto = wrapper.first(UserDTO.class);
   ```
@@ -59,7 +59,7 @@ first 允许命中多条数据
   Map<String, Object> one = wrapper.mapOne();
   ```
 ## mapFirst <Badge type="tip" text="1.5.0+" vertical="top" />
-  返回第一个`Map<String, Object>`对象，使用分页逻辑Page(1,1)  
+  返回第一个`Map<String, Object>`对象，使用分页逻辑 `Page(1,1)` 
   ```java
   Map<String, Object> first = wrapper.mapFirst();
   ```

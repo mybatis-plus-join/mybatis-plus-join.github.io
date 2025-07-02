@@ -26,6 +26,13 @@
   ```java
   UserDTO dto = wrapper.first(UserDTO.class);
   ```
+
+::: tip 提示
+one与first的区别：  
+one 通常用来查询有且仅有一条的数据，为保证数据的准确有效，当sql命中多条数据时会抛出异常  
+first 允许命中多条数据
+:::
+
 ## list() 
   返回主表实体的List
   ```java

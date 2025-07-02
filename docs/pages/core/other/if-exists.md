@@ -41,8 +41,8 @@ wrapper.eqIfExists(User::getName, name)
   其他数据类型调用 Objects.nonNull  
 
 ::: tip 提示
-not_empty与not_blank的区别
-not_empty：内容长度不为0
+not_empty与not_blank的区别  
+not_empty：内容长度不为0  
 not_blank：去除空白后长度不为0 (空白包括空格、换行符、制表符等)
 :::
 

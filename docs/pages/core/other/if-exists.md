@@ -40,8 +40,7 @@ wrapper.eqIfExists(User::getName, name)
   如果值类型为String则调用 [StrUtils.isNotBlank](https://github.com/yulichang/mybatis-plus-join/blob/master/mybatis-plus-join-core/src/main/java/com/github/yulichang/toolkit/StrUtils.java#L103)  
   其他数据类型调用 Objects.nonNull  
 
-::: tip 提示
-not_empty与not_blank的区别  
+::: tip not_empty与not_blank的区别
 not_empty：内容长度不为0  
 not_blank：去除空白后长度不为0 (空白包括空格、换行符、制表符等)
 :::

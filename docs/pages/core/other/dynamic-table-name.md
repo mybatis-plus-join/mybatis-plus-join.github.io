@@ -45,7 +45,8 @@ public class User{
 }
 ```
 
-代码
+## 示例
+
 ```java
 MPJLambdaWrapper<User> wrapper = new MPJLambdaWrapper<User>()
         .select(User::getId)

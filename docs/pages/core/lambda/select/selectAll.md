@@ -5,10 +5,9 @@
 查询指定类的全部字段
 
 ::: warning 注意事项:
-一般一次查询只建议调用一次selectAll(),
-因为不同表之间可能会存在相同的字段, 比如id,create_time等通用字段, 多次调用会导致字段名重复
-
-通常是对主表使用, 其他表字段通过其他方式查询, 比如select, selectAs, selectAsClass等
+一般一次查询只建议调用一次`selectAll()`,
+因为不同表之间可能会存在相同的字段, 比如`id`,`create_time`等通用字段, 多次调用会导致字段名重复
+且通常是对主表使用, 其他表字段通过其他方式查询, 比如select、selectAs、selectAsClass等
 :::
 
 ```java

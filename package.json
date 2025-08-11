@@ -1,7 +1,7 @@
 {
   "license": "Apache-2.0",
   "devDependencies": {
-    "vitepress": "^1.6.3"
+    "vitepress": "^1.6.4"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",

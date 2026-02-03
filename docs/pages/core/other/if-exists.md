@@ -21,10 +21,11 @@ xxIfExists会自动判断条件值是否为空，且只会在不为空的情况�
 
 ::: tip 支持`in` <Badge type="tip" text="1.5.6+" vertical="top" />
 
-API为`inIfNotEmpty`，**不适用IfExists策略，仅对集合做非空判断，不会对集合中的元素进行判断**
+API为 `inIfNotEmpty` 和 `notInIfNotEmpty` ，**注意：不适用IfExists策略，仅对集合做非空判断，不会对集合中的元素进行判断**
 
 ```java
-wrapper.inIfNotEmpty(UserDO::getPid, Collections.emptyList());
+wrapper.inIfNotEmpty(UserDO::getId, Collections.emptyList());
+wrapper.notInIfNotEmpty(UserDO::getId, Collections.emptyList());
 ```
 :::
 

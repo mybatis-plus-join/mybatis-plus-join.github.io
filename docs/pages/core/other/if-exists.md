@@ -16,16 +16,28 @@ xxIfExists会自动判断条件值是否为空，且只会在不为空的情况�
 * likeRight -> likeRightIfExists
 * notLikeLeft -> notLikeLeftIfExists
 * notLikeRight -> notLikeRightIfExists
+* between -> betweenIfExists <Badge type="tip" text="1.5.6+" vertical="top" />
+* notBetween -> notBetweenIfExists <Badge type="tip" text="1.5.6+" vertical="top" />
 
-::: tip 举例:
+::: tip 支持`in` <Badge type="tip" text="1.5.6+" vertical="top" />
+
+API为`inIfNotEmpty`，**不适用IfExists策略，仅对集合做非空判断，不会对集合中的元素进行判断**
+
 ```java
-wrapper.eq(Objects.nonNull(name), User::getName, name)  
+wrapper.inIfNotEmpty(UserDO::getPid, Collections.emptyList());
+```
+:::
+
+## 示例:
+
+```java
+wrapper.eq(Objects.nonNull(name), User::getName, name);
 ```
 等效于
 ```java
-wrapper.eqIfExists(User::getName, name)  
+wrapper.eqIfExists(User::getName, name);
 ```
-:::
+
 
 ## 判断策略
 
@@ -57,6 +69,9 @@ mybatis-plus-join:
 
 ```java
 //针对指定wrapper生效
+wrapper.setIfExists(IfExistsEnum.NOT_EMPTY);
+wrapper.setIfExists(IfExistsEnum.NOT_BLANK);
+wrapper.setIfExists(IfExistsEnum.NOT_NULL);
 wrapper.setIfExists(val -> null != val);
 //重载，enums参数用法同下
 wrapper.setIfExists((val, enums) -> null != val);

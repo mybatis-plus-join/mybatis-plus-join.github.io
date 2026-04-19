@@ -73,7 +73,7 @@ export default defineConfig({
         },
 
         lastUpdated: {
-            text: '最后更新时间：',
+            text: '最后更新时间',
             formatOptions: {
                 dateStyle: 'full',
                 timeStyle: 'medium'

@@ -20,10 +20,10 @@
 :::
 
 ## 代码托管
-[Github](https://github.com/yulichang/mybatis-plus-join) | [Gitee](https://gitee.com/best_handsome/mybatis-plus-join)
+[Github](https://github.com/yulichang/mybatis-plus-join) | [Gitee](https://gitee.com/yulichang/mybatis-plus-join)
 
 ## 演示工程
-[Github](https://github.com/yulichang/mybatis-plus-join-demo) | [Gitee](https://gitee.com/best_handsome/mybatis-plus-join-demo)
+[Github](https://github.com/yulichang/mybatis-plus-join-demo) | [Gitee](https://gitee.com/yulichang/mybatis-plus-join-demo)
 
 ## 参与贡献
 欢迎各路好汉一起来参与完善 MyBatis-Plus-Join，我们期待你的 PR！

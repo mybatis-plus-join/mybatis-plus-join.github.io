@@ -60,4 +60,4 @@ features:
 
 ## 代码托管
 
-👉[Github](https://github.com/yulichang/mybatis-plus-join) | 👉[Gitee](https://gitee.com/best_handsome/mybatis-plus-join)
+👉[Github](https://github.com/yulichang/mybatis-plus-join) | 👉[Gitee](https://gitee.com/yulichang/mybatis-plus-join)

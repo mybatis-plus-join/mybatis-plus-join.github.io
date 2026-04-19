@@ -232,7 +232,7 @@ User(id=5, name=Billie, age=24, email=test5@baomidou.com,city=北京,address=人
 :::
 
 ::: tip 提示
-完整的代码示例请移步：[Spring Boot 快速启动示例](https://gitee.com/best_handsome/mybatis-plus-join-demo)
+完整的代码示例请移步：[Spring Boot 快速启动示例](https://gitee.com/yulichang/mybatis-plus-join-demo)
 :::
 
 ## 小结

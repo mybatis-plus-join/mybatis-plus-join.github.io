@@ -56,7 +56,7 @@ wrapper.eqIfExists(User::getName, name);
 
 ::: tip not_empty与not_blank的区别
 not_empty：内容长度不为0  
-not_blank：去除空白后长度不为0 (空白包括空格、换行符、制表符等)
+not_blank：含有非空白字符 (空白包括空格、换行符、制表符等)
 :::
 
 ## 配置文件

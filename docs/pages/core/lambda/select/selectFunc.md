@@ -31,6 +31,10 @@ SUM(t.id) AS total
 
 自定义函数枚举类 `FuncEnum` 实现 `BaseFuncEnum`
 
+::: warning 注意事项:
+存在sql注入风险, 建议面向可信输入
+:::
+
 ```java
 public enum FuncEnum implements BaseFuncEnum {
     IF_SEX("IF(%s=1,'男','女')"),                         //if 性别转换

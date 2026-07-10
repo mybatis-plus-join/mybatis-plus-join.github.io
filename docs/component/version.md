@@ -4,18 +4,18 @@
 <dependency>
     <groupId>com.github.yulichang</groupId>
     <artifactId>mybatis-plus-join-boot-starter</artifactId>
-    <version>1.5.7</version>
+    <version>1.5.9</version>
 </dependency>
 ```
 
 
 ```groovy [Gradle]
 //Gradle
-implementation group: 'com.github.yulichang', name: 'mybatis-plus-join-boot-starter', version: '1.5.7'
+implementation group: 'com.github.yulichang', name: 'mybatis-plus-join-boot-starter', version: '1.5.9'
 //Gradle short
-implementation 'com.github.yulichang:mybatis-plus-join-boot-starter:1.5.7'
+implementation 'com.github.yulichang:mybatis-plus-join-boot-starter:1.5.9'
 //Gradle kotlin
-implementation("com.github.yulichang:mybatis-plus-join-boot-starter:1.5.7")
+implementation("com.github.yulichang:mybatis-plus-join-boot-starter:1.5.9")
 ```
 
 :::

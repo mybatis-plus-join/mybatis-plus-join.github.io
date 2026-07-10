@@ -20,6 +20,9 @@ implementation("com.github.yulichang:mybatis-plus-join-boot-starter:1.5.7")
 
 :::
 
-::: warning 注意
-最新版 MyBatis-Plus-Join 需要配合 MyBatis-Plus 3.1.2 及以上的版本使用
-:::
+版本对应关系：  
+
+| Mybatis-Plus-Join | Mybatis-Plus   |
+|-------------------|----------------|
+| 1.5.9             | 3.5.17+        |
+| 1.5.8             | 3.1.2 - 3.5.16 |
